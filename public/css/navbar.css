@@ -1,0 +1,37 @@
+.custom-navbar{
+    background-color: #7E0C0A;
+padding:  0 !important;
+height: 80px;
+}
+.custom-img{
+    width: 100px !important;
+    border-right: white 1px solid;
+}
+
+
+.custom-nav-item{
+    display: flex;
+    align-items: center;
+    color: #FDFDFD;
+    height: 80px;
+
+}
+.custom-nav-item:hover{
+    color: #7E0C0A !important;
+    background-color: #FDFDFD;
+}
+
+.custom-link{
+    color: inherit !important;
+    font-weight: bold;
+    font-size:1.1em;
+
+}
+
+.custom-icon{
+    width: 30px;
+    height: 30px;
+    font-size: 2em !important;
+    color: inherit;
+}
+
