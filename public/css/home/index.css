@@ -52,6 +52,17 @@
     transition: opacity 1s;
 }
 
+/*estilos para el fondo de monolito*/
+.img-mono{
+    display: block;
+    width: 60%;
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    display: block;
+    margin: 30px;
+    opacity: .4;
+}
 /*Eventos que se registran en Javascript, las clases de acá se añaden con javascript.*/
 .imgHomeEnter {
     scale: 1.2;
