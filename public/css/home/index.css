@@ -7,8 +7,9 @@
         transform: translateY(0%);
     }
 }
+
 /*titulo "Relaciones Internacionales - UPEA"*/
-.main-title{
+.main-title {
     padding: 0 !important;
     margin: 0 !important;
     background-color: #7E0C0A;
@@ -20,17 +21,37 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: 5px 5px 10px rgba(75, 30, 30, 0.384);
+    font-size: 1.6em;
     padding: 20px 0 !important;
     animation: h1enter 2s;
     scale: 1;
     transition: scale 1s;
 }
-.main-title:hover{
+
+/*subtitulo de los convenios*/
+.intro-home {
+    color: #7E0C0A;
+    text-align: center;
+    font-weight: 300;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%;
+    font-size: 1.2em;
+    margin: 20px auto !important;
+    margin-top: 50px !important;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.425);
+    max-width: 500px;
+}
+
+.main-title:hover {
     scale: 1.05;
     transition: scale 1s;
 }
+
 .img-home {
     width: 100%;
+    height: 100%;
     scale: 1;
     transition: scale 1s;
 }
@@ -44,7 +65,6 @@
     width: 100%;
     height: 100%;
     transition: opacity 1s;
-
 }
 
 .img-banner:hover {
@@ -52,8 +72,47 @@
     transition: opacity 1s;
 }
 
+.custom-btn {
+    background-color: #7E0C0A;
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 200px;
+    padding: 10px 20px;
+    z-index: 1000;
+    transition: background-color .5s;
+}
+
+.custom-btn:hover {
+    background-color: white;
+    color: white;
+    transition: background-color .5s, color .5s;
+    color: #7E0C0A;
+}
+
+/*counters*/
+.counter {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-weight: 200;
+}
+
+.counter span {
+    color: #7E0C0A;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
 /*estilos para el fondo de monolito*/
-.img-mono{
+.img-mono {
     display: block;
     width: 60%;
     position: absolute;
@@ -62,16 +121,23 @@
     display: block;
     margin: 30px;
     opacity: .4;
+    max-width: 350px;
 }
+
+hr {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
 /*Eventos que se registran en Javascript, las clases de acá se añaden con javascript.*/
 .imgHomeEnter {
     scale: 1.2;
     transition: scale 1s;
 }
 
-.intro-home{
-    color: rgb(56, 56, 56);
-    text-align: center;
-    margin-top: 20px;
-    font-weight: 300;
+/*PARTE DEL MAIN DE LA VISTA home.index*/
+
+.news-card{
+    box-shadow: 0 0 10px #7e0c0a5d;
+    border-radius: 20px;
 }
