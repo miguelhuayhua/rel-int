@@ -23,24 +23,20 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item custom-nav-item">
-           <a class="nav-link custom-link" href="#">Inicio</span></a>
+      <li class="nav-item custom-nav-item" id="home">
+           <a class="nav-link custom-link" href="/">Inicio</span></a>
       </li>
       <li class="nav-item custom-nav-item">
-      
-
-        <a class="nav-link custom-link" href="#">Actividades</a>
+        <a class="nav-link custom-link" href="actividades">Actividades</a>
+      </li>
+      <li class="nav-item custom-nav-item"  id="publicaciones">
+        <a class="nav-link custom-link" href="publicaciones" >Publicaciones</a>
       </li>
       <li class="nav-item custom-nav-item">
-
-        <a class="nav-link custom-link" href="#">Publicaciones</a>
+        <a class="nav-link custom-link" href="galeria">Galeria</a>
       </li>
-      <li class="nav-item custom-nav-item">
-        <a class="nav-link custom-link" href="#">Galeria</a>
-      </li>
-      <li class="nav-item custom-nav-item">
-
-        <a class="nav-link custom-link" href="#">Contactos</a>
+      <li class="nav-item custom-nav-item" id="contacto">
+        <a class="nav-link custom-link" href="contacto" >Contactos</a>
       </li>
     </ul>
    

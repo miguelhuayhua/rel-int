@@ -57,3 +57,10 @@
     scale: 1.2;
     transition: scale 1s;
 }
+
+.intro-home{
+    color: rgb(56, 56, 56);
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 300;
+}
