@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home.index',['title'=>'Relaciones Internacionales - UPEA']);
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class,'index']);
 
 Route::get('/publicaciones',[\App\Http\Controllers\Publicaciones::class, 'index']);
 

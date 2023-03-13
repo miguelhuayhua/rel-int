@@ -122,7 +122,7 @@
     margin: 30px;
     opacity: 0.4;
     max-width: 350px;
-    animation: mono-routing infinite 10s;
+    animation: mono-routing infinite 10s ease-in-out;
 }
 @keyframes mono-routing{
     from{

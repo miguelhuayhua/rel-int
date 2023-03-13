@@ -1,4 +1,4 @@
-@extends('app')
+@extends('publicaciones.publicacionestemplate')
 @section('content')
     <header class="">
         <div class="row">

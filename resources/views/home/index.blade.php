@@ -1,4 +1,4 @@
-@extends('app')
+@extends('home.hometemplate')
 @section('content')
 <!-- Toda la sección del header en la ruta principal "/" -->
 <header class="container-fluid">
@@ -49,11 +49,10 @@
             <h4>Convenios</h4>
         </a>
         <a class="col-3 news-card">
-            <i class="fa fa-map"></i>
-            <h4>Becas</h4>
+            <i class="fa fa-suitcase" aria-hidden="true"></i>            <h4>Becas</h4>
         </a>
         <a class="col-3 news-card">
-            <i class="fa fa-map"></i>
+            <i class="fa fa-street-view"></i>
             <h4>Actividades</h4>
         </a>
     </div>
@@ -95,7 +94,8 @@
                 <li>
                     <p>
                         Promover el intercambio de docentes y estudiantes con universidades del exterior.
-                    </p>
+                    </p>    <link rel="stylesheet" type="text/css" href="{{ url('css/home/index.css') }}" >
+
                 </li>
                 <li>
                     <p>
