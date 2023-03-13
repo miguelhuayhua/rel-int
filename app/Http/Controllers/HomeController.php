@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function index()
     {
         //primera variable para mostrar el conteo de visitas;
-        $visitas = DB::select('select COUNT(*) from relaciones.visita ');
+        $visitas = collect(DB::select('select COUNT(*) as total from relaciones.visita '))->first();
         return view('home.index', [
             'title' => 'Relaciones Internacionales - UPEA', 'visitas' => $visitas
         ]);

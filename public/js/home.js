@@ -30,9 +30,13 @@ let counter3 = 0;
 let counter4 = 0;
 
 let int1 = setInterval(() => {
-    counter1++;
+    counter1+=100;
     span1.innerText = counter1;
-    if (counter1 == number1) {
+
+    if (counter1 >= number1) {
+        counter1 = counter1 - (counter1 - number1);
+        span1.innerText = counter1;
+
         clearInterval(int1);
     }
 }, 20);
