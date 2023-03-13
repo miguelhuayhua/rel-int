@@ -12,7 +12,7 @@
 .main-title {
     padding: 0 !important;
     margin: 0 !important;
-    background-color: #7E0C0A;
+    background-color: #7e0c0a;
     display: block;
     color: white;
     width: 90%;
@@ -21,7 +21,7 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: 5px 5px 10px rgba(75, 30, 30, 0.384);
-    font-size: 1.6em;
+    font-size: 1.8em;
     padding: 20px 0 !important;
     animation: h1enter 2s;
     scale: 1;
@@ -30,7 +30,7 @@
 
 /*subtitulo de los convenios*/
 .intro-home {
-    color: #7E0C0A;
+    color: #7e0c0a;
     text-align: center;
     font-weight: 300;
     background-color: white;
@@ -61,37 +61,37 @@
     top: 0;
     left: 0;
     background-color: white;
-    opacity: .5;
+    opacity: 0.5;
     width: 100%;
     height: 100%;
     transition: opacity 1s;
 }
 
 .img-banner:hover {
-    opacity: .8;
+    opacity: 0.8;
     transition: opacity 1s;
 }
 
 .custom-btn {
-    background-color: #7E0C0A;
+    background-color: #7e0c0a;
     position: absolute;
     color: white;
     top: 50%;
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto; 
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 200px;
     padding: 10px 20px;
     z-index: 1000;
-    transition: background-color .5s;
+    transition: background-color 0.5s;
 }
 
 .custom-btn:hover {
     background-color: white;
     color: white;
-    transition: background-color .5s, color .5s;
-    color: #7E0C0A;
+    transition: background-color 0.5s, color 0.5s;
+    color: #7e0c0a;
 }
 
 /*counters*/
@@ -105,7 +105,7 @@
 }
 
 .counter span {
-    color: #7E0C0A;
+    color: #7e0c0a;
     font-weight: bold;
     font-size: 1.5em;
     margin-right: 10px;
@@ -120,10 +120,18 @@
     top: 0;
     display: block;
     margin: 30px;
-    opacity: .4;
+    opacity: 0.4;
     max-width: 350px;
+    animation: mono-routing infinite 10s;
 }
-
+@keyframes mono-routing{
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
+}
 hr {
     padding: 0 !important;
     margin: 0 !important;
@@ -137,7 +145,75 @@ hr {
 
 /*PARTE DEL MAIN DE LA VISTA home.index*/
 
-.news-card{
-    box-shadow: 0 0 10px #7e0c0a5d;
-    border-radius: 20px;
+.news-card {
+    box-shadow: 10px 10px 10px #7e0c0a17;
+    border-radius: 10px;
+    transition: scale 1s, box-shadow 1s;
+    margin: 20px 0 !important;
+    text-decoration: none;
+}
+.news-card:hover {
+    scale: 1.08;
+    box-shadow: 5px 5px 15px #7e0c0a51;
+    transition: scale 1s, box-shadow 1s;
+}
+.news-card i {
+    font-size: 4em;
+    display: block;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    color: #7e0c0a;
+    transition: transform 1s;
+}
+
+.news-card:hover i{
+    transform: rotate(360deg);
+    transition: transform 1s;
+}
+.news-card h4 {
+    color: #7e0c0a;
+    text-align: center;
+}
+
+/*Parte misión, visión, etc*/
+.ri-info {
+    margin: 20px 0 !important;
+}
+.ri-info h3 {
+    text-align: center;
+    padding: 10px 0 !important;
+    border-bottom: #7e0c0a69 1px solid;
+    position: relative;
+    overflow: hidden;
+}
+
+.ri-info:hover h3::after {
+    content: "";
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: -1px;
+    left: 0px;
+    height: 2px;
+    background-color: #7e0c0a;
+    animation: info-after 1s;
+}
+
+.ri-info:left h3::after {
+    height: 20px;
+}
+@keyframes info-after {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+.ri-info p {
+    text-align: center;
+    padding: 10px 0 !important;
+    color: rgb(67, 67, 67);
+    font-weight: 300;
 }

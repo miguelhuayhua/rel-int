@@ -1,0 +1,22 @@
+.custom-footer {
+}
+
+.footer-back {
+    width: 100%;
+}
+
+.footer-banner {
+    position: absolute;
+    background-color: #7e0c0a92;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+}
+.footer-banner p {
+    font-size: 2em;
+    font-weight: 200;
+    color: white;
+    text-align: center;
+    padding: 10px 0 !important;
+}
