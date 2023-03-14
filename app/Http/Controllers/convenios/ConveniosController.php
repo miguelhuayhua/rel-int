@@ -12,6 +12,7 @@ class ConveniosController extends Controller
     public function index()
     {
         $gestiones = DB::select(('SELECT * FROM sic_gestion ORDER BY nombre DESC'));
+        
         return view('convenios.index', [
             'title' => 'Convenios Relaciones Internacionales',
             'gestiones' => $gestiones

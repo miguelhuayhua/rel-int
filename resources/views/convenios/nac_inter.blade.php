@@ -4,10 +4,16 @@
         <div class="row d-flex justify-content-around">
             <div class="col-8">
                 <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Cras justo odio
-                        <span class="badge badge-primary badge-pill">14</span>
-                    </li>
+                    @foreach ($vista as $carrera)
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{$carrera->nom_carrera}}
+
+                            <span class="badge badge-primary badge-pill"> 
+                                {{ $carrera->convenios }}
+                            </span>
+                        </li>
+                    @endforeach
+
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Dapibus ac facilisis in
                         <span class="badge badge-primary badge-pill">2</span>
