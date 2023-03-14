@@ -64,7 +64,7 @@
         </div>
 
         <div class="row">
-            <div class="col-4 ri-info">
+            <div class="col-12 col-md-6 col-xl-4 ri-info">
                 <h3>Misión</h3>
                 <p>
                     “La Dirección de Relaciones Nacionales e Internacionales DRNI de la UPEA, es la encargada de la
@@ -73,7 +73,7 @@
                     internacionales con universidades nacionales y extranjeras; de beneficio para docentes y estudiantes.”
                 </p>
             </div>
-            <div class="col-4 ri-info">
+            <div class="col-12 col-md-6 col-xl-4 ri-info">
                 <h3>Visión</h3>
                 <p>
                     “Profundizar los procesos de coordinación, gestión, formalización y seguimiento de programas
@@ -82,7 +82,7 @@
                     bilaterales y multilaterales que coadyuven en el proceso de internalización de la Educación Superior.”
                 </p>
             </div>
-            <div class="col-4 ri-info">
+            <div class="col-12 col-md-6 col-xl-4 ri-info">
                 <h3>Líneas de Acción</h3>
                 <p>
                     La Dirección de Relaciones Nacionales e Internacionales, propone trabajar las siguientes líneas de
@@ -93,7 +93,7 @@
                     - tecnológica. El fortalecimiento de los procesos de Interacción Social y Extensión Universitaria.
                     Programas de Becas. </p>
             </div>
-            <div class="col-6 ri-info">
+            <div class="col-12 col-md-6 ri-info">
                 <h3>Funciones y Servicios</h3>
                 <p>
                     Establecer niveles de coordinación con los decanos, directores de carrera, coordinadores de
@@ -106,7 +106,7 @@
                     todo lo referente a su estadía en el país.
                 </p>
             </div>
-            <div class="col-6 ri-info">
+            <div class="col-12 col-md-6 ri-info">
                 <h3>Objetivos</h3>
                 <ol>
                     <li>

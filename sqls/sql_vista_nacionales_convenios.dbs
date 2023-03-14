@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MySql" id="Project-21f3" database="MySql" >
+	<schema name="relaciones" >
+		<table name="enlace" row_count="13" spec="" >
+			<column name="id_enlace" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="orden" type="INT" jt="4" mandatory="y" />
+			<column name="url_enlace" type="VARCHAR" length="250" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="links_enlace" type="VARCHAR" length="250" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="nombre_enlace" type="VARCHAR" length="100" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="tipo_enlace" type="ENUM" jt="12" mandatory="y" >
+				<enumeration><![CDATA['enlace','embajada','consulado','ministerio','org_estado','org_cooperacion']]></enumeration>
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="telefono" type="INT" jt="4" mandatory="y" />
+			<column name="fax" type="INT" jt="4" mandatory="y" />
+			<column name="fecha" type="DATE" jt="91" mandatory="y" />
+			<column name="estado" type="TINYINT" jt="-6" mandatory="y" />
+			<index name="id_enlace" unique="UNIQUE_KEY" >
+				<column name="id_enlace" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci]]></options>
+		</table>
+		<table name="galeria" row_count="72" spec="" >
+			<column name="id_galeria" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="nombre_galeria" type="VARCHAR" length="250" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="url_galeria" type="VARCHAR" length="250" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="fecha_galeria" type="TIMESTAMP" jt="93" mandatory="y" >
+				<defo><![CDATA[CURRENT_TIMESTAMP]]></defo>
+			</column>
+			<column name="estado_galeria" type="TINYINT" length="1" jt="-6" mandatory="y" />
+			<index name="pk_galeria" unique="PRIMARY_KEY" >
+				<column name="id_galeria" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci]]></options>
+		</table>
+		<table name="publicaciones" row_count="114" spec="" >
+			<column name="id_publicaciones" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="titulo" type="VARCHAR" length="250" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="descripcion" type="TEXT" jt="-1" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="correlativo" type="VARCHAR" length="50" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="subtitulo" type="VARCHAR" length="350" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="url" type="VARCHAR" length="250" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="links" type="VARCHAR" length="250" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="tipo_publicaciones" type="ENUM" jt="12" mandatory="y" >
+				<enumeration><![CDATA['Publicaciones','Noticias','Idiomas','Becas','Pasantias']]></enumeration>
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="fecha" type="DATE" jt="91" mandatory="y" />
+			<column name="estado" type="TINYINT" length="1" jt="-6" mandatory="y" />
+			<index name="pk_publicaciones" unique="PRIMARY_KEY" >
+				<column name="id_publicaciones" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci]]></options>
+		</table>
+		<table name="publicaciones_archivo" row_count="67" spec="" >
+			<column name="id_publicaciones_archivo" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="id_publicaciones" type="INT" jt="4" mandatory="y" />
+			<column name="nombre_archivo" type="VARCHAR" length="250" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="estado_archivo" type="TINYINT" length="1" jt="-6" mandatory="y" />
+			<column name="fecha" type="TIMESTAMP" jt="93" mandatory="y" >
+				<defo><![CDATA[CURRENT_TIMESTAMP]]></defo>
+			</column>
+			<index name="pk_publicaciones_archivo" unique="PRIMARY_KEY" >
+				<column name="id_publicaciones_archivo" />
+			</index>
+			<index name="id_publicaciones" unique="NORMAL" >
+				<column name="id_publicaciones" />
+			</index>
+			<fk name="publicaciones_archivo_ibfk_1" to_schema="relaciones" to_table="publicaciones" options="" >
+				<fk_column name="id_publicaciones" pk="id_publicaciones" />
+			</fk>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci]]></options>
+		</table>
+		<table name="sic_carrera" row_count="24" spec="" >
+			<column name="id_carrera" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="nom_carrera" type="VARCHAR" length="45" jt="12" />
+			<index name="pk_sic_carrera" unique="PRIMARY_KEY" >
+				<column name="id_carrera" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_categoria" row_count="2" spec="" >
+			<column name="id_categoria" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="nom_categoria" type="VARCHAR" length="50" jt="12" />
+			<index name="pk_sic_categoria" unique="PRIMARY_KEY" >
+				<column name="id_categoria" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_contactos" row_count="55" spec="" >
+			<column name="id_contactos" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="nombre_c" type="VARCHAR" length="100" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_unicode_ci]]></column_options>
+			</column>
+			<column name="direccion_c" type="VARCHAR" length="100" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_unicode_ci]]></column_options>
+			</column>
+			<column name="telefonos_c" type="VARCHAR" length="50" jt="12" >
+				<column_options><![CDATA[COLLATE utf8mb3_unicode_ci]]></column_options>
+			</column>
+			<column name="email_c" type="VARCHAR" length="50" jt="12" >
+				<column_options><![CDATA[COLLATE utf8mb3_unicode_ci]]></column_options>
+			</column>
+			<column name="carrera" type="VARCHAR" length="100" jt="12" >
+				<column_options><![CDATA[COLLATE utf8mb3_unicode_ci]]></column_options>
+			</column>
+			<column name="tipo" type="VARCHAR" length="50" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_unicode_ci]]></column_options>
+			</column>
+			<column name="activo" type="VARCHAR" length="20" jt="12" mandatory="y" >
+				<defo><![CDATA['1']]></defo>
+				<column_options><![CDATA[COLLATE utf8mb3_unicode_ci]]></column_options>
+			</column>
+			<index name="pk_sic_contactos" unique="PRIMARY_KEY" >
+				<column name="id_contactos" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci]]></options>
+		</table>
+		<table name="sic_convenio" row_count="68" spec="" >
+			<column name="id_convenios" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="id_detalle_grupo" type="INT" jt="4" />
+			<column name="id_tipo_convenio" type="INT" jt="4" mandatory="y" />
+			<column name="nombre_convenio" type="LONGTEXT" jt="-1" />
+			<column name="objetivo_convenio" type="LONGTEXT" jt="-1" />
+			<column name="img_convenio" type="MEDIUMTEXT" jt="-1" />
+			<column name="pdf_convenio" type="MEDIUMTEXT" jt="-1" />
+			<column name="fecha_firma" type="DATE" jt="91" mandatory="y" />
+			<column name="fecha_finalizacion" type="DATE" jt="91" mandatory="y" />
+			<column name="tiempo_duracion" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="fecha_publicacion" type="TIMESTAMP" jt="93" >
+				<defo><![CDATA[CURRENT_TIMESTAMP]]></defo>
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="direccion" type="VARCHAR" length="200" jt="12" />
+			<column name="entidad" type="VARCHAR" length="200" jt="12" mandatory="y" />
+			<column name="telefono" type="VARCHAR" length="45" jt="12" />
+			<column name="email" type="VARCHAR" length="45" jt="12" />
+			<column name="estado" type="ENUM" jt="12" >
+				<enumeration><![CDATA['Inactivo','Activo','Concluido']]></enumeration>
+			</column>
+			<index name="pk_sic_convenio" unique="PRIMARY_KEY" >
+				<column name="id_convenios" />
+			</index>
+			<index name="fk_convenios_detalle_grupo1_idx" unique="NORMAL" >
+				<column name="id_detalle_grupo" />
+			</index>
+			<index name="fk_sic_convenio_sic_tipo_convenio1_idx" unique="NORMAL" >
+				<column name="id_tipo_convenio" />
+			</index>
+			<fk name="fk_convenios_detalle_grupo1" to_schema="relaciones" to_table="sic_detalle_grupo" options="" >
+				<fk_column name="id_detalle_grupo" pk="id_detallegrupo" />
+			</fk>
+			<fk name="fk_sic_convenio_sic_tipo_convenio1" to_schema="relaciones" to_table="sic_tipo_convenio" options="" >
+				<fk_column name="id_tipo_convenio" pk="id_tipo_convenio" />
+			</fk>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_convenio_carrera" row_count="96" spec="" >
+			<column name="id_convenios" type="INT" jt="4" mandatory="y" />
+			<column name="id_carrera" type="INT" jt="4" mandatory="y" />
+			<index name="pk_sic_convenio_carrera" unique="PRIMARY_KEY" >
+				<column name="id_convenios" />
+				<column name="id_carrera" />
+			</index>
+			<index name="fk_convenios_has_carreras_carreras1_idx" unique="NORMAL" >
+				<column name="id_carrera" />
+			</index>
+			<index name="fk_convenios_has_carreras_convenios1_idx" unique="NORMAL" >
+				<column name="id_convenios" />
+			</index>
+			<fk name="fk_convenios_has_carreras_carreras1" to_schema="relaciones" to_table="sic_carrera" options="" >
+				<fk_column name="id_carrera" pk="id_carrera" />
+			</fk>
+			<fk name="fk_convenios_has_carreras_convenios1" to_schema="relaciones" to_table="sic_convenio" options="" >
+				<fk_column name="id_convenios" pk="id_convenios" />
+			</fk>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_convenio_gestion" row_count="132" spec="" >
+			<column name="id_convenios" type="INT" jt="4" mandatory="y" />
+			<column name="id_gestion" type="INT" jt="4" mandatory="y" />
+			<index name="pk_sic_convenio_gestion" unique="PRIMARY_KEY" >
+				<column name="id_convenios" />
+				<column name="id_gestion" />
+			</index>
+			<index name="id_convenios" unique="NORMAL" >
+				<column name="id_convenios" />
+				<column name="id_gestion" />
+			</index>
+			<index name="id_gestion" unique="NORMAL" >
+				<column name="id_gestion" />
+			</index>
+			<fk name="sic_convenio_gestion_ibfk_1" to_schema="relaciones" to_table="sic_convenio" delete_action="cascade" update_action="cascade" options="" >
+				<fk_column name="id_convenios" pk="id_convenios" />
+			</fk>
+			<fk name="sic_convenio_gestion_ibfk_2" to_schema="relaciones" to_table="sic_gestion" options="" >
+				<fk_column name="id_gestion" pk="id_gestion" />
+			</fk>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=latin1]]></options>
+		</table>
+		<table name="sic_detalle_grupo" row_count="0" spec="" >
+			<column name="id_detallegrupo" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="id_grupo" type="INT" jt="4" />
+			<column name="id_usuario" type="INT" jt="4" />
+			<index name="pk_sic_detalle_grupo" unique="PRIMARY_KEY" >
+				<column name="id_detallegrupo" />
+			</index>
+			<index name="fk_detallegrupo_grupo_idx" unique="NORMAL" >
+				<column name="id_grupo" />
+			</index>
+			<index name="fk_detallegrupo_usuario_idx" unique="NORMAL" >
+				<column name="id_usuario" />
+			</index>
+			<fk name="fk_detallegrupo_grupo" to_schema="relaciones" to_table="sic_grupo" options="" >
+				<fk_column name="id_grupo" pk="id_grupo" />
+			</fk>
+			<fk name="fk_detallegrupo_usuario" to_schema="relaciones" to_table="sic_usuario" options="" >
+				<fk_column name="id_usuario" pk="id_usuario" />
+			</fk>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_gestion" row_count="14" spec="" >
+			<column name="id_gestion" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="nombre" type="VARCHAR" length="20" jt="12" />
+			<column name="actualizado" type="TIMESTAMP" jt="93" mandatory="y" >
+				<defo><![CDATA[CURRENT_TIMESTAMP]]></defo>
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<index name="pk_sic_gestion" unique="PRIMARY_KEY" >
+				<column name="id_gestion" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_grupo" row_count="3" spec="" >
+			<column name="id_grupo" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="nom_grupo" type="VARCHAR" length="45" jt="12" />
+			<index name="pk_sic_grupo" unique="PRIMARY_KEY" >
+				<column name="id_grupo" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_permisos" row_count="28" spec="" >
+			<column name="id_permiso" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="id_usuario" type="INT" jt="4" />
+			<column name="id_routers" type="INT" jt="4" />
+			<column name="estado" type="VARCHAR" length="45" jt="12" />
+			<index name="pk_sic_permisos" unique="PRIMARY_KEY" >
+				<column name="id_permiso" />
+			</index>
+			<index name="fk_permisos_routers_idx" unique="NORMAL" >
+				<column name="id_routers" />
+			</index>
+			<index name="fk_permisos_usuario_idx" unique="NORMAL" >
+				<column name="id_usuario" />
+			</index>
+			<fk name="fk_permisos_routers" to_schema="relaciones" to_table="sic_routers" options="" >
+				<fk_column name="id_routers" pk="id_routers" />
+			</fk>
+			<fk name="fk_permisos_usuario" to_schema="relaciones" to_table="sic_usuario" options="" >
+				<fk_column name="id_usuario" pk="id_usuario" />
+			</fk>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_persona" row_count="20" spec="" >
+			<column name="id_persona" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="nombre" type="VARCHAR" length="45" jt="12" />
+			<column name="paterno" type="VARCHAR" length="45" jt="12" />
+			<column name="materno" type="VARCHAR" length="45" jt="12" />
+			<column name="ci" type="VARCHAR" length="45" jt="12" />
+			<column name="telefono" type="VARCHAR" length="20" jt="12" mandatory="y" />
+			<column name="email" type="VARCHAR" length="45" jt="12" />
+			<column name="cargo" type="VARCHAR" length="200" jt="12" />
+			<column name="img" type="VARCHAR" length="500" jt="12" mandatory="y" />
+			<index name="pk_sic_persona" unique="PRIMARY_KEY" >
+				<column name="id_persona" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_preinscripcion" row_count="11" spec="" >
+			<column name="id_preinscripcion" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="id_gestion" type="INT" jt="4" />
+			<column name="id_convenio" type="INT" jt="4" mandatory="y" />
+			<column name="id_carrera" type="INT" jt="4" />
+			<column name="estado" type="INT" jt="4" mandatory="y" >
+				<defo><![CDATA['0']]></defo>
+			</column>
+			<column name="fecha_inscripcion" type="TIMESTAMP" jt="93" >
+				<defo><![CDATA[CURRENT_TIMESTAMP]]></defo>
+			</column>
+			<index name="pk_sic_preinscripcion" unique="PRIMARY_KEY" >
+				<column name="id_preinscripcion" />
+			</index>
+			<index name="fk_preinscripcion_convenio_idx" unique="NORMAL" >
+				<column name="id_convenio" />
+			</index>
+			<index name="fk_preinscripcion_gestion1_idx" unique="NORMAL" >
+				<column name="id_gestion" />
+			</index>
+			<fk name="fk_preinscripcion_convenio" to_schema="relaciones" to_table="sic_convenio" options="" >
+				<fk_column name="id_convenio" pk="id_convenios" />
+			</fk>
+			<fk name="fk_preinscripcion_gestion1" to_schema="relaciones" to_table="sic_gestion" options="" >
+				<fk_column name="id_gestion" pk="id_gestion" />
+			</fk>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_routers" row_count="11" spec="" >
+			<column name="id_routers" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="descripcion" type="VARCHAR" length="45" jt="12" />
+			<column name="imagen" type="VARCHAR" length="45" jt="12" />
+			<column name="url" type="VARCHAR" length="45" jt="12" />
+			<column name="ordenamiento" type="INT" jt="4" />
+			<column name="estado" type="INT" jt="4" />
+			<index name="pk_sic_routers" unique="PRIMARY_KEY" >
+				<column name="id_routers" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_tipo_convenio" row_count="2" spec="" >
+			<column name="id_tipo_convenio" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="nombre_tipo_convenio" type="VARCHAR" length="45" jt="12" />
+			<index name="pk_sic_tipo_convenio" unique="PRIMARY_KEY" >
+				<column name="id_tipo_convenio" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_universitario" row_count="11" spec="" >
+			<column name="id_universitario" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="id_persona" type="INT" jt="4" mandatory="y" />
+			<column name="id_categoria" type="INT" jt="4" />
+			<column name="id_preinscripcion" type="INT" jt="4" />
+			<column name="registro_universitario" type="VARCHAR" length="18" jt="12" />
+			<index name="pk_sic_universitario" unique="PRIMARY_KEY" >
+				<column name="id_universitario" />
+			</index>
+			<index name="fk_universitario_categoria_idx" unique="NORMAL" >
+				<column name="id_categoria" />
+			</index>
+			<index name="fk_universitario_preinscripcion_idx" unique="NORMAL" >
+				<column name="id_preinscripcion" />
+			</index>
+			<index name="fk_universitarios_personas1_idx" unique="NORMAL" >
+				<column name="id_persona" />
+			</index>
+			<fk name="fk_universitario_categoria" to_schema="relaciones" to_table="sic_categoria" options="" >
+				<fk_column name="id_categoria" pk="id_categoria" />
+			</fk>
+			<fk name="fk_universitario_preinscripcion" to_schema="relaciones" to_table="sic_preinscripcion" options="" >
+				<fk_column name="id_preinscripcion" pk="id_preinscripcion" />
+			</fk>
+			<fk name="fk_universitarios_personas1" to_schema="relaciones" to_table="sic_persona" options="" >
+				<fk_column name="id_persona" pk="id_persona" />
+			</fk>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="sic_usuario" row_count="5" spec="" >
+			<column name="id_usuario" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="id_persona" type="INT" jt="4" />
+			<column name="usuario" type="VARCHAR" length="45" jt="12" />
+			<column name="password" type="VARCHAR" length="45" jt="12" />
+			<column name="fecha_registro" type="VARCHAR" length="30" jt="12" mandatory="y" />
+			<column name="estado" type="VARCHAR" length="45" jt="12" />
+			<column name="actualizado" type="TIMESTAMP" jt="93" >
+				<defo><![CDATA[CURRENT_TIMESTAMP]]></defo>
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<index name="pk_sic_usuario" unique="PRIMARY_KEY" >
+				<column name="id_usuario" />
+			</index>
+			<index name="fk_usuario_persona_idx" unique="NORMAL" >
+				<column name="id_persona" />
+			</index>
+			<fk name="fk_usuario_persona" to_schema="relaciones" to_table="sic_persona" options="" >
+				<fk_column name="id_persona" pk="id_persona" />
+			</fk>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="unidad" row_count="0" spec="" >
+			<column name="id" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="direccion" type="VARCHAR" length="200" jt="12" mandatory="y" >
+				<column_options><![CDATA[CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci]]></column_options>
+			</column>
+			<column name="telefono" type="INT" jt="4" mandatory="y" />
+			<column name="fax" type="VARCHAR" length="20" jt="12" mandatory="y" />
+			<column name="celular" type="VARCHAR" length="20" jt="12" mandatory="y" />
+			<column name="pagina" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="correo" type="VARCHAR" length="75" jt="12" mandatory="y" >
+				<column_options><![CDATA[CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="password" type="VARCHAR" length="200" jt="12" mandatory="y" />
+			<index name="pk_unidad" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1]]></options>
+		</table>
+		<table name="visita" row_count="43312" spec="" >
+			<column name="id_visita" type="INT" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="fecha" type="TIMESTAMP" jt="93" mandatory="y" >
+				<defo><![CDATA[CURRENT_TIMESTAMP]]></defo>
+			</column>
+			<column name="ip" type="VARCHAR" length="50" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<column name="datos" type="VARCHAR" length="250" jt="12" mandatory="y" >
+				<column_options><![CDATA[COLLATE utf8mb3_spanish_ci]]></column_options>
+			</column>
+			<index name="pk_visita" unique="PRIMARY_KEY" >
+				<column name="id_visita" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=44745 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci]]></options>
+		</table>
+		<view name="vista_carrera_convenios" >
+			<comment><![CDATA[VIEW]]></comment>
+			<view_script><![CDATA[CREATE VIEW ${fullName} AS select `sc`.`id_convenios` AS `id_convenios`,`sc`.`id_carrera` AS `id_carrera`,`c`.`nom_carrera` AS `nom_carrera` from (`relaciones`.`sic_convenio_carrera` `sc` join `relaciones`.`sic_carrera` `c`)]]></view_script>
+			<column name="id_convenios" type="INT" />
+			<column name="id_carrera" type="INT" />
+			<column name="nom_carrera" type="VARCHAR" />
+		</view>
+		<view name="vista_convenios_nacionales" >
+			<comment><![CDATA[VIEW]]></comment>
+			<view_script><![CDATA[CREATE VIEW ${fullName} AS select `sc`.`nom_carrera` AS `nom_carrera`,count(`tabla1`.`nombre_convenio`) AS `convenios` from (`relaciones`.`sic_carrera` `sc` left join (select `scc`.`id_carrera` AS `id_carrera`,`scon`.`nombre_convenio` AS `nombre_convenio` from ((`relaciones`.`sic_convenio` `scon` join `relaciones`.`sic_tipo_convenio` `stc` on((`scon`.`id_tipo_convenio` = `stc`.`id_tipo_convenio`))) join `relaciones`.`sic_convenio_carrera` `scc` on((`scc`.`id_convenios` = `scon`.`id_convenios`))) where ((`stc`.`nombre_tipo_convenio` = 'Nacionales') and (`scon`.`estado` = 'Activo'))) `tabla1` on((`tabla1`.`id_carrera` = `sc`.`id_carrera`))) group by `sc`.`nom_carrera`]]></view_script>
+			<column name="nom_carrera" type="VARCHAR" />
+			<column name="convenios" type="BIGINT" />
+		</view>
+	</schema>
+	<connector name="MySql" database="MySql" driver_class="com.mysql.cj.jdbc.Driver" driver_jar="mysql-connector-j-8.0.31.jar" driver_desc="Standard" host="localhost" port="3306" instance="relaciones" user="root" passwd="Njk4NDg2OTE=" useSystemProxy="false" />
+	<layout name="Main Layout" id="Layout-12ba" show_relation="columns" >
+		<entity schema="relaciones" name="enlace" color="BED3F4" x="320" y="1088" />
+		<entity schema="relaciones" name="galeria" color="BED3F4" x="560" y="1088" />
+		<entity schema="relaciones" name="publicaciones" color="F4DDBE" x="1104" y="1088" />
+		<entity schema="relaciones" name="publicaciones_archivo" color="F4DDBE" x="1360" y="1088" />
+		<entity schema="relaciones" name="sic_carrera" color="BEBEF4" x="1888" y="208" />
+		<entity schema="relaciones" name="sic_categoria" color="C7F4BE" x="832" y="608" />
+		<entity schema="relaciones" name="sic_contactos" color="C7F4BE" x="48" y="608" />
+		<entity schema="relaciones" name="sic_convenio" color="C7F4BE" x="48" y="208" />
+		<entity schema="relaciones" name="sic_convenio_carrera" color="BEBEF4" x="1632" y="208" />
+		<entity schema="relaciones" name="sic_convenio_gestion" color="C7F4BE" x="304" y="432" />
+		<entity schema="relaciones" name="sic_detalle_grupo" color="C7F4BE" x="304" y="208" />
+		<entity schema="relaciones" name="sic_gestion" color="C7F4BE" x="560" y="848" />
+		<entity schema="relaciones" name="sic_grupo" color="C7F4BE" x="544" y="208" />
+		<entity schema="relaciones" name="sic_permisos" color="BEBEF4" x="1632" y="464" />
+		<entity schema="relaciones" name="sic_persona" color="BEBEF4" x="1392" y="464" />
+		<entity schema="relaciones" name="sic_preinscripcion" color="C7F4BE" x="304" y="608" />
+		<entity schema="relaciones" name="sic_routers" color="BEBEF4" x="1840" y="464" />
+		<entity schema="relaciones" name="sic_tipo_convenio" color="BEBEF4" x="1104" y="464" />
+		<entity schema="relaciones" name="sic_universitario" color="C7F4BE" x="560" y="608" />
+		<entity schema="relaciones" name="sic_usuario" color="BEBEF4" x="1392" y="208" />
+		<entity schema="relaciones" name="unidad" color="BED3F4" x="560" y="1392" />
+		<entity schema="relaciones" name="visita" color="BED3F4" x="320" y="1392" />
+		<entity schema="relaciones" name="vista_carrera_convenios" color="BED3F4" x="48" y="1392" />
+		<entity schema="relaciones" name="vista_convenios_nacionales" color="3986C1" x="848" y="320" />
+		<callout x="48" y="80" pointer="Round" >
+			<comment><![CDATA[This is a layout. 
+- Double-click table headers, columns, or foreign keys to edit 
+- Drag tables to the layout from the structure tree, or 
+   add them by pressing the arrow icon near columns 
+- Create multiple layouts with the same or different tables 
+- Right-click the layout to create new tables]]></comment>
+		</callout>
+		<group name="enlace" color="ECF0F7" >
+			<entity schema="relaciones" name="enlace" />
+			<entity schema="relaciones" name="galeria" />
+			<entity schema="relaciones" name="unidad" />
+			<entity schema="relaciones" name="visita" />
+			<entity schema="relaciones" name="vista_carrera_convenios" />
+		</group>
+		<group name="publicaciones" color="F7F2EC" >
+			<entity schema="relaciones" name="publicaciones" />
+			<entity schema="relaciones" name="publicaciones_archivo" />
+		</group>
+		<group name="sic_usuario" color="ECECF7" >
+			<entity schema="relaciones" name="sic_usuario" />
+			<entity schema="relaciones" name="sic_convenio_carrera" />
+			<entity schema="relaciones" name="sic_permisos" />
+			<entity schema="relaciones" name="sic_persona" />
+			<entity schema="relaciones" name="sic_carrera" />
+			<entity schema="relaciones" name="sic_tipo_convenio" />
+			<entity schema="relaciones" name="sic_routers" />
+		</group>
+		<group name="sic_convenio" color="EEF7EC" >
+			<entity schema="relaciones" name="sic_convenio" />
+			<entity schema="relaciones" name="sic_detalle_grupo" />
+			<entity schema="relaciones" name="sic_preinscripcion" />
+			<entity schema="relaciones" name="sic_universitario" />
+			<entity schema="relaciones" name="sic_convenio_gestion" />
+			<entity schema="relaciones" name="sic_gestion" />
+			<entity schema="relaciones" name="sic_grupo" />
+			<entity schema="relaciones" name="sic_categoria" />
+			<entity schema="relaciones" name="sic_contactos" />
+		</group>
+		<script name="SQL_Editor" id="Editor-32" language="SQL" >
+			<string><![CDATA[ CREATE VIEW vista_convenios_nacionales  AS select sc.nom_carrera, count(tabla1.nombre_convenio) AS convenios from (SELECT scc.id_carrera, scon.nombre_convenio FROM sic_convenio scon JOIN sic_tipo_convenio stc ON scon.id_tipo_convenio = stc.id_tipo_convenio  JOIN sic_convenio_carrera scc  ON scc.id_convenios = scon.id_convenios
+WHERE stc.nombre_tipo_convenio = 'Nacionales' AND scon.estado = 'Activo' ) tabla1 RIGHT JOIN sic_carrera sc ON tabla1.id_carrera = sc.id_carrera GROUP BY sc.nom_carrera;]]></string>
+		</script>
+	</layout>
+	<layout name="~Layout with Sample Tools" id="Layout-10d1" show_column_type="y" show_relation="columns" >
+		<entity schema="relaciones" name="enlace" color="BED3F4" x="368" y="928" />
+		<entity schema="relaciones" name="galeria" color="BED3F4" x="752" y="928" />
+		<entity schema="relaciones" name="publicaciones" color="F4DDBE" x="1440" y="928" />
+		<entity schema="relaciones" name="publicaciones_archivo" color="F4DDBE" x="1856" y="928" />
+		<entity schema="relaciones" name="sic_carrera" color="BEBEF4" x="2400" y="48" />
+		<entity schema="relaciones" name="sic_categoria" color="C7F4BE" x="1088" y="448" />
+		<entity schema="relaciones" name="sic_contactos" color="C7F4BE" x="48" y="448" />
+		<entity schema="relaciones" name="sic_convenio" color="C7F4BE" x="48" y="48" />
+		<entity schema="relaciones" name="sic_convenio_carrera" color="BEBEF4" x="2144" y="48" />
+		<entity schema="relaciones" name="sic_convenio_gestion" color="C7F4BE" x="400" y="272" />
+		<entity schema="relaciones" name="sic_detalle_grupo" color="C7F4BE" x="400" y="48" />
+		<entity schema="relaciones" name="sic_gestion" color="C7F4BE" x="720" y="688" />
+		<entity schema="relaciones" name="sic_grupo" color="C7F4BE" x="656" y="48" />
+		<entity schema="relaciones" name="sic_permisos" color="BEBEF4" x="2144" y="304" />
+		<entity schema="relaciones" name="sic_persona" color="BEBEF4" x="1824" y="304" />
+		<entity schema="relaciones" name="sic_preinscripcion" color="C7F4BE" x="400" y="448" />
+		<entity schema="relaciones" name="sic_routers" color="BEBEF4" x="2416" y="304" />
+		<entity schema="relaciones" name="sic_tipo_convenio" color="BEBEF4" x="1440" y="304" />
+		<entity schema="relaciones" name="sic_universitario" color="C7F4BE" x="720" y="448" />
+		<entity schema="relaciones" name="sic_usuario" color="BEBEF4" x="1824" y="48" />
+		<entity schema="relaciones" name="unidad" color="BED3F4" x="752" y="1232" />
+		<entity schema="relaciones" name="visita" color="BED3F4" x="368" y="1232" />
+		<entity schema="relaciones" name="vista_carrera_convenios" color="BED3F4" x="48" y="1232" />
+		<script name="SQL Editor" id="Editor-110b" language="SQL" >
+			<string><![CDATA[SELECT
+	id_convenios, id_detalle_grupo, id_tipo_convenio, nombre_convenio, objetivo_convenio, img_convenio, pdf_convenio, 
+	fecha_firma, fecha_finalizacion, tiempo_duracion, fecha_publicacion, direccion, entidad, telefono, email, estado
+FROM
+	relaciones.sic_convenio o;]]></string>
+		</script>
+		<browser id="Browse-14b" name="Relational Data Explorer" confirm_updates="y" >
+			<browse_table schema="relaciones" entity="sic_convenio" x="20" y="20" width="400" height="300" >
+				<browse_table schema="relaciones" entity="sic_convenio_carrera" fk="fk_convenios_has_carreras_convenios1" x="440" y="20" width="500" height="350" >
+					<browse_table schema="relaciones" entity="sic_carrera" fk="fk_convenios_has_carreras_carreras1" x="960" y="20" width="500" height="350" record_view="y" />
+				</browse_table>
+			</browse_table>
+		</browser>
+		<query id="Query-9d4" name="Query Builder" >
+			<query_table schema="relaciones" name="sic_convenio" alias="sc" x="48" y="48" >
+				<column name="id_convenios" />
+				<column name="id_detalle_grupo" />
+				<column name="id_tipo_convenio" />
+				<column name="nombre_convenio" />
+				<column name="objetivo_convenio" />
+				<column name="img_convenio" />
+				<column name="pdf_convenio" />
+				<column name="fecha_firma" />
+				<column name="fecha_finalizacion" />
+				<column name="tiempo_duracion" />
+				<column name="fecha_publicacion" />
+				<column name="direccion" />
+				<column name="entidad" />
+				<column name="telefono" />
+				<column name="email" />
+				<column name="estado" />
+				<query_table schema="relaciones" name="sic_convenio_carrera" alias="scc" x="304" y="48" fk="fk_convenios_has_carreras_convenios1" type="Inner Join" >
+					<column name="id_convenios" />
+					<column name="id_carrera" />
+					<query_table schema="relaciones" name="sic_carrera" alias="sc1" x="576" y="48" fk="fk_convenios_has_carreras_carreras1" type="Inner Join" >
+						<column name="id_carrera" />
+						<column name="nom_carrera" />
+					</query_table>
+				</query_table>
+			</query_table>
+		</query>
+		<form name="Report" id="Report-2615" template="Page" css="container-fluid" view="frame" >
+			<var name="samplePageNumber" type="4" value="0" mandatory="n" />
+			<var name="sampleRecordsPerPage" type="4" value="100" mandatory="n" />
+			<body name="Body" template="Grid" pos="0,0,0,0,f,f" layout="{{-2,-2,-2,-2,-1},{-2,-2,-2,-2}}" scroll="n" html="n" >
+				<cell type="label" name="Sic_convenio Data" template="H3" pos="0,0,1,0,l,c" />
+				<cell type="chart" name="Pie" template="Pie" pos="0,1,4,1,l,c" max_records="20" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="id_convenios" type="4" />
+						<var name="id_detalle_grupo" type="4" />
+						<var name="id_tipo_convenio" type="4" />
+						<var name="nombre_convenio" type="-1" />
+						<var name="objetivo_convenio" type="-1" />
+						<var name="img_convenio" type="-1" />
+						<var name="pdf_convenio" type="-1" />
+						<var name="fecha_firma" type="91" />
+						<var name="fecha_finalizacion" type="91" />
+						<var name="tiempo_duracion" />
+						<var name="fecha_publicacion" type="93" />
+						<var name="direccion" />
+						<var name="entidad" />
+						<var name="telefono" />
+						<var name="email" />
+						<var name="estado" />
+						<script ><![CDATA[SELECT * FROM relaciones.sic_convenio]]></script>
+					</form_script>
+					<param name="i0" value="entidad" />
+					<param name="width" value="100%" />
+					<param name="v0" value="id_tipo_convenio" />
+					<param name="title" value="Sample Chart" />
+					<param name="height" value="400px" />
+				</cell>
+				<tableview name="sample" template="Table" css="table table-striped table-sm table-hover" pos="0,2,4,2,f,f" layout="{{-2,-2,-2,-2,-2,-2,-2},{-2,-2}}" scroll="n" html="n" header_rows="1" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="id_convenios" type="4" />
+						<var name="id_detalle_grupo" type="4" />
+						<var name="id_tipo_convenio" type="4" />
+						<var name="nombre_convenio" type="-1" />
+						<var name="objetivo_convenio" type="-1" />
+						<var name="img_convenio" type="-1" />
+						<var name="pdf_convenio" type="-1" />
+						<var name="fecha_firma" type="91" />
+						<var name="fecha_finalizacion" type="91" />
+						<var name="tiempo_duracion" />
+						<var name="fecha_publicacion" type="93" />
+						<var name="direccion" />
+						<var name="entidad" />
+						<var name="telefono" />
+						<var name="email" />
+						<var name="estado" />
+						<script ><![CDATA[SELECT * FROM relaciones.sic_convenio]]></script>
+					</form_script>
+					<cell type="label" name="id_convenios" pos="0,0,0,0,c,c" />
+					<cell type="label" name="id_detalle_grupo" pos="1,0,1,0,c,c" />
+					<cell type="label" name="id_tipo_convenio" pos="2,0,2,0,c,c" />
+					<cell type="label" name="nombre_convenio" pos="3,0,3,0,c,c" />
+					<cell type="label" name="objetivo_convenio" pos="4,0,4,0,c,c" />
+					<cell type="label" name="img_convenio" pos="5,0,5,0,c,c" />
+					<cell type="label" name="Button can open other pages." pos="6,0,6,0,c,c" />
+					<cell type="label" name="${id_convenios}" template="Plain" pos="0,1,0,1,l,c" />
+					<cell type="label" name="${id_detalle_grupo}" template="Plain" pos="1,1,1,1,l,c" />
+					<cell type="label" name="${id_tipo_convenio}" template="Plain" pos="2,1,2,1,l,c" />
+					<cell type="label" name="${nombre_convenio}" template="Plain" pos="3,1,3,1,l,c" />
+					<cell type="label" name="${objetivo_convenio}" template="Plain" pos="4,1,4,1,l,c" />
+					<cell type="label" name="${img_convenio}" template="Plain" pos="5,1,5,1,l,c" />
+					<cell type="button" name="More" template="Plain" css="btn btn-sm btn-secondary" pos="6,1,6,1,c,c" ref_id="Report-2615" />
+				</tableview>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="0,3,0,3,l,c" glyph="bi-chevron_double_left" ref_id="Report-2615" >
+					<var name="samplePageNumber" value="0" />
+				</cell>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="1,3,1,3,l,c" glyph="bi-chevron_left" ref_id="Report-2615" >
+					<var name="samplePageNumber" value="${Math.max(0,samplePageNumber-1)}" />
+				</cell>
+				<cell type="label" name="Page ${samplePageNumber+1}" pos="2,3,2,3,l,c" />
+				<cell type="href" name="" disabled="${!sampleHasNextPage}" pos="3,3,3,3,l,c" glyph="bi-chevron_right" ref_id="Report-2615" >
+					<var name="samplePageNumber" value="${( samplePageNumber+1 )}" />
+				</cell>
+			</body>
+		</form>
+	</layout>
+</project>

@@ -7,9 +7,15 @@
     z-index: 1000;
     background-color: white;
 }
+
 .custom-img {
     width: 85px !important;
-    border-right: #7e0c0a34 1px solid;
+    transition: transform 1s;
+}
+
+.custom-img:hover {
+    transform: rotate(360deg);
+    transition: transform 1s;
 }
 
 .custom-nav-item {
@@ -21,6 +27,7 @@
     padding: 0 10px !important;
     transition: background-color 1s, color 1s;
 }
+
 .custom-nav-item:hover {
     background-color: #7e0c0a;
     color: white;
@@ -32,12 +39,14 @@
     font-weight: 400;
     font-size: 1em;
 }
+
 show .custom-icon {
     width: 30px;
     height: 30px;
     font-size: 1.7em !important;
     color: inherit;
 }
+
 /*contact info*/
 
 .contact-info {
@@ -55,6 +64,7 @@ show .custom-icon {
 .social {
     text-decoration: none !important;
 }
+
 .social i {
     color: #7e0c0a;
     background-color: white;

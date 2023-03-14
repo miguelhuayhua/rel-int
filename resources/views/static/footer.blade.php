@@ -6,5 +6,4 @@
             rrnnii.upea.bo
         </p>
     </div>
-    <hr>
 </footer>

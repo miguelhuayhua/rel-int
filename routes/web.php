@@ -18,3 +18,7 @@ Route::get('/', [\App\Http\Controllers\HomeController::class,'index']);
 Route::get('/publicaciones',[\App\Http\Controllers\Publicaciones::class, 'index']);
 
 Route::get('/contacto',[App\Http\Controllers\Galeria::class, 'index']);
+
+Route::get('/convenios',[\App\Http\Controllers\convenios\ConveniosController::class,'index']);
+Route::get('/convenios/nacionales',[\App\Http\Controllers\convenios\NacionalesController::class,'index']);
+Route::get('/convenios/internacionales',[\App\Http\Controllers\convenios\InternacionalesController::class,'index']);

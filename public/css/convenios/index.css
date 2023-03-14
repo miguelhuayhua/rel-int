@@ -1,0 +1,126 @@
+.btn-convenio {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: rgb(44, 44, 44);
+    font-size: 2em;
+    font-weight: 200;
+    text-align: center;
+    height: 250px;
+    box-shadow: 5px 5px 10px #7e0c0a34;
+    margin: 30px 0 !important;
+    border-radius: 10px;
+    transition: box-shadow 1s, scale 1s;
+}
+
+.btn-convenio:hover {
+    box-shadow: 3px 3px 10px #7e0c0a34;
+    scale: 1.05;
+    transition: box-shadow 1s, scale 1s;
+}
+
+@keyframes img-effect {
+    0% {
+        transform: rotate(10deg);
+    }
+
+    10% {
+        transform: rotate(-10deg);
+
+    }
+
+    20% {
+        transform: rotate(10deg);
+
+    }
+
+    30% {
+        transform: rotate(-10deg);
+
+    }
+
+    40% {
+        transform: rotate(10deg);
+
+    }
+
+    50% {
+        transform: rotate(-10deg);
+
+    }
+
+    60% {
+        transform: rotate(10deg);
+
+    }
+
+    70% {
+        transform: rotate(-10deg);
+
+    }
+
+    80% {
+        transform: rotate(10deg);
+
+    }
+
+    90% {
+        transform: rotate(-10deg);
+
+    }
+
+    100% {
+        transform: rotate(10deg);
+
+    }
+}
+
+.btn-convenio:hover img {
+
+    animation: img-effect 2s infinite;
+}
+
+.btn-convenio img {
+    display: block;
+    margin: 10px auto;
+    width: 40%;
+    max-width: 150px;
+}
+
+/*Convenios, item en la parte del elemento <li></li>*/
+.gestion-lista {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gestion-item{
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 20px ;
+}
+
+h1{
+    color: #7e0c0a;
+    font-weight: 200;
+    text-align: center;
+}
+.gestion-item a{
+    text-decoration: none !important;
+    background-color: whitesmoke;
+    color: #7e0c0a;
+    font-weight: 200;
+    text-align: center;
+    padding: 10px 20px;
+    margin: 20px 10px;
+    border: 1px solid #7e0c0a5e;
+    border-radius: 5px;
+    transition: background-color 1s, color 1s, border 1s, font-weight 1s;
+}
+
+.gestion-item a:hover{
+    background-color: #7e0c0a;
+    color: white;
+    border: 1px solid transparent;
+    font-weight: 400;
+    transition: background-color 1s, color 1s, border 1s, font-weight 1s;
+}
