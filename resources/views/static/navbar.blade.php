@@ -17,8 +17,7 @@
     " href="#">
         <img src="./images/logorrnnii.png" class="custom-img mx-3 px-3" alt="">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" id="toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -43,3 +42,24 @@
 
     </div>
 </nav>
+<div class="custom-toggle-navbar" id="navbarResponsive">
+    <nav>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item custom-nav-item" id="home">
+                <a class="nav-link custom-link" href="/">Inicio</span></a>
+            </li>
+            <li class="nav-item custom-nav-item">
+                <a class="nav-link custom-link" href="actividades">Actividades</a>
+            </li>
+            <li class="nav-item custom-nav-item" id="publicaciones">
+                <a class="nav-link custom-link" href="publicaciones">Publicaciones</a>
+            </li>
+            <li class="nav-item custom-nav-item">
+                <a class="nav-link custom-link" href="galeria">Galeria</a>
+            </li>
+            <li class="nav-item custom-nav-item" id="contacto">
+                <a class="nav-link custom-link" href="contacto">Contactos</a>
+            </li>
+        </ul>
+    </nav>
+</div>
