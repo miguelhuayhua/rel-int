@@ -9,12 +9,9 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url('css/navbar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/convenios/index.css') }}">
+    <link rel="stylesheet" href="{{url('css/convenios/nac_inter.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/footer.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ url('favicon.ico') }}">
-
-
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 

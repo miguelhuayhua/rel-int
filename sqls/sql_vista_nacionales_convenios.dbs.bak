@@ -557,7 +557,7 @@ WHERE stc.nombre_tipo_convenio = 'Nacionales' AND scon.estado = 'Activo' ) tabla
 		<script name="SQL_Editor_001" id="Editor-393" language="SQL" >
 			<string><![CDATA[SELECT count(*) AS total FROM publicaciones WHERE estado = 1;]]></string>
 		</script>
-		<script name="SQL_Editor_002" id="Editor-1d05" language="SQL" >
+		<script name="SQL_Editor_002" id="Editor-b86" language="SQL" >
 			<string><![CDATA[CREATE vista_convenios_nacionales AS select `sc`.`nom_carrera` AS `nom_carrera`, `sc`.`image_url` AS `image_url`,count(`tabla1`.`nombre_convenio`) AS `convenios` from (`relaciones`.`sic_carrera` `sc` left join (select `scc`.`id_carrera` AS `id_carrera`,`scon`.`nombre_convenio` AS `nombre_convenio` from ((`relaciones`.`sic_convenio` `scon` join `relaciones`.`sic_tipo_convenio` `stc` on((`scon`.`id_tipo_convenio` = `stc`.`id_tipo_convenio`))) join `relaciones`.`sic_convenio_carrera` `scc` on((`scc`.`id_convenios` = `scon`.`id_convenios`))) where ((`stc`.`nombre_tipo_convenio` = 'Nacionales') and (`scon`.`estado` = 'Activo'))) `tabla1` on((`tabla1`.`id_carrera` = `sc`.`id_carrera`))) group by `sc`.`nom_carrera`, `sc`.`image_url`;
 ALTER TABLE relaciones.sic_carrera MODIFY image_url TEXT(200)     COMMENT 'imagenes de la carrera con su logo';
 DELETE from sic_carrera where id_carrera = 8;
@@ -583,10 +583,9 @@ UPDATE sic_carrera SET image_url = '/carreras_logo/ingenieria_ambiental.jpg' WHE
 UPDATE sic_carrera SET image_url = '/carreras_logo/medicina_veterinaria.jpg' WHERE id_carrera = 24;
 UPDATE sic_carrera SET image_url = '/carreras_logo/ingenieria_zootecnia.jpg' WHERE id_carrera = 25;
 UPDATE sic_carrera SET image_url = '/carreras_logo/ciencias_salud.jpg' WHERE id_carrera = 26;
-UPDATE sic_carrera SET image_url = '/carreras_logo/arquitectura.jpg' WHERE id_carrera = 27;
 SELECT * FROM sic_carrera;]]></string>
 		</script>
-		<script name="vista_convenios_nacionales" id="Editor-1386" language="SQL" >
+		<script name="vista_convenios_nacionales" id="Editor-2365" language="SQL" >
 			<string><![CDATA[SELECT
 	nom_carrera, convenios, image_url
 FROM

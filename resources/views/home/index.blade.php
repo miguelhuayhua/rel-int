@@ -36,13 +36,20 @@
                     </p>
                 </div>
                 <div class="col-6 col-md-3">
-                    <p class="counter"><span id="span2">20</span>Convenios Totales</p>
+                    <p class="counter"><span id="span2">
+                            {{ $total_convenios->total }}
+                        </span>Convenios Disponibles</p>
                 </div>
                 <div class="col-6 col-md-3">
-                    <p class="counter"><span id="span3">23</span>Convenios Totales</p>
+                    <p class="counter"><span id="span3">
+                        {{$total_publicaciones->total}}
+                    </span>Publicaciones</p>
                 </div>
                 <div class="col-6 col-md-3">
-                    <p class="counter"><span id="span4">50</span>Convenios Totales</p>
+                    <p class="counter">
+                        <span id="span4">
+                            {{$oferta_becas->total}}
+                        </span>Oferta de Becas</p>
                 </div>
                 <hr>
             </div>

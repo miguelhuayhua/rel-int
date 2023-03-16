@@ -50,7 +50,8 @@
 /*contact info*/
 
 .contact-info {
-    background-color: #7e0c0a;
+    background: rgb(215, 40, 37);
+    background: linear-gradient(90deg, rgba(215, 40, 37, 1) 0%, rgba(79, 26, 21, 1) 100%);
     color: white;
     font-weight: 300;
     height: 50px;
@@ -83,6 +84,15 @@
     background-color: #7e0c0a;
     color: whitesmoke;
     transition: background-color 0.5s;
+}
+
+
+/*estilos del toggle de bootstrap*/
+.toggle-icon {
+    color: #7e0c0a;
+    font-size: 2.5em !important;
+    width: 80px;
+    margin-right: .5em;
 }
 
 /*Apartado para el navbar en modo celular*/

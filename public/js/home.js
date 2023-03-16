@@ -30,7 +30,7 @@ let counter3 = 0;
 let counter4 = 0;
 
 let int1 = setInterval(() => {
-    counter1+=100;
+    counter1 += 100;
     span1.innerText = counter1;
 
     if (counter1 >= number1) {
@@ -43,8 +43,6 @@ let int1 = setInterval(() => {
 
 let int2 = setInterval(() => {
     counter2++;
-    counter2++;
-    span2.innerText = counter2;
     span2.innerText = counter2;
     if (counter2 == number2) {
         clearInterval(int2);

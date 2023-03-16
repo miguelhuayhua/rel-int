@@ -15,10 +15,10 @@
 <nav class="navbar navbar-expand-lg custom-navbar">
     <a class="navbar-brand" style="    border-right: #7e0c0a34 1px solid;
     " href="#">
-        <img src="./images/logorrnnii.png" class="custom-img mx-3 px-3" alt="">
+        <img src="/images/logorrnnii.png" class="custom-img mx-3 px-3" alt="">
     </a>
-    <button class="navbar-toggler" id="toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler  toggle-icon" id="toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">

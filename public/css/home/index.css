@@ -12,8 +12,8 @@
 .main-title {
     padding: 0 !important;
     margin: 0 !important;
-    background-color: #7e0c0a;
-    display: block;
+    background: rgb(215,40,37);
+    background: linear-gradient(90deg, rgba(215,40,37,1) 0%, rgba(79,26,21,1) 100%);     display: block;
     color: white;
     width: 90%;
     margin-top: 50px !important;
@@ -73,8 +73,8 @@
 }
 
 .custom-btn {
-    background-color: #7e0c0a;
-    position: absolute;
+    background: rgb(215,40,37);
+    background: linear-gradient(90deg, rgb(172, 88, 87) 0%, rgb(107, 27, 20) 100%);     position: absolute;
     color: white;
     top: 50%;
     left: 0;
@@ -88,10 +88,10 @@
 }
 
 .custom-btn:hover {
-    background-color: white;
-    color: white;
-    transition: background-color 0.5s, color 0.5s;
+    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(233, 195, 192) 100%);     position: absolute;
     color: #7e0c0a;
+
+    transition: background 0.5s, color 0.5s;
 }
 
 /*counters*/

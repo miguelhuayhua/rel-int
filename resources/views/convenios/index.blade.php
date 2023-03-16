@@ -19,7 +19,7 @@
                 <ul class="gestion-lista">
                     @foreach ($gestiones as $gestion)
                         <li class="gestion-item">
-                            <a href="convenios/{{$gestion->nombre}}">
+                            <a href="convenios/{{ $gestion->nombre }}">
                                 {{ $gestion->nombre }}
                             </a>
                         </li>
