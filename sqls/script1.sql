@@ -25,3 +25,9 @@ UPDATE sic_carrera SET image_url = '/carreras_logo/ingenieria_zootecnia.jpg' WHE
 UPDATE sic_carrera SET image_url = '/carreras_logo/ciencias_salud.jpg' WHERE id_carrera = 26;
 UPDATE sic_carrera SET image_url = '/carreras_logo/arquitectura.jpg' WHERE id_carrera = 27;
 UPDATE sic_carrera SET image_url = '/carreras_logo/enfermeria.jpg' WHERE id_carrera = 28;
+
+
+#17 de marzo SIE 
+CREATE VIEW vista_convenios_internacionales AS select `sc`.`id_carrera`, `sc`.`nom_carrera` AS `nom_carrera`, `sc`.`image_url` AS `image_url`,count(`tabla1`.`nombre_convenio`) AS `convenios` from (`relaciones`.`sic_carrera` `sc` left join (select `scc`.`id_carrera` AS `id_carrera`,`scon`.`nombre_convenio` AS `nombre_convenio` from ((`relaciones`.`sic_convenio` `scon` join `relaciones`.`sic_tipo_convenio` `stc` on((`scon`.`id_tipo_convenio` = `stc`.`id_tipo_convenio`))) join `relaciones`.`sic_convenio_carrera` `scc` on((`scc`.`id_convenios` = `scon`.`id_convenios`))) where ((`stc`.`nombre_tipo_convenio` = 'Internacionales') and (`scon`.`estado` = 'Activo'))) `tabla1` on((`tabla1`.`id_carrera` = `sc`.`id_carrera`))) group by `sc`.`id_carrera`, `sc`.`nom_carrera`, `sc`.`image_url`;
+#editar la vista de nacionales
+CREATE VIEW ${fullName} AS select `sc`.`id_carrera`,`sc`.`nom_carrera` AS `nom_carrera`, `sc`.`image_url` AS `image_url`,count(`tabla1`.`nombre_convenio`) AS `convenios` from (`relaciones`.`sic_carrera` `sc` left join (select `scc`.`id_carrera` AS `id_carrera`,`scon`.`nombre_convenio` AS `nombre_convenio` from ((`relaciones`.`sic_convenio` `scon` join `relaciones`.`sic_tipo_convenio` `stc` on((`scon`.`id_tipo_convenio` = `stc`.`id_tipo_convenio`))) join `relaciones`.`sic_convenio_carrera` `scc` on((`scc`.`id_convenios` = `scon`.`id_convenios`))) where ((`stc`.`nombre_tipo_convenio` = 'Nacionales') and (`scon`.`estado` = 'Activo'))) `tabla1` on((`tabla1`.`id_carrera` = `sc`.`id_carrera`))) group by `sc`.`id_carrera`, `sc`.`nom_carrera`, `sc`.`image_url`

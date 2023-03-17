@@ -18,7 +18,8 @@
 
                                 </span>
                             </p>
-                            <a href="">Ver Convenios</a>
+                            <a href="/convenios/{{$tipo}}/{{$carrera->id_carrera}}">
+                                Ver Convenios {{ucfirst(trans($tipo))}}</a>
                         </div>
                     </div>
                 </div>

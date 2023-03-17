@@ -13,7 +13,8 @@ class NacionalesController extends Controller
         $vista = DB::select('SELECT * FROM vista_convenios_nacionales ORDER BY convenios DESC');//hace referencia al conteo que se genera en la vista para la cantidad de convenios por carrera
         return view('convenios.nac_inter', [
             'title' => 'Convocatorias Nacionales - UPEA',
-            'vista' => $vista
+            'vista' => $vista,
+            'tipo'=>'nacionales'
         ]);
     }
 }

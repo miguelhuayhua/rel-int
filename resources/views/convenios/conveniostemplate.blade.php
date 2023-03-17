@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('css/convenios/index.css') }}">
     <link rel="stylesheet" href="{{url('css/convenios/nac_inter.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/footer.css') }}">
+    <link rel="stylesheet" href="{{url('css/convenios/carreraconvenios.css')}}">
     <link rel="icon" type="image/x-icon" href="{{ url('favicon.ico') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>

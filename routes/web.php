@@ -22,3 +22,4 @@ Route::get('/contacto',[App\Http\Controllers\Galeria::class, 'index']);
 Route::get('/convenios',[\App\Http\Controllers\convenios\ConveniosController::class,'index']);
 Route::get('/convenios/nacionales',[\App\Http\Controllers\convenios\NacionalesController::class,'index']);
 Route::get('/convenios/internacionales',[\App\Http\Controllers\convenios\InternacionalesController::class,'index']);
+Route::get('/convenios/{tipo}/{id}',[\App\Http\Controllers\convenios\CarreraConvenio::class,'index']);
