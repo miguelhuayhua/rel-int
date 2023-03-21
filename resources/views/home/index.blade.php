@@ -60,11 +60,11 @@
                 <i class="fa fa-map"></i>
                 <h4>Convenios</h4>
             </a>
-            <a class="col-5 col-md-3 news-card">
+            <a class="col-5 col-md-3 news-card" href="/becas">
                 <i class="fa fa-suitcase" aria-hidden="true"></i>
                 <h4>Becas</h4>
             </a>
-            <a class="col-5 col-md-3 news-card">
+            <a class="col-5 col-md-3 news-card" href="/actividades">
                 <i class="fa fa-street-view"></i>
                 <h4>Actividades</h4>
             </a>

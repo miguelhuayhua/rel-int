@@ -7,9 +7,29 @@
     z-index: 1000;
     background-color: white;
 }
+/*Parte de la imagen con el brand, redirecciona a la página principal*/
+.custom-navbar a{
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
 
+.custom-navbar p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center !important;
+    font-size: .6em;
+    margin-top: 1em;
+    color: #7e0c0a;
+    padding-right: 1em;
+}
+.custom-navbar span{
+    font-weight: bold;
+}
 .custom-img {
-    width: 85px !important;
+    width: 80px !important;
+    height: 50px;
     transition: transform 1s;
 }
 
@@ -17,7 +37,7 @@
     transform: rotate(360deg);
     transition: transform 1s;
 }
-
+/*Enlaces del navbar*/
 .custom-nav-item {
     display: flex;
     align-items: center;

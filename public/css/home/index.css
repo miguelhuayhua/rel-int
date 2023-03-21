@@ -21,11 +21,13 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: 5px 5px 10px rgba(75, 30, 30, 0.384);
-    font-size: 1.8em;
+    font-size: 2em;
     padding: 20px 0 !important;
     animation: h1enter 2s;
     scale: 1;
     transition: scale 1s;
+    font-weight: bold !important;
+    font-variant: small-caps;
 }
 
 /*subtitulo de los convenios*/
@@ -102,12 +104,13 @@
     justify-content: center;
     height: 100%;
     font-weight: 200;
+    font-size: 1.3em;
 }
 
 .counter span {
     color: #7e0c0a;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.3em !important;
     margin-right: 10px;
 }
 
