@@ -24,3 +24,4 @@ Route::get('/convenios/internacionales',[\App\Http\Controllers\convenios\Interna
 Route::get('/convenios/{tipo}/{id}',[\App\Http\Controllers\convenios\CarreraConvenio::class,'index']);
 Route::get('/actividades',[\App\Http\Controllers\actividades\ActividadesController::class, 'index']);
 Route::get('/becas',[App\Http\Controllers\becas\BecasController::class, 'index']);
+Route::get('/idiomas',[App\Http\Controllers\idiomas\IdiomasController::class, 'index']);

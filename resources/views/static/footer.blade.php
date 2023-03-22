@@ -14,8 +14,7 @@
             </div>
             <div class="col-6">
                 <h4>
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    Teléfono: 22844177
+                    <i class="fa fa-phone-square" aria-hidden="true"></i>                    Teléfono: 22844177
                 </h4>
             </div>
             <div class="col-6">
@@ -32,8 +31,7 @@
                 </h4>
             </div>
             <h4>
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                Correo: camposugartevictor@gmail.com
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>                Correo: camposugartevictor@gmail.com
             </h4>
         </div>
     </div>
