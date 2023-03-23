@@ -129,7 +129,7 @@
 }
 
 /*this sections works with javascript navbar.js*/
-.show {
+.active-navbar-item {
     background-color: #7e0c0a;
     color: white;
 }

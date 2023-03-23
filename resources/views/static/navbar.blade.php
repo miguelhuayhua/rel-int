@@ -26,7 +26,7 @@
         <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" >
         <ul class="navbar-nav mr-auto">
             <li class="nav-item custom-nav-item" id="home">
                 <a class="nav-link custom-link" href="/">Inicio</span></a>

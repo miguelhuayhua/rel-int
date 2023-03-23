@@ -1,13 +1,13 @@
 console.log(this.document.URL, this.document)
 let url = this.document.URL;
 if (url == 'http://127.0.0.1:8000/') {
-    document.getElementById('home').classList.add('show');
+    document.getElementById('home').classList.add('active-navbar-item');
 }
 else if (url.includes('contacto')) {
-    document.getElementById('contacto').classList.add('show');
+    document.getElementById('contacto').classList.add('active-navbar-item');
 }
 else if (url.includes('publicaciones')) {
-    document.getElementById('publicaciones').classList.add('show');
+    document.getElementById('publicaciones').classList.add('active-navbar-item');
 }
 
 //evento click al boton del navbar modo responsive
