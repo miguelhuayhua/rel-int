@@ -1,0 +1,22 @@
+h1 {
+    font-size: 2em;
+    color: brown;
+    font-weight: 300;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/*estilos para cada componente de publicación*/
+
+.custom-btn {
+    display: block;
+    width: 70%;
+    margin: 10px auto;
+    background: linear-gradient(90deg, rgb(184, 60, 58) 0%, rgb(107, 27, 20) 100%);
+    color: white;
+}
+
+.custom-btn:hover{
+    background-color: white;
+    color: brown;
+}

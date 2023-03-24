@@ -557,7 +557,9 @@ WHERE stc.nombre_tipo_convenio = 'Nacionales' AND scon.estado = 'Activo' ) tabla
 		<script name="SQL_Editor_001" id="Editor-393" language="SQL" >
 			<string><![CDATA[SELECT count(*) AS total FROM publicaciones WHERE estado = 1;]]></string>
 		</script>
-		<script name="script1.sql" id="Editor-1550" language="SQL" file="file:/home/miguelhuayhua/Escritorio/SIE/rel-int/sqls/script1.sql" />
+		<script name="SQL_Editor_002" id="Editor-22f5" language="SQL" >
+			<string><![CDATA[SELECT * FROM publicaciones WHERE tipo_publicaciones = 'Publicaciones';]]></string>
+		</script>
 		<script name="vista_convenios_nacionales" id="Editor-193b" language="SQL" >
 			<string><![CDATA[SELECT
 	nom_carrera, convenios, image_url

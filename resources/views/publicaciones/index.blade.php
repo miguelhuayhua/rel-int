@@ -1,20 +1,30 @@
 @extends('publicaciones.publicacionestemplate')
 @section('content')
-    <header class="">
+    <section class="container">
         <div class="row">
-            <div class="col-6 p-0">
-                <h1 class="">
-                    Publicaciones - Relaciones Internacionales
-                </h1>
-                <div class="jumbotron">
-                    <h1 class="display-4">Hello, world!</h1>
-                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                    <hr class="my-4">
-                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                  </div>
-            </div>
+            <h1 class="">
+                Publicaciones - Relaciones Internacionales
+            </h1>
+            @foreach ($publicaciones as $publicacion)
+                <div class="col-6 p-0">
+                    <div class="card">
+                        <h5 class="card-header">
+                            {{$publicacion->correlativo}}
+                        </h5>
+                        <div class="card-body">
+                          <h5 class="card-title">
+                            {{$publicacion->titulo}}
+                          </h5>
+                          <p class="card-text">
+                        {{$publicacion->subtitulo}}
+                        </p>
+                          <a href="#" class="btn custom-btn">Ver Publicación</a>
+                        </div>
+                      </div>
+                    
+                </div>
+            @endforeach
+
         </div>
-    </header>
-    <script src="{{ url('js/home.js') }}"></script>
+    </section>
 @endsection
