@@ -1,4 +1,4 @@
-@extends('convenios.conveniostemplate')
+@extends('idiomas.idiomastemplate')
 @section('content')
     <div class="container">
         <h1> 
