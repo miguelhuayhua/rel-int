@@ -31,14 +31,14 @@
             <li class="nav-item custom-nav-item" id="home">
                 <a class="nav-link custom-link" href="/">Inicio</span></a>
             </li>
-            <li class="nav-item custom-nav-item">
-                <a class="nav-link custom-link" href="actividades">Actividades</a>
+            <li class="nav-item custom-nav-item" id="actividades">
+                <a class="nav-link custom-link" href="/actividades">Actividades</a>
             </li>
             <li class="nav-item custom-nav-item" id="publicaciones">
-                <a class="nav-link custom-link" href="publicaciones">Publicaciones</a>
+                <a class="nav-link custom-link" href="/publicaciones">Publicaciones</a>
             </li>
-            <li class="nav-item custom-nav-item">
-                <a class="nav-link custom-link" href="galeria">Galeria</a>
+            <li class="nav-item custom-nav-item" id="galeria">
+                <a class="nav-link custom-link" href="/galeriarrnnii">Galeria</a>
             </li>
             <li class="nav-item custom-nav-item" id="contacto">
                 <a class="nav-link custom-link" href="contacto">Contactos</a>
@@ -54,16 +54,16 @@
                 <a class="nav-link custom-link" href="/">Inicio</span></a>
             </li>
             <li class="nav-item custom-nav-item">
-                <a class="nav-link custom-link" href="actividades">Actividades</a>
+                <a class="nav-link custom-link" href="/actividades">Actividades</a>
             </li>
             <li class="nav-item custom-nav-item" id="publicaciones">
-                <a class="nav-link custom-link" href="publicaciones">Publicaciones</a>
+                <a class="nav-link custom-link" href="/publicaciones">Publicaciones</a>
             </li>
             <li class="nav-item custom-nav-item">
-                <a class="nav-link custom-link" href="galeria">Galeria</a>
+                <a class="nav-link custom-link" href="/galeriarrnnii">Galeria</a>
             </li>
             <li class="nav-item custom-nav-item" id="contacto">
-                <a class="nav-link custom-link" href="contacto">Contactos</a>
+                <a class="nav-link custom-link" href="/contacto">Contactos</a>
             </li>
         </ul>
     </nav>
