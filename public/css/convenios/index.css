@@ -87,37 +87,32 @@
     max-width: 150px;
 }
 
-/*Convenios, item en la parte del elemento <li></li>*/
-.gestion-lista {
-    display: flex;
-    flex-wrap: wrap;
-}
+/*Convenios, item en la parte del elemento carreras <li></li>*/
 
-.gestion-item{
-    list-style: none;
-    margin-top: 20px;
-    margin-bottom: 20px ;
-}
 
-h1{
+
+h1 {
     color: #7e0c0a;
     font-weight: 200;
     text-align: center;
 }
-.gestion-item a{
+
+.carrera-item {
     text-decoration: none !important;
-    background-color: whitesmoke;
     color: #7e0c0a;
     font-weight: 200;
     text-align: center;
     padding: 10px 20px;
-    margin: 20px 10px;
-    border: 1px solid #7e0c0a5e;
+    display: block;
+    margin: 20px auto !important;
     border-radius: 5px;
     transition: background-color 1s, color 1s, border 1s, font-weight 1s;
 }
 
-.gestion-item a:hover{
+.carrera-item img{
+    width: 100%;
+}
+.gestion-item a:hover {
     background-color: #7e0c0a;
     color: white;
     border: 1px solid transparent;

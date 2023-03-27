@@ -1,0 +1,63 @@
+.beca-item {
+    list-style: none;
+    border: 1px solid rgb(219, 204, 204);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+h1 {
+    font-weight: 300;
+    color: brown;
+    text-align: center;
+    font-variant: small-caps;
+    margin: 20px 0 !important;
+}
+
+.beca-card {
+    position: relative;
+}
+
+/*parte de cada tarjeta de becas*/
+.beca-card h2 {
+    font-size: 1.3em;
+    font-weight: 300;
+    border-bottom: 1px solid rgb(202, 202, 202);
+    padding-bottom: 20px;
+    text-align: center;
+    color: brown;
+}
+
+.beca-card .pdf {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    box-shadow: 3px 3px 10px rgba(165, 42, 42, 0.548);
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: brown;
+    transition: background-color 1s, color 1s;
+}
+.beca-card i{
+    font-size: 2em;
+    color: inherit;
+}
+
+.beca-card:hover .pdf{
+    background-color: brown;
+    color: white;
+    transition: background-color 1s, color 1s;
+}
+.beca-card p {
+    font-weight: 300;
+}
+
+.beca-card span {
+    background-color: brown;
+    display: inline-block;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px 0 !important;
+}

@@ -12,16 +12,83 @@ h1 {
     display: block;
     width: 70%;
     margin: 10px auto;
-    background: linear-gradient(
-        90deg,
-        rgb(184, 60, 58) 0%,
-        rgb(107, 27, 20) 100%
-    );
+    background: linear-gradient(90deg,
+            rgb(184, 60, 58) 0%,
+            rgb(107, 27, 20) 100%);
     color: white;
 }
 
 .custom-btn:hover {
     background-color: white;
     color: brown;
-    transition: brack;
+}
+
+img {
+    width: 100%;
+}
+
+/*SECCIÓN EXCLUSIVA PARA EL APARTADO DE PUBLICACIONES*/
+
+.titulo {
+    color: brown;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 300;
+    margin: 10px auto !important;
+}
+
+.subtitulo {
+    font-weight: 300;
+    color: rgb(36, 36, 36);
+    font-size: 1.3em;
+    text-align: center;
+    margin: 20px auto !important;
+}
+
+.img-url {
+    display: block;
+    width: 70%;
+    margin: 0 auto !important;
+}
+
+.descripcion {
+    font-weight: 300;
+    color: rgb(36, 36, 36);
+    font-size: 1em;
+    text-align: center;
+    margin: 20px auto !important;
+}
+
+.fecha {
+    display: block;
+    background-color: brown;
+    font-weight: 300;
+    color: white;
+    width: 130px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: .9em;
+}
+
+.download-file {
+    position: absolute;
+    box-shadow: 3px 3px 10px rgba(165, 42, 42, 0.212);
+    border-radius: 3px;
+    right: 0;
+    padding: 10px  20px;
+    top: 0;
+    color: brown;
+    transition: background-color 1s, color 1s;
+}
+
+.download-file i{
+    color: inherit;
+    font-size: 1.5em;
+}
+
+.download-file:hover{
+    background-color: brown;
+    color: white;
+    transition: background-color 1s, color 1s;
 }

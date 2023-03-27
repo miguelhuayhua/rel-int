@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\convenios;
+
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -11,11 +12,11 @@ class ConveniosController extends Controller
 {
     public function index()
     {
-        $gestiones = DB::select(('SELECT * FROM sic_gestion ORDER BY nombre DESC'));
-        
+        $carreras = DB::select('SELECT * FROM sic_carrera');
+
         return view('convenios.index', [
             'title' => 'Convenios Relaciones Internacionales',
-            'gestiones' => $gestiones
+            'carreras' => $carreras
         ]);
     }
 }

@@ -85,14 +85,17 @@
         </div>
 
         <div class="row">
-            <div class="col-12">
-                <h3 class="collapse-title">
-                    Misión
-                </h3>
-                <button class="btn collapse-button" type="button" data-toggle="collapse" data-target="#mision"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
-                </button>
+            <div class="col-12 col-md-6">
+
+                <div class="d-flex justify-content-center">
+                    <h3 class="collapse-title">
+                        Misión
+                    </h3>
+                    <button class="btn collapse-button" type="button" data-toggle="collapse" data-target="#mision"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
                 <div class="collapse" id="mision">
                     <div class="ri-info">
                         <p>
@@ -106,13 +109,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <h3 class="collapse-title">Visión</h3>
-
-                <button class="btn collapse-button" type="button" data-toggle="collapse" data-target="#vision"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
-                </button>
+            <div class="col-12 col-md-6">
+                <div class="d-flex justify-content-center">
+                    <h3 class="collapse-title">Visión</h3>
+                    <button class="btn collapse-button" type="button" data-toggle="collapse" data-target="#vision"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
                 <div class="collapse" id="vision">
                     <div class="ri-info">
                         <p>
@@ -127,12 +131,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <h3 class="collapse-title">Líneas de Acción</h3>
-                <button class="btn collapse-button" type="button" data-toggle="collapse" data-target="#lineas-accion"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
-                </button>
+            <div class="col-12 col-md-6">
+                <div class="d-flex justify-content-center">
+                    <h3 class="collapse-title">Líneas de Acción</h3>
+                    <button class="btn collapse-button" type="button" data-toggle="collapse" data-target="#lineas-accion"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
                 <div class="collapse" id="lineas-accion">
                     <div class="ri-info">
                         <p>
@@ -150,12 +156,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <h3 class="collapse-title">Funciones y Servicios</h3>
-                <button class="btn collapse-button" type="button" data-toggle="collapse" data-target="#funciones-servicios"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
-                </button>
+            <div class="col-12 col-md-6">
+
+                <div class="d-flex justify-content-center">
+                    <h3 class="collapse-title">Funciones y Servicios</h3>
+                    <button class="btn collapse-button" type="button" data-toggle="collapse"
+                        data-target="#funciones-servicios" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
                 <div class="collapse" id="funciones-servicios">
                     <div class="ri-info">
                         <p>
@@ -180,13 +189,15 @@
                 </div>
             </div>
             <div class="col-12">
-                <h3 class="collapse-title">
-                    Objetivos
-                </h3>
-                <button class="btn collapse-button" type="button" data-toggle="collapse" data-target="#objetivos"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
-                </button>
+                <div class="d-flex justify-content-center">
+                    <h3 class="collapse-title">
+                        Objetivos
+                    </h3>
+                    <button class="btn collapse-button" type="button" data-toggle="collapse" data-target="#objetivos"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
                 <div class="collapse" id="objetivos">
                     <div class="ri-info">
                         <ol>
