@@ -67,7 +67,6 @@
             </div>
 
     </header>
-
     <main class="container my-5">
         <div class="row d-flex justify-content-around">
             <a href="convenios" class="col-5 col-md-3 news-card">

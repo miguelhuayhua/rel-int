@@ -15,8 +15,8 @@
             @if ($carrera_convenios == null)
                 <div class="col-12 col-md-7">
                     <p>
-                        No existen convenios actuales disponibles 
-                        para {{$carrera->nom_carrera}}
+                        No existen convenios actuales disponibles
+                        para {{ $carrera->nom_carrera }}
                     </p>
                 </div>
             @else
@@ -28,7 +28,7 @@
                                     <p class="publicacion">
                                         Publicado el:
                                         <span>
-                                            {{ $convenio->fecha_publicacion }}
+                                            {{ date('Y-m-d',strtotime($convenio->fecha_publicacion)) }}
                                         </span>
                                     </p>
                                     <h3>
@@ -43,9 +43,13 @@
                                         {{ $convenio->entidad }}
 
                                     </p>
-                                    <a href="{{ url('conveniosPdf/pdf1.pdf') }}" target="blank" class="pdf">
-                                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-                                    </a>
+                                    @if ($convenio->pdf_convenio == null)
+                                    @else
+                                        <a href="{{ url($convenio->pdf_convenio) }}" target="blank" class="pdf">
+                                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                        </a>
+                                    @endif
+
                                 </div>
 
                             </li>
