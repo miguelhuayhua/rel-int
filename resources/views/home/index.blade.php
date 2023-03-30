@@ -60,7 +60,8 @@
                     <p class="counter">
                         <span id="span4">
                             {{ $oferta_becas->total }}
-                        </span>Oferta de Becas
+                        </span>
+                        Oferta de Becas
                     </p>
                 </div>
                 <hr>

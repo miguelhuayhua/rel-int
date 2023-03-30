@@ -1,9 +1,10 @@
-.custom-card h2{
+.custom-card h2 {
     font-size: 1.25em;
     text-align: center;
     margin: 10px auto !important;
     font-weight: 200;
 }
+
 .custom-card h1 {
     font-weight: 300;
     color: brown;
@@ -11,6 +12,14 @@
     font-size: 1.4em;
 }
 
-.custom-card img{
+.custom-card img {
     width: 100%;
+}
+
+.alerta-error {
+    color: brown;
+    font-size: 1em;
+    text-align: center;
+    margin: 10px auto !important;
+    font-weight: 300;
 }

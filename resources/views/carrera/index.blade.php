@@ -14,7 +14,7 @@
             </div>
             @if ($carrera_convenios == null)
                 <div class="col-12 col-md-7">
-                    <p>
+                    <p class="alerta-error">
                         No existen convenios actuales disponibles
                         para {{ $carrera->nom_carrera }}
                     </p>
@@ -28,7 +28,7 @@
                                     <p class="publicacion">
                                         Publicado el:
                                         <span>
-                                            {{ date('Y-m-d',strtotime($convenio->fecha_publicacion)) }}
+                                            {{ date('Y-m-d', strtotime($convenio->fecha_publicacion)) }}
                                         </span>
                                     </p>
                                     <h3>
