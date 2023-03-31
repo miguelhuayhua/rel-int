@@ -11,6 +11,10 @@
             <i class="fa fa-linkedin"></i>
         </a>
     </div>
+    <a class="login" href="/login">
+        Iniciar Sesión
+        <i class="fa fa-sign-in" aria-hidden="true"></i>
+    </a>
 </div>
 <nav class="navbar navbar-expand-lg custom-navbar">
     <a class="navbar-brand" style="    border-right: #7e0c0a34 1px solid;
@@ -26,7 +30,7 @@
         <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
 
-    <div class="collapse navbar-collapse" >
+    <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item custom-nav-item" id="home">
                 <a class="nav-link custom-link" href="/">Inicio</span></a>
@@ -44,7 +48,6 @@
                 <a class="nav-link custom-link" href="contacto">Contactos</a>
             </li>
         </ul>
-
     </div>
 </nav>
 <div class="custom-toggle-navbar" id="navbarResponsive">

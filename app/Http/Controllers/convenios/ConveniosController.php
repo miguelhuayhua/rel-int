@@ -14,7 +14,7 @@ class ConveniosController extends Controller
     {
         $carreras = DB::select('SELECT * FROM sic_carrera');
 
-        return view('convenios.index', [
+        return view('cliente.convenios.index', [
             'title' => 'Convenios Relaciones Internacionales',
             'carreras' => $carreras
         ]);

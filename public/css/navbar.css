@@ -7,14 +7,15 @@
     z-index: 2000;
     background-color: white;
 }
+
 /*Parte de la imagen con el brand, redirecciona a la página principal*/
-.custom-navbar a{
+.custom-navbar a {
     display: flex;
     align-items: center;
     height: 60px;
 }
 
-.custom-navbar p{
+.custom-navbar p {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,9 +25,11 @@
     color: #7e0c0a;
     padding-right: 1em;
 }
-.custom-navbar span{
+
+.custom-navbar span {
     font-weight: bold;
 }
+
 .custom-img {
     width: 80px !important;
     height: 50px;
@@ -37,6 +40,7 @@
     transform: rotate(360deg);
     transition: transform 1s;
 }
+
 /*Enlaces del navbar*/
 .custom-nav-item {
     display: flex;
@@ -75,6 +79,7 @@
     color: white;
     font-weight: 300;
     height: 50px;
+    position: relative;
 }
 
 .contact-info p {
@@ -126,6 +131,24 @@
     z-index: 2000;
     transform: translateY(-130%);
     transition: transform 0.6s;
+}
+
+/*apartado para el login*/
+.login {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: white;
+}
+
+.login i {
+    color: white;
+    font-size: 2em;
+    margin-left: .25em;
 }
 
 /*this sections works with javascript navbar.js*/

@@ -1,4 +1,4 @@
-@extends('convenios.conveniostemplate')
+@extends('cliente.convenios.conveniostemplate')
 @section('content')
     <main class="container">
         <div class="row">

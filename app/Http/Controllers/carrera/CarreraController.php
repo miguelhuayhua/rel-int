@@ -14,7 +14,7 @@ class CarreraController extends Controller
       WHERE scc.id_carrera = ? AND sc.estado = 'Activo'", [$id_carrera]);
         $carrera = collect(DB::select("SELECT * FROM sic_carrera WHERE id_carrera = ?", [$id_carrera]))->first();
         return view(
-            'carrera.index',
+            'cliente.carrera.index',
             [
                 'title' => $carrera->nom_carrera,
                 'carrera' => $carrera,

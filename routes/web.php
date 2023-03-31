@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/galeria', [App\Http\Controllers\GaleriaController::class, 'index']);
 Route::get('/contacto', function () {
-    return view('contacto.index', ['title' => 'Contacto - Relaciones Internacionales UPEA']);
+    return view('cliente.contacto.index', ['title' => 'Contacto - Relaciones Internacionales UPEA']);
 });
 Route::get('/convenios', [\App\Http\Controllers\convenios\ConveniosController::class, 'index']);
 Route::get('/convenios/nacionales', [\App\Http\Controllers\convenios\NacionalesController::class, 'index']);

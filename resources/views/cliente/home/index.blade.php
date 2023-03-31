@@ -1,4 +1,4 @@
-@extends('home.hometemplate')
+@extends('cliente.home.hometemplate')
 @section('content')
     <!-- Toda la sección del header en la ruta principal "/" -->
     <header class="container-fluid">

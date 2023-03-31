@@ -12,7 +12,7 @@ class PublicacionesController extends Controller
         $publicaciones =  DB::select("SELECT * FROM publicaciones WHERE tipo_publicaciones = 'Publicaciones' AND estado = 1
         ORDER BY id_publicaciones desc");
         
-        return view('publicaciones.index', [
+        return view('cliente.publicaciones.index', [
             'title' => 'Publicaciones',
             'publicaciones' => $publicaciones
         ]);

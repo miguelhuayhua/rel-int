@@ -13,7 +13,7 @@ else if (url.includes('publicaciones')) {
 else if (url.includes('actividades')) {
     document.getElementById('actividades').classList.add('active-navbar-item');
 }
-else if (url.includes('galeriarrnnii')) {
+else if (url.includes('galeria')) {
     document.getElementById('galeria').classList.add('active-navbar-item');
 }
 //evento click al boton del navbar modo responsive

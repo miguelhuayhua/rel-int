@@ -11,7 +11,7 @@ class GaleriaController extends Controller
     {
         $imagenes = DB::select("SELECT * FROM galeria WHERE estado_galeria = 1");
         return view(
-            'galeria.index',
+            'cliente.galeria.index',
             [
                 "title" => "Galeria",
                 "imagenes" => $imagenes

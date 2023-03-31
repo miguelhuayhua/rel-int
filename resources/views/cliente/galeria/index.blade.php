@@ -1,4 +1,4 @@
-@extends('galeria.galeriatemplate')
+@extends('cliente.galeria.galeriatemplate')
 @section('content')
     <section class="container">
         <div class="row">

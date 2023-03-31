@@ -19,7 +19,7 @@ class HomeController extends Controller
         $total_publicaciones = collect(DB::select('SELECT count(*) AS total FROM publicaciones WHERE estado = 1'))->first();
         $oferta_becas = collect(DB::select("SELECT count(*) AS total FROM publicaciones WHERE estado = 1 AND tipo_publicaciones = 'Becas'"))->first();
         $carreras = DB::select("SELECT * FROM sic_carrera");
-        return view('home.index', [
+        return view('cliente.home.index', [
             'title' => 'Relaciones Internacionales - UPEA',
             'visitas' => $visitas,
             'total_convenios' => $total_convenios,

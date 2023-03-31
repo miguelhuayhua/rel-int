@@ -1,4 +1,4 @@
-@extends('convenios.conveniostemplate')
+@extends('cliente.convenios.conveniostemplate')
 @section('content')
     <div class="container">
         <div class="row d-flex justify-content-around">

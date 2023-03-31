@@ -22,7 +22,7 @@ class CarreraConvenio extends Controller
             [$id, ucfirst($tipo),'Activo']
         ); // hace el listado de todos los convenios dado el id de la carrera y el tipo de convenio 'Nacionales' | 'Internacionales'
         return view(
-            'convenios.carreraconvenio',
+            'cliente.convenios.carreraconvenio',
             [
                 'tipo' => $tipo,
                 'id' => $id,

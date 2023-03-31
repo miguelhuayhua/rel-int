@@ -1,4 +1,4 @@
-@extends('actividades.actividadestemplate')
+@extends('cliente.actividades.actividadestemplate')
 @section('content')
     <div class="container">
         <h1 class="mt-3">Oferta de Convenios, Becas e Idiomas</h1>

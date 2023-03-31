@@ -1,4 +1,4 @@
-@extends('carrera.carreratemplate')
+@extends('cliente.carrera.carreratemplate')
 
 @section('content')
     <section class="container">

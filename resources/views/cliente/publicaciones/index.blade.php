@@ -1,4 +1,4 @@
-@extends('publicaciones.publicacionestemplate')
+@extends('cliente.publicaciones.publicacionestemplate')
 @section('content')
 <section class="container">
   <div class="row d-flex justify-content-around">

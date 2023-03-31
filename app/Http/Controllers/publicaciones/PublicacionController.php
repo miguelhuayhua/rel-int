@@ -14,7 +14,7 @@ class PublicacionController extends Controller
 
         $publicacion = collect(DB::select("SELECT * FROM publicaciones_archivo pa RIGHT JOIN publicaciones  p on pa.id_publicaciones= p.id_publicaciones WHERE p.id_publicaciones = ?", [$id_publicaciones]))->first();
         return view(
-            'publicaciones.publicacion',
+            'cliente.publicaciones.publicacion',
             [
                 'title' => 'Publicación',
                 'publicacion' => $publicacion
