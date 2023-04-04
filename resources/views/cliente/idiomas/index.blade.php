@@ -1,4 +1,4 @@
-@extends('idiomas.idiomastemplate')
+@extends('cliente.idiomas.idiomastemplate')
 @section('content')
     <div class="container">
         <h1>

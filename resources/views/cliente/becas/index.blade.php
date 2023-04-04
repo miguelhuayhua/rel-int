@@ -1,4 +1,4 @@
-@extends('becas.becastemplate')
+@extends('cliente.becas.becastemplate')
 @section('content')
     <div class="container">
         <div class="container">

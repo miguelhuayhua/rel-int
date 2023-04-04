@@ -18,8 +18,9 @@
 
                                 </span>
                             </p>
-                            <a href="/convenios/{{$tipo}}/{{$carrera->id_carrera}}">
-                                Ver Convenios {{ucfirst(trans($tipo))}}</a>
+                            <a href="/convenios/{{ $tipo }}/{{ $carrera->id_carrera }}">
+                                Ver Convenios {{ ucfirst(trans($tipo)) }}</a>{{$tipo}}
+                            <button onclick="mostrarConvenios('{{$tipo}}',{{ $carrera->id_carrera }},'a')">Ver convenios {{ ucfirst(trans($tipo)) }}</button>
                         </div>
                     </div>
                 </div>

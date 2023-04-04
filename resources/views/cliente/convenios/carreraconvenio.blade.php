@@ -32,9 +32,7 @@
                                     {{ $convenio->entidad }}
 
                                 </p>
-                                <a  href="{{ url('conveniosPdf/pdf1.pdf') }}"
-                                target="blank"
-                                    class="pdf">
+                                <a href="{{ url('conveniosPdf/pdf1.pdf') }}" target="blank" class="pdf">
                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                                 </a>
                             </div>
