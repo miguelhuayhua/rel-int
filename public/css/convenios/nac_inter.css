@@ -7,13 +7,15 @@
     padding: 5px;
     margin: 10px auto !important;
 }
+
 .custom-card img {
     width: 70%;
     margin: 10px auto;
     display: block;
     max-width: 150px;
 }
-.custom-card:hover{
+
+.custom-card:hover {
     scale: 1.05;
     box-shadow: 0px 0px 10px rgba(165, 42, 42, 0.116);
     transition: scale .7s, box-shadow .7s;
@@ -37,10 +39,10 @@
     color: rgb(88, 88, 88);
 }
 
-.custom-card-body a {
+.custom-card-body button {
     display: block;
     text-decoration: none;
-    padding: 10px 0 ;
+    padding: 10px 0;
     margin: 10px auto;
     width: 150px;
     text-align: center;
@@ -49,7 +51,7 @@
     border-radius: 5px;
 }
 
-.custom-card-body a:hover{
+.custom-card-body button:hover {
     background-color: #7e0c0a;
     color: whitesmoke;
     transition: background-color 1s, color 1s;
@@ -60,3 +62,118 @@ p span {
     color: brown;
 }
 
+/*ventana modal*/
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1000px;
+    background-color: rgba(0, 0, 0, 0.267);
+    z-index: 10000;
+    transform: translateX(-100%);
+    transition: transform .75s;
+
+}
+
+.custom-modal {
+    position: relative;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    width: 90% !important;
+    height: 90%;
+    z-index: 10000;
+    overflow-y: scroll;
+}
+
+.show-modal {
+    transform: translateX(0%);
+    transition: transform .75s;
+}
+
+/*items*/
+
+/*fecha de publicación*/
+.publicacion {
+    background-color: brown;
+    color: rgb(196, 196, 196) !important;
+    display: inline-block;
+    font-size: .9em;
+    padding: 2px 5px;
+    border-radius: 10px;
+}
+
+.publicacion span {
+    color: white !important;
+}
+
+.list {
+    padding: 0 !important;
+}
+
+.list-item {
+    list-style: none;
+    margin: 10px auto !important;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.274);
+    border-radius: 10px;
+    padding: 10px !important;
+}
+
+
+.custom-item {
+    width: 90%;
+    margin: 10px auto !important;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.custom-item h3 {
+    font-size: 1em;
+    font-weight: 300;
+    color: brown;
+    text-align: center;
+}
+
+.custom-item p {
+    font-weight: 300 !important;
+    color: rgb(95, 95, 95) !important;
+}
+
+.custom-item span {
+    font-size: 1em;
+    font-weight: bold;
+    color: brown;
+    text-align: center;
+}
+
+/*PDF button*/
+.pdf {
+    width: 60px;
+    height: 60px;
+    margin: 10px auto;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: background-color .7s;
+}
+
+.pdf i {
+    color: brown;
+    font-size: 2.7em;
+    transition: color .7s;
+}
+
+.pdf:hover {
+    background-color: brown;
+    transition: background-color .7s;
+}
+
+.pdf:hover i {
+    color: white;
+    transition: color .7s;
+}

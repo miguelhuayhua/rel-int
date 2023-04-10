@@ -3,6 +3,7 @@
     <div class="container">
         <div class="row d-flex justify-content-around">
 
+
             @foreach ($vista as $carrera)
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="custom-card">
@@ -18,13 +19,22 @@
 
                                 </span>
                             </p>
-                            <a href="/convenios/{{ $tipo }}/{{ $carrera->id_carrera }}">
-                                Ver Convenios {{ ucfirst(trans($tipo)) }}</a>{{$tipo}}
-                            <button onclick="mostrarConvenios('{{$tipo}}',{{ $carrera->id_carrera }},'a')">Ver convenios {{ ucfirst(trans($tipo)) }}</button>
+                            <button class="btn"
+                                onclick="mostrarConvenios('{{ $tipo }}',{{ $carrera->id_carrera }},'a')">
+                                Ver convenios {{ ucfirst(trans($tipo)) }}</button>
                         </div>
                     </div>
                 </div>
             @endforeach
+        </div>
+
+    </div>
+    <div id="modal" class="modal-container">
+        <div class="custom-modal">
+            <div class="row">
+                <ul id="lista-convenios" class="list">
+                </ul>
+            </div>
         </div>
     </div>
 @endsection
