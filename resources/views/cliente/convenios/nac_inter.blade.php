@@ -20,7 +20,7 @@
                                 </span>
                             </p>
                             <button class="btn"
-                                onclick="mostrarConvenios('{{ $tipo }}',{{ $carrera->id_carrera }},'a')">
+                                onclick="mostrarConvenios('{{ $tipo }}','{{ $carrera->id_carrera }}','a')">
                                 Ver convenios {{ ucfirst(trans($tipo)) }}</button>
                         </div>
                     </div>
