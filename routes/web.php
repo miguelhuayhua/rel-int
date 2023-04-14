@@ -30,3 +30,7 @@ Route::get('/publicaciones', [\App\Http\Controllers\publicaciones\PublicacionesC
 Route::get('/publicaciones/{id_publicaciones}', [\App\Http\Controllers\publicaciones\PublicacionController::class, 'index']);
 Route::get('/carrera/{id_carrera}', [\App\Http\Controllers\carrera\CarreraController::class, 'index']);
 Route::get('/login', [\App\Http\Controllers\login\LoginController::class, 'index']);
+
+
+//RUTAS PARA EL ADMINISTRADOR
+Route::get('/dashboard', [\App\Http\Controllers\admin\dashboard\DashboardController::class, 'index']);
