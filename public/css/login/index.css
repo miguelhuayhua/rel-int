@@ -2,7 +2,7 @@
     box-shadow: 0 0 5px rgba(75, 20, 20, 0.315);
     border-radius: 10px;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 150px;
 }
 
 .login-card img{
@@ -10,4 +10,39 @@
     display: block;
     margin: 0 auto !important;
     padding: 30px 0;
+}
+h1{
+    font-weight: 200;
+    text-align: center;
+    font-size: 1.5em;
+    color: brown;
+}
+/*etiquetas e inputs*/
+label{
+    color: brown;
+    font-weight: 300;
+    margin-top: 40px;
+}
+input{
+    font-size: .9em !important;
+    border: rgb(241, 214, 214) 1px solid !important; 
+}
+input:focus{
+    box-shadow: 0 0 10px rgb(255, 220, 220) !important;
+}
+/*boton del login*/
+.btn-login{
+    display: block;
+    margin: 30px auto;
+    width: 60%;
+    background-color: brown;
+    color: whitesmoke;
+    transition:  background-color .75s, color .75s, border .75s;
+}
+
+.btn-login:hover{
+    background-color: white;
+    color: brown;
+    border: 1px solid rgb(250, 216, 216);
+    transition:  background-color .75s, color .75s, border .75s;
 }

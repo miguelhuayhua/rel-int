@@ -33,4 +33,10 @@ Route::get('/login', [\App\Http\Controllers\login\LoginController::class, 'index
 
 
 //RUTAS PARA EL ADMINISTRADOR
-Route::get('/dashboard', [\App\Http\Controllers\admin\dashboard\DashboardController::class, 'index']);
+Route::get('/dashboard', [\App\Http\Controllers\admin\dashboard\DashboardController::class, 'index'])->name('dashboard');
+
+
+
+
+//RUTAS DE LOGUEO
+Route::post('/login', [\App\Http\Controllers\login\LoginController::class, 'iniciarSesion']);

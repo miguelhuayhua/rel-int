@@ -3,10 +3,16 @@
 namespace App\Http\Controllers\admin\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\EnsureTokenIsValid;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(EnsureTokenIsValid::class);
+    }
     public function index()
     {
         return view('admin.dashboard.index', ['title' => "Dashboard"]);
