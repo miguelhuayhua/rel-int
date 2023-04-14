@@ -29,3 +29,4 @@ Route::get('/idiomas', [App\Http\Controllers\idiomas\IdiomasController::class, '
 Route::get('/publicaciones', [\App\Http\Controllers\publicaciones\PublicacionesController::class, 'index']);
 Route::get('/publicaciones/{id_publicaciones}', [\App\Http\Controllers\publicaciones\PublicacionController::class, 'index']);
 Route::get('/carrera/{id_carrera}', [\App\Http\Controllers\carrera\CarreraController::class, 'index']);
+Route::get('/login', [\App\Http\Controllers\login\LoginController::class, 'index']);

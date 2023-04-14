@@ -1,0 +1,13 @@
+.login-card {
+    box-shadow: 0 0 5px rgba(75, 20, 20, 0.315);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.login-card img{
+    width: 125px;
+    display: block;
+    margin: 0 auto !important;
+    padding: 30px 0;
+}
