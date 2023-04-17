@@ -5,12 +5,14 @@ namespace App\Http\Controllers\login;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
     public function index()
     {
+
         return view(
             'cliente.login.login',
             ["title" => "Login - Relaciones Internacionales"]
@@ -19,9 +21,25 @@ class LoginController extends Controller
 
     public function iniciarSesion(Request $request)
     {
-        $token = csrf_token();
-        $encryptSession = Crypt::encryptString($token);
-        $cookie = cookie('s',$encryptSession,0,null);
-        return Redirect::route('dashboard')->cookie($cookie);
+
+        $username = $request->get('usuario');
+        $password = $request->get('password');
+
+        $id_usuario = collect(DB::select(
+            "SELECT id_usuario FROM sic_usuario WHERE usuario = ? AND password = ? ",
+            [$username, md5($password)]
+        ))->first();
+        if ($id_usuario) {
+            //generador de tokens
+            $token = substr(sha1(rand()),0,16);
+            DB::insert("UPDATE sic_usuario SET login_token = ?
+            WHERE id_usuario = ? ", [$token, $id_usuario->id_usuario]);
+            DB::commit();
+            
+            $cookie = cookie('t', $token, 0, null);
+            return Redirect::route('dashboard')->cookie($cookie);
+        } else {
+            return Redirect::route('login');
+        }
     }
 }

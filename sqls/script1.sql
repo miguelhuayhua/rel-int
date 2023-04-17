@@ -34,3 +34,6 @@ CREATE vista_convenios_nacionales AS select `sc`.`id_carrera`,`sc`.`nom_carrera`
 
 #14 de Abril agregando nueva columna de token 
 ALTER TABLE relaciones.sic_usuario ADD login_token TEXT;
+
+#17 DE ABRIL, se modifica la columna de password a texto
+ALTER TABLE relaciones.sic_usuario MODIFY password TEXT;

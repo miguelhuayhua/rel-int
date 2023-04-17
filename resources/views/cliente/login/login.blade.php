@@ -32,12 +32,12 @@
                         <div class="form-group">
                             <label for="usuario">Nombre de Usuario:</label>
                             <input type="text" class="form-control" id="usuario" aria-describedby="emailHelp"
-                                placeholder="Introduzca su nombre de usuario">
+                                name="usuario" placeholder="Introduzca su nombre de usuario">
 
                         </div>
                         <div class="form-group">
                             <label for="password">Contraseña:</label>
-                            <input type="password" class="form-control" id="password"
+                            <input type="password" class="form-control" id="password" name="password"
                                 placeholder="Introduzca su contraseña">
                         </div>
                         <button type="submit" class="btn btn-login">Iniciar Sesión</button>

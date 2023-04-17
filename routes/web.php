@@ -39,4 +39,4 @@ Route::get('/dashboard', [\App\Http\Controllers\admin\dashboard\DashboardControl
 
 
 //RUTAS DE LOGUEO
-Route::post('/login', [\App\Http\Controllers\login\LoginController::class, 'iniciarSesion']);
+Route::post('/login', [\App\Http\Controllers\login\LoginController::class, 'iniciarSesion'])->name('login');
