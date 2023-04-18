@@ -1,0 +1,15 @@
+.buttons {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 0 10px rgb(207, 207, 207);
+}
+
+/*cabecera del usuario*/
+.user-cards {
+    width: 90%;
+    margin: 1em auto !important;
+    background-color:  white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(223, 228, 233);
+}
