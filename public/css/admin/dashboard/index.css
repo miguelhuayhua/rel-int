@@ -9,7 +9,26 @@
 .user-cards {
     width: 90%;
     margin: 1em auto !important;
-    background-color:  white;
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(223, 228, 233);
+}
+
+.custom-icon {
+    font-size: 1.5em !important;
+}
+
+/*dashboard buttons*/
+.dash-parent-button {
+    width: 100%;
+    color: rgb(70, 70, 70);
+    font-weight: 300;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: transform 1s;
+}
+.rotateicon{
+    transform: rotate(90deg);
+    transition: transform 1s;
 }
