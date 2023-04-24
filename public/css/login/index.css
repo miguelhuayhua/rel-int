@@ -46,3 +46,4 @@ input:focus{
     border: 1px solid rgb(250, 216, 216);
     transition:  background-color .75s, color .75s, border .75s;
 }
+

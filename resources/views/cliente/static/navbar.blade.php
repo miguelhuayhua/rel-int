@@ -19,7 +19,7 @@
 <nav class="navbar navbar-expand-lg custom-navbar">
     <a class="navbar-brand" style="    border-right: #7e0c0a34 1px solid;
     " href="/">
-        <img src="/images/logorrnnii.png" class="custom-img mx-3 px-3" alt="">
+        <img src="{{url('/images/logorrnnii.png')}}" class="custom-img mx-3 px-3" alt="">
         <p>Relaciones Internacionales
             <span>UPEA</span>
         </p>

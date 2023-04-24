@@ -5,8 +5,8 @@ let girarIcono = (icono) => {
     icono.classList.toggle('rotateicon');
 }
 tipo1.addEventListener('click', (ev) => {
-    girarIcono(tipo1.children[0])
+    girarIcono(tipo1.children[1])
 })
 tipo2.addEventListener('click', (ev) => {
-    girarIcono(tipo2.children[0])
+    girarIcono(tipo2.children[1])
 })
