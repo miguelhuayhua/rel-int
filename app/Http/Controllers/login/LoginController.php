@@ -27,7 +27,7 @@ class LoginController extends Controller
             if (collect(DB::select("SELECT * FROM sic_usuario WHERE login_token = ?", [$request->cookie('t')]))) {
                 return Redirect::route('dashboard');
             } else {
-                return Redirect::route('login');
+                return Redirect::route('dashboard')->withoutCookie(cookie('t'));
             }
         } else {
             $id_usuario = collect(DB::select(
@@ -40,11 +40,10 @@ class LoginController extends Controller
                 DB::insert("UPDATE sic_usuario SET login_token = ?
                 WHERE id_usuario = ? ", [$token, $id_usuario->id_usuario]);
                 DB::commit();
-
                 $cookie = cookie('t', $token, 0, null);
                 return Redirect::route('dashboard')->cookie($cookie);
             } else {
-                return Redirect::route('login');
+                return Redirect::route('dashboard');
             }
         }
     }

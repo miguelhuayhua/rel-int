@@ -41,6 +41,13 @@
 /*iconos personalizados*/
 .icon{
     color: brown;
-    margin-right: 1em;
     font-size: 1.4em !important;
+    width: 40px;
+}
+
+.icon-flex{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
