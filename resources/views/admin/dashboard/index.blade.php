@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="col-md-9 col-lg-10" style="background-color: #f5f5f9;">
-                <div class="div-12">
+                <div class="col-12">
                     <div class="user-cards">
                         <span><a href="/dashboard">Dashboard</a></span>
                         <div class="profile">
@@ -78,6 +78,26 @@
                                 {{ $usuario->usuario }}
                             </span>
                         </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="user-cards">
+                        <h3>
+                            Felicidades {{ $usuario->usuario }}
+                        </h3>
+                        <p>
+                            Haz obtenido <b>90</b> visitas hoy
+                        </p>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-2"></div>
+                <div class="col-6">
+                    <div class="user-cards">
+                        <p>
+                            Carreras con más convenios
+                        </p>
+
                     </div>
                 </div>
             </div>
