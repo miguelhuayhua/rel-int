@@ -34,8 +34,7 @@ Route::get('/login', [\App\Http\Controllers\login\LoginController::class, 'index
 
 //RUTAS PARA EL ADMINISTRADOR
 Route::get('/dashboard', [\App\Http\Controllers\admin\dashboard\DashboardController::class, 'index'])->name('dashboard');
-
-
+Route::get('dashboard/aconvenio', [\App\Http\Controllers\admin\convenios::class, 'index']);
 
 
 //RUTAS DE LOGUEO

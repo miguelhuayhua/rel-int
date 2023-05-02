@@ -19,3 +19,9 @@ tipo3.addEventListener('click', (ev) => {
 tipo4.addEventListener('click', (ev) => {
     girarIcono(tipo4.children[1])
 })
+
+
+let toggle = document.getElementById('toggleLeft');
+toggle.addEventListener('click', (ev) => {
+    document.getElementById('leftNav').classList.toggle('showLeftNav');
+})
