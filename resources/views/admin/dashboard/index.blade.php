@@ -10,15 +10,7 @@
             <div class="col-md-9 col-lg-10" style="background-color: #f5f5f9;">
                 <div class="row">
                     <div class="col-12">
-                        <div class="user-cards  mx-auto my-3 dashboard-profile">
-                            <a href="/dashboard">Dashboard</a>
-                            <div class="profile">
-                                <i class="fa fa-user-circle-o icon" aria-hidden="true"></i>
-                                <span>
-                                    {{ $usuario->usuario }}
-                                </span>
-                            </div>
-                        </div>
+                        @include('admin.topNavbar')
                     </div>
                     <div class="col-8">
                         <div class="user-cards">

@@ -1,6 +1,7 @@
 @extends('admin.dashboardtemplate')
 @section('content')
     <section class="container-fluid position-relative">
+        @include('admin.modal')
         <button id="toggleLeft" class="btn btn-toggle">
             <i class="fa fa-bars" aria-hidden="true">
             </i>
@@ -10,17 +11,36 @@
             <div class="col-md-9 col-xl-10" style="background-color: #f5f5f9;">
                 <div class="row">
                     <div class="col-12">
+                        @include('admin.topNavbar')
+                    </div>
+                    <div class="col-12 pt-2">
+                        <h2>
+                            Insertar Nuevo Convenio
+                        </h2>
                         <form>
                             <div class="row">
+                                <div class="col-6">
+                                    <img class="img2" id="imagen2" src="" alt="No seleccionado" srcset="">
+                                    <label for="imagen">Imagen:</label>
+                                    <input type="file" accept=".png, .jpg, .jpeg" class="form-control" id="imagen">
+                                </div>
+                                <div class="col-6">
+                                    <p id="doc2">
+                                        <i class="fa " aria-hidden="true"></i>
+                                    </p>
+                                    <label for="doc">Pdf/Word:</label>
+                                    <input type="file" accept=".docx, .pdf" class="form-control" id="doc">
+                                </div>
+                                <hr>
                                 <div class="form-group col-12">
                                     <label for="nombre">Nombre de Convenio:</label>
                                     <input type="text" class="form-control" id="nombre"
                                         placeholder="Introduzca el nombre del convenio">
                                 </div>
                                 <div class="form-group col-12">
-                                    <label for="objetivo">Nombre de Convenio:</label>
-                                    <textarea class="form-control" placeholder="Introduzca el objetivo del convenio" name="objetivo" id="objetivo"
-                                         rows="5"></textarea>
+                                    <label for="objetivo">Objetivo del Convenio:</label>
+                                    <textarea class="form-control" placeholder="Introduzca el objetivo del convenio" id="objetivo"
+                                        rows="5"></textarea>
                                 </div>
                                 <div class="col-6">
                                     <label for="firma">Fecha de Firma:</label>
@@ -51,9 +71,7 @@
                                         placeholder="ejemplo@entidad.com">
                                 </div>
                             </div>
-
-
-                            <button type="submit" class="btn btn-custom">Agregar Convenio</button>
+                            <div onclick="enviar(convenio)" class="btn btn-custom">Agregar Convenio</div>
                         </form>
                     </div>
                 </div>

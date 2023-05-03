@@ -158,27 +158,60 @@ b {
     transition: transform 1s;
 }
 
+/*Formulario*/
+
+h2 {
+    font-weight: 300;
+    text-align: center;
+    color: brown;
+    margin-bottom: 30px;
+    font-size: 1.4em;
+}
 
 /*Apartado para los estilos de inputs*/
-input{
+input {
     margin: 10px 0 !important;
 }
-input:focus, textarea{
+
+input:focus,
+textarea {
     box-shadow: 0 0 10px rgba(155, 93, 93, 0.377) !important;
     border: none !important;
 }
-input::placeholder, textarea::placeholder{
+
+input::placeholder,
+textarea::placeholder {
     font-weight: 300;
 }
-label{
+
+label {
     color: brown;
     font-weight: 300;
 }
 
-.btn-custom{
+.btn-custom {
     display: block;
     margin: 10px auto;
     text-align: center;
     background-color: brown;
     color: white;
+}
+
+/*Apartado especial para los inputs de tipo file*/
+.img2 {
+    width: 100%;
+}
+
+#doc2 {
+    display: none;
+    flex-direction: column;
+}
+
+#doc2 i {
+    color: brown;
+    font-size: 2em;
+}
+
+.show-doc2 {
+    display: flex !important;
 }
