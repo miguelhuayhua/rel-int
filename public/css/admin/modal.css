@@ -1,5 +1,5 @@
 .main {
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
@@ -7,7 +7,7 @@
     background-color: rgba(0, 0, 0, 0.541);
     z-index: 100;
     transform: translateY(-100%);
-    transition: transform 1s;
+    transition: transform .75s;
 }
 
 .pregunta {

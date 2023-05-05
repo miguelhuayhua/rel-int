@@ -24,14 +24,25 @@ doc.addEventListener('change', (e) => {
     doc2.append(e.target.files[0].name);
 })
 
-//Función para mostrar el modal
-
+//funciones de envio de datos de los formularios
 let convenio = () => {
-    console.log('hola')
-}
-let modal = document.getElementById('modal');
-let enviar = (correr) => {
-    correr();
-    modal.classList.add('showmodal');
+    document.getElementById('form-convenio').submit();
 }
 
+//Función para mostrar el modal
+let si = document.getElementById('si');
+let no = document.getElementById('no');
+let modal = document.getElementById('modal');
+let ejecutar = () => { };
+let enviar = (call) => {
+    modal.classList.add('showmodal');
+    ejecutar = call;
+}
+
+si.addEventListener('click', () => {
+    modal.classList.remove('showmodal');
+    ejecutar();
+});
+no.addEventListener('click', () => {
+    modal.classList.remove('showmodal');
+});

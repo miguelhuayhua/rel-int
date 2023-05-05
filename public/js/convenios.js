@@ -48,8 +48,3 @@ function mostrarConvenios(tipo, id) {
         });
     })
 }
-
-let modal = document.getElementById('modal');
-modal.addEventListener('click', (ev) => {
-    modal.classList.remove('show-modal');
-})

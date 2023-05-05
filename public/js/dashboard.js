@@ -25,3 +25,5 @@ let toggle = document.getElementById('toggleLeft');
 toggle.addEventListener('click', (ev) => {
     document.getElementById('leftNav').classList.toggle('showLeftNav');
 })
+
+

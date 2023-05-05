@@ -27,7 +27,7 @@ class LoginController extends Controller
             if (collect(DB::select("SELECT * FROM sic_usuario WHERE login_token = ?", [$request->cookie('t')]))) {
                 return Redirect::route('dashboard');
             } else {
-                return Redirect::route('dashboard')->withoutCookie(cookie('t'));
+                return Redirect::route('login')->withoutCookie(cookie('t'));
             }
         } else {
             $id_usuario = collect(DB::select(
@@ -43,7 +43,7 @@ class LoginController extends Controller
                 $cookie = cookie('t', $token, 0, null);
                 return Redirect::route('dashboard')->cookie($cookie);
             } else {
-                return Redirect::route('dashboard');
+                return Redirect::route('login');
             }
         }
     }

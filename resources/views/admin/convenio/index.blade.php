@@ -17,62 +17,69 @@
                         <h2>
                             Insertar Nuevo Convenio
                         </h2>
-                        <form>
+                        <form id="form-convenio" method="POST" action="/aconvenio">
+                            @csrf
                             <div class="row">
                                 <div class="col-6">
                                     <img class="img2" id="imagen2" src="" alt="No seleccionado" srcset="">
                                     <label for="imagen">Imagen:</label>
-                                    <input type="file" accept=".png, .jpg, .jpeg" class="form-control" id="imagen">
+                                    <input name="imagen" type="file" accept=".png, .jpg, .jpeg" class="form-control"
+                                        id="imagen">
                                 </div>
                                 <div class="col-6">
                                     <p id="doc2">
                                         <i class="fa " aria-hidden="true"></i>
                                     </p>
                                     <label for="doc">Pdf/Word:</label>
-                                    <input type="file" accept=".docx, .pdf" class="form-control" id="doc">
+                                    <input name="archivo" type="file" accept=".docx, .pdf" class="form-control"
+                                        id="doc">
                                 </div>
                                 <hr>
                                 <div class="form-group col-12">
                                     <label for="nombre">Nombre de Convenio:</label>
-                                    <input type="text" class="form-control" id="nombre"
+                                    <input type="text" class="form-control" id="nombre" name="nombre"
                                         placeholder="Introduzca el nombre del convenio">
                                 </div>
                                 <div class="form-group col-12">
                                     <label for="objetivo">Objetivo del Convenio:</label>
-                                    <textarea class="form-control" placeholder="Introduzca el objetivo del convenio" id="objetivo"
+                                    <textarea name="objetivo" class="form-control" placeholder="Introduzca el objetivo del convenio" id="objetivo"
                                         rows="5"></textarea>
                                 </div>
                                 <div class="col-6">
                                     <label for="firma">Fecha de Firma:</label>
-                                    <input id="firma" class="form-control" type="date">
+                                    <input name="fecha-firma" id="firma" class="form-control" type="date">
                                 </div>
                                 <div class="col-6">
                                     <label for="nombre">Dirección de Convenio:</label>
-                                    <input type="text" class="form-control" id="nombre"
+                                    <input type="text" class="form-control" id="nombre" name="direccion"
                                         placeholder="Introduzca la dirección del convenio">
                                 </div>
                                 <div class="col-6">
                                     <label for="tiempo">Tiempo de Duración:</label>
-                                    <input type="number" class="form-control" id="dias" placeholder="días">
+                                    <input name="tiempo" type="number" class="form-control" id="dias"
+                                        placeholder="días">
                                 </div>
                                 <div class="col-6">
                                     <label for="entidad">Entidad:</label>
-                                    <input type="text" class="form-control" id="entidad"
+                                    <input name="entidad" type="text" class="form-control" id="entidad"
                                         placeholder="Introduzca la entidad del convenio">
                                 </div>
                                 <div class="col-6">
                                     <label for="telefono">Teléfono / Celular:</label>
-                                    <input type="number" class="form-control" id="telefono"
+                                    <input name="telefono"type="number" class="form-control" id="telefono"
                                         placeholder="Introduzca su número de teléfono o celular">
                                 </div>
                                 <div class="col-6">
                                     <label for="email">Email:</label>
-                                    <input type="email" class="form-control" id="email"
+                                    <input type="email" class="form-control" id="email" name="email"
                                         placeholder="ejemplo@entidad.com">
                                 </div>
                             </div>
-                            <div onclick="enviar(convenio)" class="btn btn-custom">Agregar Convenio</div>
+                            <div onclick="enviar(convenio)" class="btn btn-custom w-25">Agregar Convenio</div>
                         </form>
+                        @php
+                            var_dump($prueba);
+                        @endphp
                     </div>
                 </div>
             </div>
