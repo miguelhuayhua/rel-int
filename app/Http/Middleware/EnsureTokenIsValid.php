@@ -18,7 +18,7 @@ class EnsureTokenIsValid
     public function handle(Request $request, Closure $next)
     {
         if ($request->hasCookie('t')) {
-            if (DB::select('SELECT id_persona FROM sic_usuario WHERE login_token', [$request->cookie('t')])) {
+            if (DB::select('SELECT id_persona FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')])) {
                 return $next($request);
             } else {
                 return redirect('login');

@@ -40,7 +40,7 @@ class LoginController extends Controller
                 DB::insert("UPDATE sic_usuario SET login_token = ?
                 WHERE id_usuario = ? ", [$token, $id_usuario->id_usuario]);
                 DB::commit();
-                $cookie = cookie('t', $token, 0, null);
+                $cookie = cookie('t', $token);
                 return Redirect::route('dashboard')->cookie($cookie);
             } else {
                 return Redirect::route('login');
