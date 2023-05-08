@@ -17,7 +17,7 @@
                         <h2>
                             Insertar Nuevo Convenio
                         </h2>
-                        <form id="form-convenio" method="POST" action="/aconvenio">
+                        <form enctype="multipart/form-data" id="form-convenio" method="POST" action="/aconvenio">
                             @csrf
                             <div class="row">
                                 <div class="col-6">
@@ -31,7 +31,7 @@
                                         <i class="fa " aria-hidden="true"></i>
                                     </p>
                                     <label for="doc">Pdf/Word:</label>
-                                    <input name="archivo" type="file" accept=".docx, .pdf" class="form-control"
+                                    <input name="file" type="file" accept=".docx, .pdf" class="form-control"
                                         id="doc">
                                 </div>
                                 <hr>
@@ -47,16 +47,16 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="firma">Fecha de Firma:</label>
-                                    <input name="fecha-firma" id="firma" class="form-control" type="date">
+                                    <input name="fecha_firma" id="firma" class="form-control" type="date">
                                 </div>
                                 <div class="col-6">
-                                    <label for="nombre">Dirección de Convenio:</label>
-                                    <input type="text" class="form-control" id="nombre" name="direccion"
+                                    <label for="direccion">Dirección de Convenio:</label>
+                                    <input type="text" class="form-control" id="direccion" name="direccion"
                                         placeholder="Introduzca la dirección del convenio">
                                 </div>
                                 <div class="col-6">
                                     <label for="tiempo">Tiempo de Duración:</label>
-                                    <input name="tiempo" type="number" class="form-control" id="dias"
+                                    <input name="dias" type="number" class="form-control" id="dias"
                                         placeholder="días">
                                 </div>
                                 <div class="col-6">
@@ -74,12 +74,17 @@
                                     <input type="email" class="form-control" id="email" name="email"
                                         placeholder="ejemplo@entidad.com">
                                 </div>
+                                <div class="col-6">
+                                    <label for="tipo">Tipo de Convenio:</label>
+                                    <select id="tipo" class="form-select" name="tipo" aria-label="Default select example">
+                                        <option selected>Seleccione el tipo de convenio...</option>
+                                        <option value="1">NACIONALES</option>
+                                        <option value="2">INTERNACIONALES</option>
+                                      </select>
+                                </div>
                             </div>
                             <div onclick="enviar(convenio)" class="btn btn-custom w-25">Agregar Convenio</div>
                         </form>
-                        @php
-                            var_dump($prueba);
-                        @endphp
                     </div>
                 </div>
             </div>

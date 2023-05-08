@@ -174,13 +174,15 @@ input {
 }
 
 input:focus,
-textarea {
+textarea:focus,
+select:focus {
     box-shadow: 0 0 10px rgba(155, 93, 93, 0.377) !important;
     border: none !important;
 }
 
 input::placeholder,
-textarea::placeholder {
+textarea::placeholder,
+select::placeholder {
     font-weight: 300;
 }
 

@@ -20,6 +20,6 @@ class DashboardController extends Controller
         return view('admin.dashboard.index', [
             'title' => "Dashboard",
             "usuario" => $user
-        ]);
+        ])->with('replace', true);
     }
 }

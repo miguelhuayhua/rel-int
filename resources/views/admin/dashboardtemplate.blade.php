@@ -26,7 +26,11 @@
     <script src="{{ url('js/datos.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     <script src="{{url('js/axios.min.js')}}" type="module"></script>
-
+    <script>
+        if (window.location.search.includes('replace=true')) {
+            window.location.replace(window.location.pathname);
+        }
+    </script>
 </body>
 
 
