@@ -28,7 +28,8 @@ class Convenio extends Model
         'telefono',
         'email',
         'fecha_finalizacion',
-        'fecha_publicacion'
+        'fecha_publicacion',
+        'correlativo'
     ];
     public $attributes = [
         'estado' => 'Activo',

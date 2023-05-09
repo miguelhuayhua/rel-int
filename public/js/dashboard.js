@@ -27,3 +27,10 @@ toggle.addEventListener('click', (ev) => {
 })
 
 
+//asignar convenios
+let correlativo = document.getElementById('correlativo');
+//evento de selección de la lista
+let listaSelect = (ev) => {
+    correlativo.value = "CV-" + ev.target.id;
+    document.getElementById('id_convenios').value = ev.target.id;
+}

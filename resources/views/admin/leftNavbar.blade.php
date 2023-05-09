@@ -16,11 +16,15 @@
                 <i class="fa fa-plus icon" aria-hidden="true"></i>
                 Agregar Convenio
             </a>
-            <a href="/dashboard/aconvenio" class="btn dash-btn">
+            <a href="/dashboard/asconvenio" class="btn dash-btn">
+                <i class="fa fa-plus icon" aria-hidden="true"></i>
+                Asignar Convenio
+            </a>
+            <a href="/dashboard/convenios" class="btn dash-btn">
                 <i class="fa fa-eye icon" aria-hidden="true"></i>
                 Ver Convenio
             </a>
-            <a href="/dashboard/aconvenio" class="btn dash-btn">
+            <a href="/dashboard/gconvenio" class="btn dash-btn">
                 <i class="fa fa-bar-chart icon" aria-hidden="true"></i>
                 Estadísticas
             </a>
@@ -36,13 +40,17 @@
     </button>
     <div class="collapse" id="tipos2">
         <div class="ri-info">
-            <a href="" class="btn dash-btn">
+            <a href="/dashboard/ausuario" class="btn dash-btn">
                 Agregar Usuarios
             </a>
-            <a href="" class="btn dash-btn">
+            
+            <a href="/dashboard/usuarios" class="btn dash-btn">
                 Ver Usuario
             </a>
-            <a href="" class="btn dash-btn">
+            <a href="/dashboard/apersona" class="btn dash-btn">
+                Agregar Persona
+            </a>
+            <a href="/dashboard/gusuario" class="btn dash-btn">
                 Estadísticas
             </a>
         </div>
@@ -57,13 +65,13 @@
     </button>
     <div class="collapse" id="tipos3">
         <div class="ri-info">
-            <a href="" class="btn dash-btn">
+            <a href="/dashboard/apublicacion" class="btn dash-btn">
                 Agregar Publicación
             </a>
-            <a href="" class="btn dash-btn">
+            <a href="/dashboard/publicaciones" class="btn dash-btn">
                 Ver Publicación
             </a>
-            <a href="" class="btn dash-btn">
+            <a href="/dashboard/gpublicacion" class="btn dash-btn">
                 Estadísticas
             </a>
         </div>
@@ -78,13 +86,13 @@
     </button>
     <div class="collapse" id="tipos4">
         <div class="ri-info">
-            <a href="" class="btn dash-btn">
+            <a href="/dashboard/acarrera" class="btn dash-btn">
                 Agregar Carrera
             </a>
-            <a href="" class="btn dash-btn">
+            <a href="/dashboard/carreras" class="btn dash-btn">
                 Ver Carrera
             </a>
-            <a href="" class="btn dash-btn">
+            <a href="/dashboard/gcarrera" class="btn dash-btn">
                 Estadísticas
             </a>
         </div>

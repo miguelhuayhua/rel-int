@@ -153,14 +153,21 @@ b {
     z-index: 1000;
 }
 
+#leftNav {
+    z-index: 100;
+
+}
+
 .showLeftNav {
     transform: translateX(0%);
     transition: transform 1s;
+
 }
 
 /*Formulario*/
 
-h2 {
+h2,
+h5 {
     font-weight: 300;
     text-align: center;
     color: brown;
@@ -216,4 +223,55 @@ label {
 
 .show-doc2 {
     display: flex !important;
+}
+
+/*estilos de asignar convenios*/
+.lista {
+    height: 500px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+}
+
+.lista-item {
+    padding-bottom: 20px;
+
+}
+
+.lista-item div {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.lista-item:hover {
+    cursor: pointer;
+}
+
+.lista-item p {
+    font-weight: 300;
+    position: relative;
+    font-size: .9em !important;
+}
+
+.lista-item span {
+
+    background-color: brown;
+    padding: 5px 10px;
+    position: absolute;
+    max-width: 180px;
+    right: 0;
+    top: 10px;
+    border-radius: 10px;
+    color: #eeeeee;
+    font-size: .8em !important;
+    text-align: center;
+}
+
+h6 {
+    font-weight: 400;
+    color: brown;
+    text-align: center;
+    font-size: .85em;
 }

@@ -37,3 +37,7 @@ ALTER TABLE relaciones.sic_usuario ADD login_token TEXT;
 
 #17 DE ABRIL, se modifica la columna de password a texto
 ALTER TABLE relaciones.sic_usuario MODIFY password TEXT;
+
+
+#9 de mayo
+ALTER TABLE relaciones.sic_convenio ADD correlativo VARCHAR(50);

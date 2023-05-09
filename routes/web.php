@@ -34,8 +34,20 @@ Route::get('/login', [\App\Http\Controllers\login\LoginController::class, 'index
 
 //RUTAS PARA EL ADMINISTRADOR
 Route::get('/dashboard', [\App\Http\Controllers\admin\dashboard\DashboardController::class, 'index'])->name('dashboard');
+//convenios
 Route::get('dashboard/aconvenio', [\App\Http\Controllers\admin\convenios::class, 'index']);
 Route::post('aconvenio', [App\Http\Controllers\admin\convenios::class, 'insertar'])->middleware('web');
-
+Route::get('dashboard/asconvenio', [\App\Http\Controllers\admin\convenios::class, 'asconvenio']);
+Route::post('dashboard/asconvenio', [\App\Http\Controllers\admin\convenios::class, 'asignarConvenio']);
+//publicaciones
+Route::get('dashboard/apublicacion', [\App\Http\Controllers\admin\publicaciones::class, 'index']);
+Route::post('dashboard/apublicacion', [\App\Http\Controllers\admin\publicaciones::class, 'insertar']);
+//usuarios
+Route::get('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 'index']);
+Route::post('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 'insertar']);
+Route::get('dashboard/apersona', [\App\Http\Controllers\admin\usuarios::class, 'apersona']);
+//carreras
+Route::get('dashboard/acarrera', [\App\Http\Controllers\admin\carreras::class, 'index']);
+Route::post('dashboard/acarrera', [\App\Http\Controllers\admin\carreras::class, 'insertar']);
 //RUTAS DE LOGUEO
 Route::post('/login', [\App\Http\Controllers\login\LoginController::class, 'iniciarSesion'])->name('login');

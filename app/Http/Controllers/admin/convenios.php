@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\EnsureTokenIsValid;
+use App\Models\Carrera;
 use App\Models\Convenio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -49,8 +50,34 @@ class convenios extends Controller
         $convenio->direccion = $request->input('direccion');
         $convenio->fecha_finalizacion = now();
         $convenio->id_tipo_convenio = $request->input('tipo');
+        $idlast = Convenio::all()->last()->id_convenios;
+        $convenio->correlativo = "CV-" . ($idlast + 1);
         $convenio->save();
+        return back()->withInput()->header('Refresh', '0;url=' . url('/'))->setStatusCode(303);
+    }
+    public function asconvenio(Request $request)
+    {
+        $carreras = Carrera::all();
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $convenios = Convenio::all(['id_convenios', 'nombre_convenio', 'entidad', 'correlativo'])->sortByDesc('id_convenios')->take(10);
+        return view(
+            'admin.convenio.asconvenio',
+            [
+                'title' => 'Asignar Convenio',
+                "usuario" => $user,
+                "convenios" => $convenios,
+                "carreras" => $carreras
+            ]
+        )->with('replace', true);
+    }
+
+    public function asignarConvenio(Request $request)
+    {
+        $id_convenios = $request->input('id_convenios');
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+
+        $id_carrera = $request->input('carrera');
+        DB::insert('INSERT INTO sic_convenio_carrera VALUES (?,?)', [$id_convenios, $id_carrera]);
         return back()->withInput()->header('Refresh', '0;url=' . url('/'))->setStatusCode(303);
     }
 }
