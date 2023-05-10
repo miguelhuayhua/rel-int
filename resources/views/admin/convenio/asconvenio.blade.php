@@ -39,7 +39,7 @@
                                 </li>
                             @endforeach
                         </ul>
-                        <form enctype="multipart/form-data" id="form-asconvenio" method="POST" action="/asconvenio">
+                        <form enctype="multipart/form-data" id="form-asconvenio" method="POST" action="asconvenio">
                             @csrf
                             <div class="row">
                                 <div class="col-6">

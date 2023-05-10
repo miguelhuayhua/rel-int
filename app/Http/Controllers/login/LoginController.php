@@ -17,9 +17,9 @@ class LoginController extends Controller
             ["title" => "Login - Relaciones Internacionales"]
         );
     }
-
     public function iniciarSesion(Request $request)
     {
+        //obtención de datos de login
         $username = $request->get('usuario');
         $password = $request->get('password');
         //verificar primero si existe algún token

@@ -7,6 +7,10 @@ let convenio = () => {
 let asconvenio = () => {
     document.getElementById('form-asconvenio').submit();
 }
+
+let ausuario = () => {
+    document.getElementById('form-ausuario').submit();
+}
 //Función para mostrar el modal
 let si = document.getElementById('si');
 let no = document.getElementById('no');

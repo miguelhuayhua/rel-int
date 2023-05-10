@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+
 use App\Http\Middleware\EnsureTokenIsValid;
 
 use App\Http\Controllers\Controller;
+use App\Models\Publicacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,5 +26,27 @@ class publicaciones extends Controller
                 "prueba" => null
             ]
         )->with('replace', true);
+    }
+    public function insertar(Request $request)
+    {
+        $titulo = $request->input('titulo');
+        $descripcion = $request->input('descripcion');
+        $correlativo = $request->input('correlativo');
+        $url = $request->input('url');
+        $links = $request->input('links');
+        $tipo = $request->input('tipo');
+
+        $publicacion = new Publicacion;
+        $publicacion->titulo = $titulo;
+        $publicacion->descripcion = $descripcion;
+        $publicacion->correlativo = $correlativo;
+        $publicacion->url = $url;
+        $publicacion->links = $links;
+        $publicacion->tipo_publicaciones = $tipo;
+        $publicacion->fecha = now()->toDate();
+        $publicacion->estado = 1;
+        $publicacion->save();
+        $id_publicaciones = $publicacion->getKey();
+        $archivos = $request->files;
     }
 }

@@ -74,10 +74,8 @@ class convenios extends Controller
     public function asignarConvenio(Request $request)
     {
         $id_convenios = $request->input('id_convenios');
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
-
         $id_carrera = $request->input('carrera');
         DB::insert('INSERT INTO sic_convenio_carrera VALUES (?,?)', [$id_convenios, $id_carrera]);
-        return back()->withInput()->header('Refresh', '0;url=' . url('/'))->setStatusCode(303);
+        return Redirect::route('dashboard');
     }
 }

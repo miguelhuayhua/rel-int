@@ -1,5 +1,5 @@
 let img = document.getElementById('imagen');
-let doc = document.getElementById('doc');
+let doc = document.getElementById('doc') || document.createElement('span');
 
 img.addEventListener('change', (e) => {
     let imagen = e.target.files[0]
@@ -22,4 +22,21 @@ doc.addEventListener('change', (e) => {
         doc2.children[0].classList.add('fa-file-word-o');
     }
     doc2.append(e.target.files[0].name);
+})
+
+//agregar publicación listado de archivos
+let docs = document.getElementById('docs');
+
+docs.addEventListener('change', (ev) => {
+    let files = document.getElementById('files');
+    let archivos = ev.target.files;
+    for (let index = 0; index < archivos.length; index++) {
+        let p = document.createElement('p');
+        p.classList.add('file')
+        let i = document.createElement('i');
+        i.classList.add('fa');
+        i.classList.add('fa-pdf')
+        p.appendChild(i);
+        files.appendChild(p);
+    }
 })

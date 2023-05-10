@@ -5,8 +5,11 @@ namespace App\Http\Controllers\admin;
 use App\Http\Middleware\EnsureTokenIsValid;
 
 use App\Http\Controllers\Controller;
+use App\Models\Persona;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class usuarios extends Controller
 {
@@ -17,12 +20,13 @@ class usuarios extends Controller
     public function index(Request $request)
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $personas = Persona::all(['id_persona', 'nombre', 'paterno', 'materno']);
         return view(
             'admin.usuario.index',
             [
                 'title' => 'Agregar Usuario',
                 "usuario" => $user,
-                "prueba" => null
+                "personas" => $personas
             ]
         )->with('replace', true);
     }
@@ -34,8 +38,23 @@ class usuarios extends Controller
             [
                 'title' => 'Agregar Persona',
                 "usuario" => $user,
-                "prueba" => null
+
             ]
         )->with('replace', true);
+    }
+    public function insertar(Request $request)
+    {
+        $id_persona = $request->input('id_persona');
+        $nombre = $request->input('usuario');
+        $password = md5($request->input('password'));
+        $usuario = new Usuario;
+        $usuario->id_persona = $id_persona;
+        $usuario->usuario = $nombre;
+        $usuario->password = $password;
+        $usuario->fecha_registro = now()->toDate();
+        $usuario->estado = 1;
+        $usuario->actualizado = now();
+        $usuario->save();
+        return Redirect::route('dashboard');
     }
 }

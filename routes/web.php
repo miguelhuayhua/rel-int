@@ -38,7 +38,7 @@ Route::get('/dashboard', [\App\Http\Controllers\admin\dashboard\DashboardControl
 Route::get('dashboard/aconvenio', [\App\Http\Controllers\admin\convenios::class, 'index']);
 Route::post('aconvenio', [App\Http\Controllers\admin\convenios::class, 'insertar'])->middleware('web');
 Route::get('dashboard/asconvenio', [\App\Http\Controllers\admin\convenios::class, 'asconvenio']);
-Route::post('dashboard/asconvenio', [\App\Http\Controllers\admin\convenios::class, 'asignarConvenio']);
+Route::post('dashboard/asconvenio', [\App\Http\Controllers\admin\convenios::class, 'asignarConvenio'])->middleware('web');
 //publicaciones
 Route::get('dashboard/apublicacion', [\App\Http\Controllers\admin\publicaciones::class, 'index']);
 Route::post('dashboard/apublicacion', [\App\Http\Controllers\admin\publicaciones::class, 'insertar']);
