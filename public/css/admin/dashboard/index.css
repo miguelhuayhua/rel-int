@@ -278,7 +278,26 @@ h6 {
 
 
 /*Publicaciones*/
+#files {
+    flex-wrap: wrap;
+}
+
 .file {
-    width: 80px;
-    background-color: black;
+    width: 180px;
+    border-radius: 10px;
+    border: 1px solid brown;
+    height: 100px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 0.6em;
+}
+
+.file i {
+    text-align: center;
+    font-size: 2em !important;
+    color: brown;
+    vertical-align: middle;
 }

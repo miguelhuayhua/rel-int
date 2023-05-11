@@ -15,59 +15,43 @@
                     </div>
                     <div class="col-12 pt-2">
                         <h2>
-                            Insertar Nuevo Convenio
+                            Inserte los datos de la Persona
                         </h2>
                         <form enctype="multipart/form-data" id="form-convenio" method="POST" action="/aconvenio">
                             @csrf
                             <div class="row">
                                 <div class="col-6">
                                     <img class="img2" id="imagen2" src="" alt="No seleccionado" srcset="">
-                                    <label for="imagen">Imagen:</label>
+                                    <label for="imagen">Fotografía:</label>
                                     <input name="imagen" type="file" accept=".png, .jpg, .jpeg" class="form-control"
                                         id="imagen">
                                 </div>
-                                <div class="col-6">
-                                    <p id="doc2">
-                                        <i class="fa " aria-hidden="true"></i>
-                                    </p>
-                                    <label for="doc">Pdf/Word:</label>
-                                    <input name="file" type="file" accept=".docx, .pdf" class="form-control"
-                                        id="doc">
-                                </div>
                                 <hr>
                                 <div class="form-group col-12">
-                                    <label for="nombre">Nombre de Convenio:</label>
+                                    <label for="nombre">Nombres:</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre"
-                                        placeholder="Introduzca el nombre del convenio">
-                                </div>
-                                <div class="form-group col-12">
-                                    <label for="objetivo">Objetivo del Convenio:</label>
-                                    <textarea name="objetivo" class="form-control" placeholder="Introduzca el objetivo del convenio" id="objetivo"
-                                        rows="5"></textarea>
+                                        placeholder="Introduzca el nombre de la persona">
                                 </div>
                                 <div class="col-6">
-                                    <label for="firma">Fecha de Firma:</label>
-                                    <input name="fecha_firma" id="firma" class="form-control" type="date">
+                                    <label for="paterno">Apellido Paterno:</label>
+                                    <input type="text" class="form-control" id="paterno" name="paterno"
+                                        placeholder="Introduzca su apellido paterno">
                                 </div>
                                 <div class="col-6">
-                                    <label for="direccion">Dirección de Convenio:</label>
-                                    <input type="text" class="form-control" id="direccion" name="direccion"
-                                        placeholder="Introduzca la dirección del convenio">
+                                    <label for="materno">Apellido Materno:</label>
+                                    <input type="text" class="form-control" id="materno" name="materno"
+                                        placeholder="Introduzca su apellido materno">
                                 </div>
                                 <div class="col-6">
-                                    <label for="tiempo">Tiempo de Duración:</label>
-                                    <input name="dias" type="number" class="form-control" id="dias"
-                                        placeholder="días">
+                                    <label for="ci">Carnet de Identidad / C.I.:</label>
+                                    <input name="ci"type="number" class="form-control" id="ci"
+                                        placeholder="Introduzca su carnet de identidad">
                                 </div>
+
                                 <div class="col-6">
-                                    <label for="entidad">Entidad:</label>
-                                    <input name="entidad" type="text" class="form-control" id="entidad"
-                                        placeholder="Introduzca la entidad del convenio">
-                                </div>
-                                <div class="col-6">
-                                    <label for="telefono">Teléfono / Celular:</label>
+                                    <label for="telefono">Telefono / Celular:</label>
                                     <input name="telefono"type="number" class="form-control" id="telefono"
-                                        placeholder="Introduzca su número de teléfono o celular">
+                                        placeholder="Introduzca su teléfono o celular">
                                 </div>
                                 <div class="col-6">
                                     <label for="email">Email:</label>
@@ -75,11 +59,12 @@
                                         placeholder="ejemplo@entidad.com">
                                 </div>
                                 <div class="col-6">
-                                    <label for="tipo">Tipo de Convenio:</label>
+                                    <label for="tipo">Cargo:</label>
                                     <select id="tipo" class="form-select" name="tipo" aria-label="Default select example">
-                                        <option selected>Seleccione el tipo de convenio...</option>
-                                        <option value="1">NACIONALES</option>
-                                        <option value="2">INTERNACIONALES</option>
+                                        <option selected>Seleccione el tipo de cargo</option>
+                                        <option value="DIRECTOR">DIRECTOR</option>
+                                        <option value="TECNICO">TÉCNICO</option>
+                                        <option value="SECRETARIO">SECRETARIO</option>
                                       </select>
                                 </div>
                             </div>

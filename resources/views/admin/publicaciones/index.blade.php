@@ -38,7 +38,7 @@
                                     <div id="files" class="w-100 d-flex">
                                     </div>
                                     <label for="docs">Seleccione 1 o más Archivos:</label>
-                                    <input multiple name="archivos" type="file" accept=".docx, .pdf" class="form-control"
+                                    <input multiple name="files[]" type="file" accept=".docx, .pdf" class="form-control"
                                         id="docs">
                                 </div>
                                 <hr>
@@ -77,7 +77,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div onclick="enviar(convenio)" class="btn btn-custom w-25">Agregar Publicación</div>
+                            <div onclick="enviar(publicacion)" class="btn btn-custom w-25">Agregar Publicación</div>
                         </form>
                     </div>
                 </div>

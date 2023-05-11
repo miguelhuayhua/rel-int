@@ -4,6 +4,10 @@ let convenio = () => {
     document.getElementById('form-convenio').submit();
 }
 
+let publicacion = () => {
+    document.getElementById('form-publicacion').submit();
+}
+
 let asconvenio = () => {
     document.getElementById('form-asconvenio').submit();
 }

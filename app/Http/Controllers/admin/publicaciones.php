@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Publicacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class publicaciones extends Controller
 {
@@ -32,21 +33,30 @@ class publicaciones extends Controller
         $titulo = $request->input('titulo');
         $descripcion = $request->input('descripcion');
         $correlativo = $request->input('correlativo');
-        $url = $request->input('url');
+        $url = $request->file('url');
+        $url->move(public_path('assets/img_publicaciones'), $url->getClientOriginalName());
         $links = $request->input('links');
         $tipo = $request->input('tipo');
-
+        $subtitulo = $request->input('subtitulo');
         $publicacion = new Publicacion;
-        $publicacion->titulo = $titulo;
+        $publicacion->titulo = strtoupper($titulo);
         $publicacion->descripcion = $descripcion;
+        $publicacion->subtitulo = $subtitulo;
         $publicacion->correlativo = $correlativo;
-        $publicacion->url = $url;
+        $publicacion->url = 'assets/img_publicaciones/' . $url->getClientOriginalName();
         $publicacion->links = $links;
         $publicacion->tipo_publicaciones = $tipo;
         $publicacion->fecha = now()->toDate();
         $publicacion->estado = 1;
         $publicacion->save();
         $id_publicaciones = $publicacion->getKey();
-        $archivos = $request->files;
+        $archivos = (array) $request->file('files');
+        foreach ($archivos as $archivo) {
+            $archivo->move(public_path('assets/img_publicaciones/archivos/'), $archivo->getClientOriginalName());
+            DB::insert('INSERT INTO publicaciones_archivo (id_publicaciones, nombre_archivo, estado_archivo, fecha) 
+            VALUES (?,?,?,now())', [$id_publicaciones, 'assets/img_publicaciones/archivos/' . $archivo->getClientOriginalName(), '1']);
+            DB::commit();
+        }
+        return Redirect::route('dashboard');
     }
 }

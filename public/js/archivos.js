@@ -35,7 +35,8 @@ docs.addEventListener('change', (ev) => {
         p.classList.add('file')
         let i = document.createElement('i');
         i.classList.add('fa');
-        i.classList.add('fa-pdf')
+        i.classList.add('fa-file');
+        p.textContent = archivos[index].name;
         p.appendChild(i);
         files.appendChild(p);
     }
