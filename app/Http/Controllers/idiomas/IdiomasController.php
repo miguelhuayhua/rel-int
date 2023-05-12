@@ -11,6 +11,7 @@ class IdiomasController extends Controller
     public function index()
     {
         $idiomas = DB::select("SELECT * FROM publicaciones WHERE tipo_publicaciones = 'Idiomas' AND estado = 1");
+
         return view(
             'cliente.idiomas.index',
             ['title' => 'Idiomas - Relaciones Internacionales UPEA',

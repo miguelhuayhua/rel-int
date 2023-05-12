@@ -1,0 +1,31 @@
+/*Apartado de listado de las diferentes entidades*/
+/*titulos*/
+h2 {
+    margin-top: 20px;
+}
+
+
+/*íconos de tabla*/
+.icono {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icono i {
+    color: brown;
+    text-align: center;
+    font-size: 1.5em !important;
+}
+
+/*tabla*/
+table {
+    border-radius: 5px !important;
+    overflow: hidden;
+}
+
+thead {
+    color: white;
+    background-color: brown;
+}

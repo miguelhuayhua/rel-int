@@ -17,7 +17,7 @@
                         <h2>
                             Inserte los datos de la Persona
                         </h2>
-                        <form enctype="multipart/form-data" id="form-convenio" method="POST" action="/aconvenio">
+                        <form enctype="multipart/form-data" id="form-persona" method="POST" action="/dashboard/apersona">
                             @csrf
                             <div class="row">
                                 <div class="col-6">
@@ -68,7 +68,7 @@
                                       </select>
                                 </div>
                             </div>
-                            <div onclick="enviar(convenio)" class="btn btn-custom w-25">Agregar Convenio</div>
+                            <div onclick="enviar(apersona)" class="btn btn-custom w-25">Agregar Convenio</div>
                         </form>
                     </div>
                 </div>

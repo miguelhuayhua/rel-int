@@ -59,4 +59,17 @@ class publicaciones extends Controller
         }
         return Redirect::route('dashboard');
     }
+
+    public function mostrar(Request $request)
+    {
+        $i = 
+        $publicaciones = Publicacion::all();
+        return view(
+            'admin.publicaciones.listado',
+            [
+                'title' => 'Listado de Publicaciones',
+                'publicaciones' => $publicaciones
+            ]
+        );
+    }
 }

@@ -41,11 +41,15 @@ Route::get('dashboard/asconvenio', [\App\Http\Controllers\admin\convenios::class
 Route::post('dashboard/asconvenio', [\App\Http\Controllers\admin\convenios::class, 'asignarConvenio'])->middleware('web');
 //publicaciones
 Route::get('dashboard/apublicacion', [\App\Http\Controllers\admin\publicaciones::class, 'index']);
+Route::get('dashboard/publicaciones', [\App\Http\Controllers\admin\publicaciones::class, 'mostrar']);
 Route::post('dashboard/apublicacion', [\App\Http\Controllers\admin\publicaciones::class, 'insertar']);
 //usuarios
 Route::get('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 'index']);
 Route::post('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 'insertar']);
+Route::get('dashboard/usuarios', [\App\Http\Controllers\admin\usuarios::class, 'mostrar']);
+//personas
 Route::get('dashboard/apersona', [\App\Http\Controllers\admin\usuarios::class, 'apersona']);
+Route::post('dashboard/apersona', [\App\Http\Controllers\admin\usuarios::class, 'insertarPersona']);
 //carreras
 Route::get('dashboard/acarrera', [\App\Http\Controllers\admin\carreras::class, 'index']);
 Route::post('dashboard/acarrera', [\App\Http\Controllers\admin\carreras::class, 'insertar']);

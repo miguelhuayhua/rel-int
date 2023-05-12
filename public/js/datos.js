@@ -12,6 +12,9 @@ let asconvenio = () => {
     document.getElementById('form-asconvenio').submit();
 }
 
+let apersona = () => {
+    document.getElementById('form-persona').submit();
+}
 let ausuario = () => {
     document.getElementById('form-ausuario').submit();
 }

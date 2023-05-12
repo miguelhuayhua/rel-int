@@ -42,6 +42,22 @@ class usuarios extends Controller
             ]
         )->with('replace', true);
     }
+    public function insertarPersona(Request $request)
+    {
+        $img = $request->file('imagen');
+        $persona = new Persona;
+        $persona->nombre = ucfirst($request->input('nombre'));
+        $persona->paterno = ucfirst($request->input('paterno'));
+        $persona->materno = ucfirst($request->input('materno'));
+        $persona->ci = $request->input('ci');
+        $persona->telefono = $request->input('telefono');
+        $persona->email = $request->input('email');
+        $persona->cargo = $request->input('tipo');
+        $persona->img = 'assets/imgUsers/' . $img->getClientOriginalName();
+        $img->move(public_path('assets/imgUsers'), $img->getClientOriginalName());
+        $persona->save();
+        return Redirect::route('dashboard');
+    }
     public function insertar(Request $request)
     {
         $id_persona = $request->input('id_persona');
@@ -56,5 +72,17 @@ class usuarios extends Controller
         $usuario->actualizado = now();
         $usuario->save();
         return Redirect::route('dashboard');
+    }
+
+    public function mostrar()
+    {
+        $usuarios = Usuario::all()->filter(function ($usuario) {
+            return $usuario->estado = '1';
+        });
+
+        return view('admin.usuario.listado', [
+            'title' => 'Listado de Usuarios',
+            'usuarios' => $usuarios
+        ]);
     }
 }

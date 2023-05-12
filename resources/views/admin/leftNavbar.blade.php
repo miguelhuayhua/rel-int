@@ -22,7 +22,7 @@
             </a>
             <a href="/dashboard/convenios" class="btn dash-btn">
                 <i class="fa fa-eye icon" aria-hidden="true"></i>
-                Ver Convenio
+                Ver Convenios
             </a>
             <a href="/dashboard/gconvenio" class="btn dash-btn">
                 <i class="fa fa-bar-chart icon" aria-hidden="true"></i>
@@ -45,7 +45,7 @@
             </a>
             
             <a href="/dashboard/usuarios" class="btn dash-btn">
-                Ver Usuario
+                Ver Usuarios
             </a>
             <a href="/dashboard/apersona" class="btn dash-btn">
                 Agregar Persona
@@ -68,8 +68,8 @@
             <a href="/dashboard/apublicacion" class="btn dash-btn">
                 Agregar Publicación
             </a>
-            <a href="/dashboard/publicaciones" class="btn dash-btn">
-                Ver Publicación
+            <a href="/dashboard/publicaciones?i=0" class="btn dash-btn">
+                Ver Publicaciones
             </a>
             <a href="/dashboard/gpublicacion" class="btn dash-btn">
                 Estadísticas
