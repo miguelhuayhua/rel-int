@@ -11,7 +11,6 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(223, 228, 233);
-
 }
 
 .custom-icon {
@@ -44,7 +43,7 @@
     color: brown;
     font-size: 1.4em !important;
     width: 40px;
-    transition: color .5s;
+    transition: color 0.5s;
 }
 
 .icon-flex {
@@ -53,7 +52,6 @@
     align-items: center;
     justify-content: start;
 }
-
 
 /*cabecera del dashboard*/
 .dashboard-profile {
@@ -67,7 +65,9 @@
     color: brown;
     margin-left: 1em;
 }
-
+.profile:hover {
+    cursor: pointer;
+}
 .profile {
     display: flex;
     justify-content: center;
@@ -93,30 +93,27 @@ b {
     color: brown;
 }
 
-
 .dash-btn {
     text-align: center;
     color: rgb(138, 39, 39);
     width: 100%;
     background-color: #eeeeee;
     font-weight: 300;
-    transition: background-color .5s, color .5s;
+    transition: background-color 0.5s, color 0.5s;
     display: flex;
     padding-left: 40px;
 }
 
-.dash-btn:hover>.icon {
+.dash-btn:hover > .icon {
     color: white !important;
-    transition: color .5s;
+    transition: color 0.5s;
 }
 
 .dash-btn:hover {
     background-color: brown;
     color: white;
-    transition: background-color .5s, color .5s;
+    transition: background-color 0.5s, color 0.5s;
 }
-
-
 
 /*RESPONSIVE*/
 /*Apartado del navbar izquierda, volviendolo pequeño cuando esté menos de 767px*/
@@ -140,7 +137,6 @@ b {
     }
 }
 
-
 /*boton toggle*/
 .btn-toggle {
     position: absolute;
@@ -155,13 +151,11 @@ b {
 
 #leftNav {
     z-index: 100;
-
 }
 
 .showLeftNav {
     transform: translateX(0%);
     transition: transform 1s;
-
 }
 
 /*Formulario*/
@@ -252,11 +246,10 @@ label {
 .lista-item p {
     font-weight: 300;
     position: relative;
-    font-size: .9em !important;
+    font-size: 0.9em !important;
 }
 
 .lista-item span {
-
     background-color: brown;
     padding: 5px 10px;
     position: absolute;
@@ -265,7 +258,7 @@ label {
     top: 10px;
     border-radius: 10px;
     color: #eeeeee;
-    font-size: .8em !important;
+    font-size: 0.8em !important;
     text-align: center;
 }
 
@@ -273,9 +266,8 @@ h6 {
     font-weight: 400;
     color: brown;
     text-align: center;
-    font-size: .85em;
+    font-size: 0.85em;
 }
-
 
 /*Publicaciones*/
 #files {
@@ -300,4 +292,41 @@ h6 {
     font-size: 2em !important;
     color: brown;
     vertical-align: middle;
+}
+
+/*SECCIÓN DE NAVBAR DE ARRIBA*/
+.profile-options {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.344);
+    border-radius: 5px;
+    justify-content: center;
+    width: 180px;
+    display: none !important;
+}
+.profile-options ul {
+    padding: 0;
+}
+.profile-options li {
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.profile-options i{
+    font-size: 1.4em;
+}
+
+.profile-options a {
+    text-decoration: none;
+    text-align: center;
+    width: 1000%;
+    padding: 10px 0;
+}
+
+.showProfile {
+    display: block !important;
 }

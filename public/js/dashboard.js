@@ -34,3 +34,10 @@ let listaSelect = (ev) => {
     correlativo.value = "CV-" + ev.target.id;
     document.getElementById('id_convenio').value = ev.target.id;
 }
+
+
+//sección del navbar de arriba, manejo de eventos del perfil
+let showProfile = () => {
+    let profileOptions = document.getElementById('profileOptions');
+    profileOptions.classList.toggle('showProfile');
+}

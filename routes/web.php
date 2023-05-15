@@ -55,3 +55,8 @@ Route::get('dashboard/acarrera', [\App\Http\Controllers\admin\carreras::class, '
 Route::post('dashboard/acarrera', [\App\Http\Controllers\admin\carreras::class, 'insertar']);
 //RUTAS DE LOGUEO
 Route::post('/login', [\App\Http\Controllers\login\LoginController::class, 'iniciarSesion'])->name('login');
+Route::get('/cerrarsesion', [\App\Http\Controllers\login\LoginController::class, 'cerrarSesion']);
+
+
+//PERFIL
+Route::get('/dashboard/perfil', [\App\Http\Controllers\admin\dashboard\perfil::class, 'index']);

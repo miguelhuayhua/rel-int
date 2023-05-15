@@ -20,6 +20,7 @@ class Usuario extends Model
         'usuario',
         'fecha_registro',
         'estado',
-        'actualizado'
+        'actualizado',
+        'ultima_vez'
     ];
 }

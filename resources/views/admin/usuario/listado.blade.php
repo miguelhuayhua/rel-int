@@ -22,7 +22,7 @@
                                     <th scope="row">{{ $index + 1 }}</th>
                                     <td>{{ $usuario->usuario }}</td>
                                     <td>{{ $usuario->fecha_registro }}</td>
-                                    <td>{{ $usuario->fecha_registro }}</td>
+                                    <td>{{ $usuario->ultima_vez }}</td>
                                     <td>
                                         <a class="icono btn" href="/dashboard/usuario/{{ $usuario->id_usuario }}">
                                             <i class="fa fa-pencil" aria-hidden="true"></i></a>

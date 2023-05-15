@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
@@ -27,7 +28,8 @@ class LoginController extends Controller
             if (collect(DB::select("SELECT * FROM sic_usuario WHERE login_token = ?", [$request->cookie('t')]))) {
                 return Redirect::route('dashboard');
             } else {
-                return Redirect::route('login')->withoutCookie(cookie('t'));
+                $cookie = Cookie::forget('t');
+                return redirect()->route('login')->withCookie($cookie);
             }
         } else {
             $id_usuario = collect(DB::select(
@@ -37,7 +39,7 @@ class LoginController extends Controller
             if ($id_usuario) {
                 //generador de tokens
                 $token = substr(sha1(rand()), 0, 16);
-                DB::insert("UPDATE sic_usuario SET login_token = ?
+                DB::insert("UPDATE sic_usuario SET login_token = ?, ultima_vez = now()
                 WHERE id_usuario = ? ", [$token, $id_usuario->id_usuario]);
                 DB::commit();
                 $cookie = cookie('t', $token);
@@ -46,5 +48,11 @@ class LoginController extends Controller
                 return Redirect::route('login');
             }
         }
+    }
+
+    public function cerrarSesion(Request $request)
+    {
+        $cookie = Cookie::forget('t');
+        return redirect()->route('login')->withCookie($cookie);
     }
 }

@@ -41,3 +41,6 @@ ALTER TABLE relaciones.sic_usuario MODIFY password TEXT;
 
 #9 de mayo
 ALTER TABLE relaciones.sic_convenio ADD correlativo VARCHAR(50);
+
+#14 de mayo
+ALTER TABLE relaciones.sic_usuario ADD ultima_vez DATETIME;
