@@ -20,6 +20,7 @@
                             </h2>
                             <form enctype="multipart/form-data" id="form-econvenio" method="POST"
                                 action="/dashboard/econvenio">
+                                <input type="text" hidden name="id_convenios" value="{{ $id_convenios }}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-6">
@@ -95,9 +96,14 @@
                                                 INTERNACIONALES</option>
                                         </select>
                                     </div>
-                                    <div onclick="enviar(convenio)" class="btn btn-custom w-25">Editar Convenio</div>
+                                    <div onclick="enviar(econvenio)" class="btn btn-custom w-25">Editar Convenio</div>
 
                                 </div>
+                            </form>
+
+                            <form action="/dashboard/eliminiar" class="mt-4" method="POST" id="form-bconvenio">
+                                <div onclick="enviar(bconvenio,'¿Desea eliminar el convenio?')"
+                                    class="btn btn-custom2 w-25">Terminar Convenio</div>
                             </form>
                         @else
                             <h2>
@@ -176,7 +182,6 @@
                                 </div>
                             </form>
                         @endif
-
                     </div>
                 </div>
             </div>

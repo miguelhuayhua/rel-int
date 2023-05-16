@@ -1,6 +1,6 @@
 <div class="main" id="modal">
     <div class="pregunta">
-        <p>
+        <p id="mensaje">
             ¿Desea realizar los cambios?
         </p>
         <div>

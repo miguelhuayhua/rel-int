@@ -106,18 +106,44 @@ class convenios extends Controller
             [
                 'title' => 'Agregar Convenio',
                 "usuario" => $user,
-                'convenio' => $convenio
+                'convenio' => $convenio,
+                'id_convenios' => $id_convenios
             ]
         )->with('replace', true);
     }
 
     public function editar(Request $request)
     {
-
+        $id_convenios = $request->input('id_convenios');
+        $convenio = Convenio::find($id_convenios);
+        $convenio->nombre_convenio = $request->input('nombre_convenio');
+        if ($request->hasFile('file')) {
+            $archivo = $request->file('file');
+            $archivo->move(public_path('conveniosPdf'), $archivo->getClientOriginalName());
+            $convenio->pdf_convenio = "/conveniosPdf/" . $archivo->getClientOriginalName();
+        }
+        if ($request->hasFile('imagen')) {
+            $image = $request->file('imagen');
+            $image->move(public_path('imgConvenios'), $image->getClientOriginalName());
+            $convenio->img_convenio = "/imgConvenios/" . $image->getClientOriginalName();
+        }
+        $convenio->nombre_convenio = $request->input('nombre');
+        $convenio->objetivo_convenio = $request->input('objetivo');
+        $convenio->fecha_firma = $request->input('fecha_firma');
+        $convenio->tiempo_duracion = $request->input('dias');
+        $convenio->entidad = $request->input('entidad');
+        $convenio->telefono = $request->input('telefono');
+        $convenio->email = $request->input('email');
+        $convenio->direccion = $request->input('direccion');
+        $convenio->fecha_finalizacion = now();
+        $convenio->id_tipo_convenio = $request->input('tipo');
+        $convenio->save();
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
         $convenios = Convenio::all()->filter(function ($convenio) {
             return $convenio->estado == 'Activo';
         });
+        $id_convenios = $request->input('id_convenios');
+
         return view(
             'admin.convenio.listaconvenio',
             [

@@ -65,9 +65,11 @@
     color: brown;
     margin-left: 1em;
 }
+
 .profile:hover {
     cursor: pointer;
 }
+
 .profile {
     display: flex;
     justify-content: center;
@@ -104,7 +106,7 @@ b {
     padding-left: 40px;
 }
 
-.dash-btn:hover > .icon {
+.dash-btn:hover>.icon {
     color: white !important;
     transition: color 0.5s;
 }
@@ -196,9 +198,24 @@ label {
     display: block;
     margin: 10px auto;
     text-align: center;
-    background-color: brown;
+    border: 1px solid brown;
+    color: brown;
+}
+
+.btn-custom:hover {
+    background-color: rgb(134, 51, 51);
+    color: white;
+    transition: background-color .5s, color .5s;
+}
+
+.btn-custom2 {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    background-color: rgb(134, 51, 51);
     color: white;
 }
+
 
 /*Apartado especial para los inputs de tipo file*/
 .img2 {
@@ -306,9 +323,11 @@ h6 {
     width: 180px;
     display: none !important;
 }
+
 .profile-options ul {
     padding: 0;
 }
+
 .profile-options li {
     width: 100%;
     list-style: none;
@@ -316,7 +335,7 @@ h6 {
     margin: 0 auto;
 }
 
-.profile-options i{
+.profile-options i {
     font-size: 1.4em;
 }
 
