@@ -14,14 +14,21 @@
                         @include('admin.topNavbar')
                     </div>
                     <div class="col-12 pt-2">
-                        <h2>
-                            Insertar Nuevo Convenio
-                        </h2>
+                        @if ($convenio->id_convenios)
+                            <h2>
+                                Editar Convenio
+                            </h2>
+                        @else
+                            <h2>
+                                Insertar Nuevo Convenio
+                            </h2>
+                        @endif
                         <form enctype="multipart/form-data" id="form-convenio" method="POST" action="/aconvenio">
                             @csrf
                             <div class="row">
                                 <div class="col-6">
-                                    <img class="img2" id="imagen2" src="" alt="No seleccionado" srcset="">
+                                    <img class="img2" id="imagen2" src="{{ url($convenio->img_convenio) }}"
+                                        alt="No seleccionado" srcset="">
                                     <label for="imagen">Imagen:</label>
                                     <input name="imagen" type="file" accept=".png, .jpg, .jpeg" class="form-control"
                                         id="imagen">
@@ -37,50 +44,58 @@
                                 <hr>
                                 <div class="form-group col-12">
                                     <label for="nombre">Nombre de Convenio:</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre"
+                                    <input type="text" class="form-control" id="nombre"
+                                        value="{{ $convenio->nombre_convenio }}" name="nombre"
                                         placeholder="Introduzca el nombre del convenio">
                                 </div>
                                 <div class="form-group col-12">
                                     <label for="objetivo">Objetivo del Convenio:</label>
                                     <textarea name="objetivo" class="form-control" placeholder="Introduzca el objetivo del convenio" id="objetivo"
-                                        rows="5"></textarea>
+                                        rows="5">{{ $convenio->objetivo_convenio }}</textarea>
                                 </div>
                                 <div class="col-6">
                                     <label for="firma">Fecha de Firma:</label>
-                                    <input name="fecha_firma" id="firma" class="form-control" type="date">
+                                    <input value="{{ $convenio->fecha_firma }}" name="fecha_firma" id="firma"
+                                        class="form-control" type="date">
                                 </div>
                                 <div class="col-6">
                                     <label for="direccion">Dirección de Convenio:</label>
                                     <input type="text" class="form-control" id="direccion" name="direccion"
+                                        value="{{ $convenio->direccion }}"
                                         placeholder="Introduzca la dirección del convenio">
                                 </div>
                                 <div class="col-6">
                                     <label for="tiempo">Tiempo de Duración:</label>
                                     <input name="dias" type="number" class="form-control" id="dias"
-                                        placeholder="días">
+                                        value="{{ $convenio->tiempo_duracion }}" placeholder="días">
                                 </div>
                                 <div class="col-6">
                                     <label for="entidad">Entidad:</label>
                                     <input name="entidad" type="text" class="form-control" id="entidad"
-                                        placeholder="Introduzca la entidad del convenio">
+                                        value="{{ $convenio->entidad }}" placeholder="Introduzca la entidad del convenio">
                                 </div>
                                 <div class="col-6">
                                     <label for="telefono">Teléfono / Celular:</label>
-                                    <input name="telefono"type="number" class="form-control" id="telefono"
+                                    <input name="telefono" type="number" class="form-control" id="telefono"
+                                        value="{{ $convenio->telefono }}"
                                         placeholder="Introduzca su número de teléfono o celular">
                                 </div>
                                 <div class="col-6">
                                     <label for="email">Email:</label>
                                     <input type="email" class="form-control" id="email" name="email"
-                                        placeholder="ejemplo@entidad.com">
+                                        value="{{ $convenio->email }}" placeholder="ejemplo@entidad.com">
                                 </div>
                                 <div class="col-6">
                                     <label for="tipo">Tipo de Convenio:</label>
-                                    <select id="tipo" class="form-select" name="tipo" aria-label="Default select example">
-                                        <option selected>Seleccione el tipo de convenio...</option>
-                                        <option value="1">NACIONALES</option>
-                                        <option value="2">INTERNACIONALES</option>
-                                      </select>
+                                    <select id="tipo" class="form-select" name="tipo"
+                                        aria-label="Default select example">
+                                        <option>Seleccione el tipo de convenio...</option>
+                                        <option {{ $convenio->id_tipo_convenio == '1' ? 'selected' : '' }} value="1">
+                                            NACIONALES</option>
+                                        <option 
+                                            value="2" {{ $convenio->id_tipo_convenio == '2' ? 'selected' : '' }}>
+                                            INTERNACIONALES</option>
+                                    </select>
                                 </div>
                             </div>
                             <div onclick="enviar(convenio)" class="btn btn-custom w-25">Agregar Convenio</div>

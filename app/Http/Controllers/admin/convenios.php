@@ -21,12 +21,13 @@ class convenios extends Controller
     public function index(Request $request)
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $convenio = new Convenio;
         return view(
             'admin.convenio.index',
             [
                 'title' => 'Agregar Convenio',
                 "usuario" => $user,
-                "prueba" => null
+                "convenio" => $convenio
             ]
         )->with('replace', true);
     }
@@ -40,7 +41,7 @@ class convenios extends Controller
         $convenio = new Convenio;
         $convenio->nombre_convenio = $request->input('nombre');
         $convenio->objetivo_convenio = $request->input('objetivo');
-        $convenio->img_convenio = 'imgConvenios/' . $request->input('imagen');
+        $convenio->img_convenio = '/imgConvenios/' . $image->getClientOriginalName();
         $convenio->fecha_firma = $request->input('fecha_firma');
         $convenio->pdf_convenio = 'conveniosPdf/' . $request->input('file');
         $convenio->tiempo_duracion = $request->input('dias');
@@ -53,7 +54,7 @@ class convenios extends Controller
         $idlast = Convenio::all()->last()->id_convenios;
         $convenio->correlativo = "CV-" . ($idlast + 1);
         $convenio->save();
-        return back()->withInput()->header('Refresh', '0;url=' . url('/'))->setStatusCode(303);
+        return Redirect::route('lista-convenios');
     }
     public function asconvenio(Request $request)
     {
@@ -77,5 +78,36 @@ class convenios extends Controller
         $id_carrera = $request->input('carrera');
         DB::insert('INSERT INTO sic_convenio_carrera VALUES (?,?)', [$id_convenios, $id_carrera]);
         return Redirect::route('dashboard');
+    }
+
+    public function listar(Request $request)
+    {
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $convenios = Convenio::all()->filter(function ($convenio) {
+            return $convenio->estado == 'Activo';
+        });
+        return view(
+            'admin.convenio.listaconvenio',
+            [
+                'title' => 'Listado de Convenios',
+                'convenios' => $convenios,
+                'usuario' => $user
+            ]
+        );
+    }
+
+    public function mostrar(Request $request, $id_convenios)
+    {
+
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $convenio = Convenio::find($id_convenios);
+        return view(
+            'admin.convenio.index',
+            [
+                'title' => 'Agregar Convenio',
+                "usuario" => $user,
+                'convenio' => $convenio
+            ]
+        )->with('replace', true);
     }
 }
