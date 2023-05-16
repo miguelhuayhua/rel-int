@@ -110,4 +110,21 @@ class convenios extends Controller
             ]
         )->with('replace', true);
     }
+
+    public function editar(Request $request)
+    {
+
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $convenios = Convenio::all()->filter(function ($convenio) {
+            return $convenio->estado == 'Activo';
+        });
+        return view(
+            'admin.convenio.listaconvenio',
+            [
+                'title' => 'Listado de Convenios',
+                'convenios' => $convenios,
+                'usuario' => $user
+            ]
+        );
+    }
 }
