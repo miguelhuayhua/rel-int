@@ -62,13 +62,17 @@ class publicaciones extends Controller
 
     public function mostrar(Request $request)
     {
-        $i = 
-        $publicaciones = Publicacion::all();
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+
+        $publicaciones = Publicacion::orderBy('id_publicaciones', 'desc')->get()->filter(function ($publi) {
+            return $publi->estado == 1;
+        });
         return view(
             'admin.publicaciones.listado',
             [
                 'title' => 'Listado de Publicaciones',
-                'publicaciones' => $publicaciones
+                'publicaciones' => $publicaciones,
+                'usuario' => $user
             ]
         );
     }

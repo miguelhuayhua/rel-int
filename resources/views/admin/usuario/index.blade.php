@@ -14,38 +14,69 @@
                         @include('admin.topNavbar')
                     </div>
                     <div class="col-12 pt-2">
-                        <h2>
-                            Insertar Nuevo Usuario
-                        </h2>
-                        <form enctype="multipart/form-data" id="form-ausuario" method="POST" action="/dashboard/ausuario">
-                            @csrf
-                            <div class="row">
-                                <div class="form-group col-12">
-                                    <label for="usuario">Nombre de Usuario:</label>
-                                    <input type="text" class="form-control" id="usuario" name="usuario"
-                                        placeholder="Introduzca el nombre del convenio">
+                        @if ($usuario->id_usuario)
+                            <h2>
+                                Insertar Nuevo Usuario
+                            </h2>
+                            <form enctype="multipart/form-data" id="form-eusuario" method="POST"
+                                action="/dashboard/eusuario">
+                                @csrf
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        <label for="usuario">Nombre de Usuario:</label>
+                                        <input type="text" class="form-control" id="usuario" name="usuario"
+                                            placeholder="Introduzca el nombre del usuario" value="{{ $usuario->usuario }}">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="password">Introduzca su contraseña:</label>
+                                        <input name="password" class="form-control"
+                                            placeholder="Introduzca su nueva contraseña" id="password" type="password">
+                                    </div>
+                                    <input type="text" hidden value="{{ $id_usuario }}" name="id_usuario">
                                 </div>
-                                <div class="form-group col-12">
-                                    <label for="password">Introduzca su contraseña:</label>
-                                    <input name="password" class="form-control" placeholder="Introduzca su nueva contraseña"
-                                        id="password" type="password">
+                                <div onclick="enviar(eusuario), '¿Desea editar el Usuario?'" class="btn btn-custom w-25">
+                                    Editar Usuario</div>
+                            </form>
+                            <form action="/dashboard/busuario" class="mt-4" method="POST" id="form-busuario">
+                                <div onclick="enviar(busuario,'¿Desea eliminar el convenio?')" class="btn btn-custom2 w-25">
+                                    ¿Deshabilitar Usuario?</div>
+                            </form>
+                        @else
+                            <h2>
+                                Insertar Nuevo Usuario
+                            </h2>
+                            <form enctype="multipart/form-data" id="form-ausuario" method="POST"
+                                action="/dashboard/ausuario">
+                                @csrf
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        <label for="usuario">Nombre de Usuario:</label>
+                                        <input type="text" class="form-control" id="usuario" name="usuario"
+                                            placeholder="Introduzca el nombre del convenio">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="password">Introduzca su contraseña:</label>
+                                        <input name="password" class="form-control"
+                                            placeholder="Introduzca su nueva contraseña" id="password" type="password">
+                                    </div>
+                                    <div class="col-6 offset-3">
+                                        <label for="persona">Seleccione a la persona encargada:</label>
+                                        <select id="persona" class="form-select" name="id_persona"
+                                            aria-label="Default select example">
+                                            <option selected>Seleccione Persona Encargada</option>
+                                            @foreach ($personas as $persona)
+                                                <option value="{{ $persona->id_persona }}">
+                                                    {{ $persona->nombre . ' ' . $persona->paterno . ' ' . $persona->materno }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-6 offset-3">
-                                    <label for="persona">Seleccione a la persona encargada:</label>
-                                    <select id="persona" class="form-select" name="id_persona"
-                                        aria-label="Default select example">
-                                        <option selected>Seleccione Persona Encargada</option>
-                                        @foreach ($personas as $persona)
-                                            <option value="{{ $persona->id_persona }}">
-                                                {{ $persona->nombre . ' ' . $persona->paterno . ' ' . $persona->materno }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div onclick="enviar(ausuario)" class="btn btn-custom w-25">Agregar Nuevo Usuario</div>
-                        </form>
+                                <div onclick="enviar(ausuario)" class="btn btn-custom w-25">Agregar Nuevo Usuario</div>
+                            </form>
+                        @endif
                     </div>
+
                 </div>
             </div>
         </div>

@@ -83,7 +83,7 @@ class convenios extends Controller
     public function listar(Request $request)
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
-        $convenios = Convenio::all()->filter(function ($convenio) {
+        $convenios = Convenio::orderBy('id_convenios', 'desc')->get()->filter(function ($convenio) {
             return $convenio->estado == 'Activo';
         });
         return view(
@@ -138,19 +138,15 @@ class convenios extends Controller
         $convenio->fecha_finalizacion = now();
         $convenio->id_tipo_convenio = $request->input('tipo');
         $convenio->save();
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
-        $convenios = Convenio::all()->filter(function ($convenio) {
-            return $convenio->estado == 'Activo';
-        });
-        $id_convenios = $request->input('id_convenios');
+        return Redirect::route('convenios');
+    }
 
-        return view(
-            'admin.convenio.listaconvenio',
-            [
-                'title' => 'Listado de Convenios',
-                'convenios' => $convenios,
-                'usuario' => $user
-            ]
-        );
+    public function borrar(Request $request)
+    {
+        $id_convenios = $request->input('id_convenios');
+        $convenio = Convenio::find($id_convenios);
+        $convenio->estado = 'Concluido';
+        $convenio->save();
+        return Redirect::route('convenios');
     }
 }

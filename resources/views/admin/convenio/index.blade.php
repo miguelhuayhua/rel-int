@@ -101,7 +101,9 @@
                                 </div>
                             </form>
 
-                            <form action="/dashboard/eliminiar" class="mt-4" method="POST" id="form-bconvenio">
+                            <form action="/dashboard/bconvenio" class="mt-4" method="POST" id="form-bconvenio">
+                                <input type="text" hidden name="id_convenios" value="{{ $id_convenios }}">
+
                                 <div onclick="enviar(bconvenio,'¿Desea eliminar el convenio?')"
                                     class="btn btn-custom2 w-25">Terminar Convenio</div>
                             </form>
@@ -113,8 +115,8 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-6">
-                                        <img class="img2" id="imagen2" src="{{ url($convenio->img_convenio) }}"
-                                            alt="No seleccionado" srcset="">
+                                        <img class="img2" id="imagen2" src="" alt="No seleccionado"
+                                            srcset="">
                                         <label for="imagen">Imagen:</label>
                                         <input name="imagen" type="file" accept=".png, .jpg, .jpeg"
                                             class="form-control" id="imagen">

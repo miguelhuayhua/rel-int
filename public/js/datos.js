@@ -30,6 +30,12 @@ let econvenio = () => {
 let bconvenio = () => {
     document.getElementById('form-bconvenio').submit();
 }
+let busuario = () => {
+    document.getElementById('form-busuario').submit();
+}
+let eusuario = () => {
+    document.getElementById('form-eusuario').submit();
+}
 //Función para mostrar el modal
 let si = document.getElementById('si');
 let no = document.getElementById('no');
@@ -42,7 +48,6 @@ let enviar = (call, texto = '¿Desea realizar los cambios?') => {
     mensaje = texto;
     let elementoMensaje = document.getElementById('mensaje');
     elementoMensaje.innerText = mensaje;
-
 }
 
 si.addEventListener('click', () => {

@@ -26,7 +26,8 @@ class usuarios extends Controller
             [
                 'title' => 'Agregar Usuario',
                 "usuario" => $user,
-                "personas" => $personas
+                "personas" => $personas,
+                'id_usuario' => null
             ]
         )->with('replace', true);
     }
@@ -74,15 +75,52 @@ class usuarios extends Controller
         return Redirect::route('dashboard');
     }
 
-    public function mostrar()
+    public function listar(Request $request)
     {
-        $usuarios = Usuario::all()->filter(function ($usuario) {
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+
+        $usuarios = Usuario::orderBy('id_usuario', 'desc')->get()->filter(function ($usuario) {
             return $usuario->estado = '1';
         });
-
+        $usuarios->sortByDesc('id_usuario');
         return view('admin.usuario.listado', [
             'title' => 'Listado de Usuarios',
-            'usuarios' => $usuarios
+            'usuarios' => $usuarios,
+            'usuario' => $user
         ]);
+    }
+    public function mostrar(Request $request, $id_usuario)
+    {
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $usuario = Usuario::find($id_usuario);
+        return view(
+            'admin.usuario.index',
+            [
+                'title' => 'Editar usuario',
+                "usuario" => $user,
+                'usuario' => $usuario,
+                'id_usuario' => $id_usuario
+            ]
+        )->with('replace', true);
+    }
+
+    public function editar(Request $request)
+    {
+        $id_usuario = $request->input('id_usuario');
+        $usuario = Usuario::find($id_usuario);
+        $usuario->usuario = $request->input('usuario');
+        $usuario->password = md5($request->input('password'));
+        $usuario->actualizado = now();
+        $usuario->save();
+        return Redirect::route('usuarios');
+    }
+    public function borrar(Request $request)
+    {
+        $id_usuario = $request->input('id_usuario');
+        $usuario = Usuario::find($id_usuario);
+        $usuario->estado = 0;
+        $usuario->save();
+
+        return Redirect::route('usuarios');
     }
 }

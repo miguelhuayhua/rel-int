@@ -39,9 +39,11 @@ Route::get('dashboard/aconvenio', [\App\Http\Controllers\admin\convenios::class,
 Route::post('aconvenio', [App\Http\Controllers\admin\convenios::class, 'insertar'])->middleware('web');
 Route::get('dashboard/asconvenio', [\App\Http\Controllers\admin\convenios::class, 'asconvenio']);
 Route::post('dashboard/asconvenio', [\App\Http\Controllers\admin\convenios::class, 'asignarConvenio'])->middleware('web');
-Route::get('/dashboard/convenios', [\App\Http\Controllers\admin\convenios::class, 'listar'])->name('lista-convenios');
+Route::get('/dashboard/convenios', [\App\Http\Controllers\admin\convenios::class, 'listar'])->name('convenios');
 Route::get('/dashboard/convenios/{id_convenios}', [\App\Http\Controllers\admin\convenios::class, 'mostrar']);
 Route::post('/dashboard/econvenio', [\App\Http\Controllers\admin\convenios::class, 'editar']);
+Route::get('/dashboard/bconvenio', [\App\Http\Controllers\admin\convenios::class, 'borrar']);
+
 //publicaciones
 Route::get('dashboard/apublicacion', [\App\Http\Controllers\admin\publicaciones::class, 'index']);
 Route::get('dashboard/publicaciones', [\App\Http\Controllers\admin\publicaciones::class, 'mostrar']);
@@ -49,7 +51,11 @@ Route::post('dashboard/apublicacion', [\App\Http\Controllers\admin\publicaciones
 //usuarios
 Route::get('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 'index']);
 Route::post('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 'insertar']);
-Route::get('dashboard/usuarios', [\App\Http\Controllers\admin\usuarios::class, 'mostrar']);
+Route::get('dashboard/usuarios', [\App\Http\Controllers\admin\usuarios::class, 'listar'])->name('usuarios');
+Route::get('/dashboard/usuario/{id_usuario}', [\App\Http\Controllers\admin\usuarios::class, 'mostrar']);
+Route::post('/dashboard/eusuario', [\App\Http\Controllers\admin\usuarios::class, 'editar']);
+Route::get('/dashboard/busuario', [\App\Http\Controllers\admin\usuarios::class, 'borrar']);
+
 //personas
 Route::get('dashboard/apersona', [\App\Http\Controllers\admin\usuarios::class, 'apersona']);
 Route::post('dashboard/apersona', [\App\Http\Controllers\admin\usuarios::class, 'insertarPersona']);
