@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Middleware\EnsureTokenIsValid;
+use App\Models\Persona;
 
 use App\Http\Controllers\Controller;
-use App\Models\Persona;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +20,7 @@ class usuarios extends Controller
     public function index(Request $request)
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $usuario = new Usuario;
         $personas = Persona::all(['id_persona', 'nombre', 'paterno', 'materno']);
         return view(
             'admin.usuario.index',
@@ -27,37 +28,11 @@ class usuarios extends Controller
                 'title' => 'Agregar Usuario',
                 "usuario" => $user,
                 "personas" => $personas,
-                'id_usuario' => null
-            ]
-        )->with('replace', true);
-    }
-    public function apersona(Request $request)
-    {
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
-        return view(
-            'admin.usuario.persona',
-            [
-                'title' => 'Agregar Persona',
-                "usuario" => $user,
+                'id_usuario' => null,
+                'user' => $usuario,
 
             ]
         )->with('replace', true);
-    }
-    public function insertarPersona(Request $request)
-    {
-        $img = $request->file('imagen');
-        $persona = new Persona;
-        $persona->nombre = ucfirst($request->input('nombre'));
-        $persona->paterno = ucfirst($request->input('paterno'));
-        $persona->materno = ucfirst($request->input('materno'));
-        $persona->ci = $request->input('ci');
-        $persona->telefono = $request->input('telefono');
-        $persona->email = $request->input('email');
-        $persona->cargo = $request->input('tipo');
-        $persona->img = 'assets/imgUsers/' . $img->getClientOriginalName();
-        $img->move(public_path('assets/imgUsers'), $img->getClientOriginalName());
-        $persona->save();
-        return Redirect::route('dashboard');
     }
     public function insertar(Request $request)
     {
@@ -89,6 +64,7 @@ class usuarios extends Controller
             'usuario' => $user
         ]);
     }
+
     public function mostrar(Request $request, $id_usuario)
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
@@ -98,8 +74,7 @@ class usuarios extends Controller
             [
                 'title' => 'Editar usuario',
                 "usuario" => $user,
-                'usuario' => $usuario,
-                'id_usuario' => $id_usuario
+                'user' => $usuario
             ]
         )->with('replace', true);
     }

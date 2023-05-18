@@ -46,3 +46,50 @@
 .showmodal {
     transform: translateY(0%);
 }
+
+
+/*ALERTAS DE TAREAS TERMINADAS*/
+
+.completado {
+    position: fixed;
+    background-color: white;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.653);
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 10px;
+    animation: completado-in 5s ease-in-out both;
+}
+
+.completado i {
+    color: rgb(104, 157, 26);
+    font-size: 2em;
+}
+
+.completado p {
+    font-size: 1.1em;
+    margin-top: 10px;
+    padding-right: 10px;
+}
+
+@keyframes completado-in {
+
+    0% {
+        transform: translateX(150%);
+    }
+
+    30% {
+        transform: translateX(0);
+    }
+
+    70% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(150%);
+    }
+}

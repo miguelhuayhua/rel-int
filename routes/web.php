@@ -42,12 +42,16 @@ Route::post('dashboard/asconvenio', [\App\Http\Controllers\admin\convenios::clas
 Route::get('/dashboard/convenios', [\App\Http\Controllers\admin\convenios::class, 'listar'])->name('convenios');
 Route::get('/dashboard/convenios/{id_convenios}', [\App\Http\Controllers\admin\convenios::class, 'mostrar']);
 Route::post('/dashboard/econvenio', [\App\Http\Controllers\admin\convenios::class, 'editar']);
-Route::get('/dashboard/bconvenio', [\App\Http\Controllers\admin\convenios::class, 'borrar']);
+Route::post('/dashboard/bconvenio', [\App\Http\Controllers\admin\convenios::class, 'borrar']);
 
 //publicaciones
 Route::get('dashboard/apublicacion', [\App\Http\Controllers\admin\publicaciones::class, 'index']);
-Route::get('dashboard/publicaciones', [\App\Http\Controllers\admin\publicaciones::class, 'mostrar']);
+Route::get('dashboard/publicaciones', [\App\Http\Controllers\admin\publicaciones::class, 'listar'])->name('publicaciones');
 Route::post('dashboard/apublicacion', [\App\Http\Controllers\admin\publicaciones::class, 'insertar']);
+Route::get('dashboard/publicaciones/{id_publicaciones}', [\App\Http\Controllers\admin\publicaciones::class, 'mostrar']);
+Route::post('dashboard/epublicacion', [\App\Http\Controllers\admin\publicaciones::class, 'editar']);
+Route::post('dashboard/bpublicacion', [\App\Http\Controllers\admin\publicaciones::class, 'borrar']);
+
 //usuarios
 Route::get('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 'index']);
 Route::post('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 'insertar']);
@@ -57,8 +61,13 @@ Route::post('/dashboard/eusuario', [\App\Http\Controllers\admin\usuarios::class,
 Route::get('/dashboard/busuario', [\App\Http\Controllers\admin\usuarios::class, 'borrar']);
 
 //personas
-Route::get('dashboard/apersona', [\App\Http\Controllers\admin\usuarios::class, 'apersona']);
-Route::post('dashboard/apersona', [\App\Http\Controllers\admin\usuarios::class, 'insertarPersona']);
+Route::get('dashboard/apersona', [\App\Http\Controllers\admin\personas::class, 'index']);
+Route::get('dashboard/personas', [\App\Http\Controllers\admin\personas::class, 'listar'])->name('personas');
+Route::post('dashboard/apersona', [\App\Http\Controllers\admin\personas::class, 'insertar']);
+Route::get('dashboard/persona/{id_persona}', [\App\Http\Controllers\admin\personas::class, 'mostrar']);
+Route::post('dashboard/epersona', [\App\Http\Controllers\admin\personas::class, 'editar']);
+
+
 //carreras
 Route::get('dashboard/acarrera', [\App\Http\Controllers\admin\carreras::class, 'index']);
 Route::post('dashboard/acarrera', [\App\Http\Controllers\admin\carreras::class, 'insertar']);

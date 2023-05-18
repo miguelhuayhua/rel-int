@@ -103,7 +103,7 @@
 
                             <form action="/dashboard/bconvenio" class="mt-4" method="POST" id="form-bconvenio">
                                 <input type="text" hidden name="id_convenios" value="{{ $id_convenios }}">
-
+                                @csrf
                                 <div onclick="enviar(bconvenio,'¿Desea eliminar el convenio?')"
                                     class="btn btn-custom2 w-25">Terminar Convenio</div>
                             </form>
@@ -176,7 +176,7 @@
                                             <option>Seleccione el tipo de convenio...</option>
                                             <option value="1">
                                                 NACIONALES</option>
-                                            <option value="2" INTERNACIONALES</option>
+                                            <option value="2">INTERNACIONALES</option>
                                         </select>
                                     </div>
                                     <div onclick="enviar(convenio)" class="btn btn-custom w-25">Agregar Convenio</div>

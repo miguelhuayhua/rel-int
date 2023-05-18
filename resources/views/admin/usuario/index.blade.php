@@ -14,9 +14,9 @@
                         @include('admin.topNavbar')
                     </div>
                     <div class="col-12 pt-2">
-                        @if ($usuario->id_usuario)
+                        @if ($user->id_usuario)
                             <h2>
-                                Insertar Nuevo Usuario
+                                Editar Usuario
                             </h2>
                             <form enctype="multipart/form-data" id="form-eusuario" method="POST"
                                 action="/dashboard/eusuario">
@@ -25,14 +25,14 @@
                                     <div class="form-group col-12">
                                         <label for="usuario">Nombre de Usuario:</label>
                                         <input type="text" class="form-control" id="usuario" name="usuario"
-                                            placeholder="Introduzca el nombre del usuario" value="{{ $usuario->usuario }}">
+                                            placeholder="Introduzca el nombre del usuario" value="{{ $user->usuario }}">
                                     </div>
                                     <div class="form-group col-12">
                                         <label for="password">Introduzca su contraseña:</label>
                                         <input name="password" class="form-control"
                                             placeholder="Introduzca su nueva contraseña" id="password" type="password">
                                     </div>
-                                    <input type="text" hidden value="{{ $id_usuario }}" name="id_usuario">
+                                    <input type="text" hidden value="{{ $user->id_usuario }}" name="id_usuario">
                                 </div>
                                 <div onclick="enviar(eusuario), '¿Desea editar el Usuario?'" class="btn btn-custom w-25">
                                     Editar Usuario</div>

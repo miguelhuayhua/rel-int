@@ -19,6 +19,10 @@ let asconvenio = () => {
 let apersona = () => {
     document.getElementById('form-persona').submit();
 }
+
+let epersona = () => {
+    document.getElementById('form-epersona').submit();
+}
 let ausuario = () => {
     document.getElementById('form-ausuario').submit();
 }
@@ -36,6 +40,13 @@ let busuario = () => {
 let eusuario = () => {
     document.getElementById('form-eusuario').submit();
 }
+let bpublicacion = () => {
+    document.getElementById('form-bpublicacion').submit();
+}
+let epublicacion = () => {
+    document.getElementById('form-epublicacion').submit();
+}
+
 //Función para mostrar el modal
 let si = document.getElementById('si');
 let no = document.getElementById('no');

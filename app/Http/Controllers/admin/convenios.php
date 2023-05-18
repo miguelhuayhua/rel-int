@@ -136,6 +136,8 @@ class convenios extends Controller
         $convenio->email = $request->input('email');
         $convenio->direccion = $request->input('direccion');
         $convenio->fecha_finalizacion = now();
+        $convenio->correlativo = "CV-" . $id_convenios;
+
         $convenio->id_tipo_convenio = $request->input('tipo');
         $convenio->save();
         return Redirect::route('convenios');

@@ -43,12 +43,19 @@
             <a href="/dashboard/ausuario" class="btn dash-btn">
                 Agregar Usuarios
             </a>
-            
+
             <a href="/dashboard/usuarios" class="btn dash-btn">
+                <i class="fa fa-eye icon" aria-hidden="true"></i>
+
                 Ver Usuarios
             </a>
             <a href="/dashboard/apersona" class="btn dash-btn">
                 Agregar Persona
+            </a>
+            <a href="/dashboard/personas" class="btn dash-btn">
+                <i class="fa fa-eye icon" aria-hidden="true"></i>
+
+                Ver Personas
             </a>
             <a href="/dashboard/gusuario" class="btn dash-btn">
                 Estadísticas
