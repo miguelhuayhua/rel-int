@@ -53,7 +53,8 @@ class usuarios extends Controller
     public function listar(Request $request)
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
-
+        $estado = session('done');
+        $done = $estado != null ? 1 : 0;
         $usuarios = Usuario::orderBy('id_usuario', 'desc')->get()->filter(function ($usuario) {
             return $usuario->estado = '1';
         });
@@ -61,7 +62,8 @@ class usuarios extends Controller
         return view('admin.usuario.listado', [
             'title' => 'Listado de Usuarios',
             'usuarios' => $usuarios,
-            'usuario' => $user
+            'usuario' => $user,
+            'done' => $done
         ]);
     }
 
@@ -81,13 +83,14 @@ class usuarios extends Controller
 
     public function editar(Request $request)
     {
+
         $id_usuario = $request->input('id_usuario');
         $usuario = Usuario::find($id_usuario);
         $usuario->usuario = $request->input('usuario');
         $usuario->password = md5($request->input('password'));
         $usuario->actualizado = now();
         $usuario->save();
-        return Redirect::route('usuarios');
+        return Redirect::route('usuarios')->with('done', ['done' => 1]);
     }
     public function borrar(Request $request)
     {

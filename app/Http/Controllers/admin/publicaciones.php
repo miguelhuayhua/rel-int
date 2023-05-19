@@ -65,6 +65,8 @@ class publicaciones extends Controller
     public function listar(Request $request)
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $estado = session()->get('done');
+        $done = $estado != null ? 1 : 0;
         $publicaciones = Publicacion::orderBy('id_publicaciones', 'desc')->get()->filter(function ($publi) {
             return $publi->estado == 1;
         });
@@ -73,12 +75,14 @@ class publicaciones extends Controller
             [
                 'title' => 'Listado de Publicaciones',
                 'publicaciones' => $publicaciones,
-                'usuario' => $user
+                'usuario' => $user,
+                'done' => $done
             ]
         );
     }
     public function editar(Request $request)
     {
+
         $id_publicaciones = $request->input('id_publicaciones');
         $publicacion = Publicacion::find($id_publicaciones);
         $titulo = $request->input('titulo');
@@ -110,7 +114,7 @@ class publicaciones extends Controller
                 DB::commit();
             }
         }
-        return Redirect::route('publicaciones');
+        return Redirect::route('publicaciones')->with('done', ['done' => 1]);
     }
     public function mostrar(Request $request, $id_publicaciones)
     {

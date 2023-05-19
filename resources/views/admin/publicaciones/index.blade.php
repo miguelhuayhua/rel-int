@@ -70,7 +70,9 @@
                                             value="{{ $publicacion->links }}">
                                     </div>
                                     <div class="col-6">
-                                        <label for="tipo">Tipo de Publicación:</label>
+                                        <label for="tipo">Tipo de
+                                            Publicación:</label>
+
                                         <select id="tipo" class="form-select" name="tipo"
                                             aria-label="Default select example">
                                             <option selected>Seleccione el tipo de publicación...</option>
@@ -78,14 +80,19 @@
                                                 {{ $publicacion->tipo_publicaciones == 'Noticias' ? 'selected' : '' }}>
                                                 Noticias</option>
                                             <option value="Becas"
-                                                {{ $publicacion->tipo_publicaciones == 'Becas' ? 'selected' : '' }}>Becas
+                                                {{ $publicacion->tipo_publicaciones == 'Becas' ? 'selected' : '' }}>
+                                                Becas
                                             </option>
                                             <option value="Idiomas"
                                                 {{ $publicacion->tipo_publicaciones == 'Idiomas' ? 'selected' : '' }}>
                                                 Idiomas</option>
-                                            <option value="Pasantia"
-                                                {{ $publicacion->tipo_publicaciones == 'Pasantia' ? 'selected' : '' }}>
-                                                Pasantía</option>
+                                            <option value="Pasantias"
+                                                {{ $publicacion->tipo_publicaciones == 'Pasantias' ? 'selected' : '' }}>
+                                                Pasantías</option>
+                                            <option
+                                                {{ $publicacion->tipo_publicaciones == 'Publicaciones' ? 'selected' : '' }}
+                                                value="Publicaciones">
+                                                Publicaciones</option>
                                         </select>
                                     </div>
                                     <input type="text" hidden name="id_publicaciones"
@@ -161,8 +168,11 @@
                                             <option value="Noticias">Noticias</option>
                                             <option value="Becas">Becas</option>
                                             <option value="Idiomas">Idiomas</option>
-                                            <option value="Pasantia">Pasantía</option>
+                                            <option value="Pasantias">Pasantías</option>
+                                            <option value="Publicaciones">Publicaciones</option>
                                         </select>
+
+
                                     </div>
                                 </div>
                                 <div onclick="enviar(publicacion)" class="btn btn-custom w-25">Agregar Publicación</div>

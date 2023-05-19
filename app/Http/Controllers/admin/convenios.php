@@ -83,6 +83,8 @@ class convenios extends Controller
     public function listar(Request $request)
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $estado = session('done');
+        $done = $estado != null ? 1 : 0;
         $convenios = Convenio::orderBy('id_convenios', 'desc')->get()->filter(function ($convenio) {
             return $convenio->estado == 'Activo';
         });
@@ -91,7 +93,8 @@ class convenios extends Controller
             [
                 'title' => 'Listado de Convenios',
                 'convenios' => $convenios,
-                'usuario' => $user
+                'usuario' => $user,
+                'done' => $done
             ]
         );
     }
@@ -140,7 +143,7 @@ class convenios extends Controller
 
         $convenio->id_tipo_convenio = $request->input('tipo');
         $convenio->save();
-        return Redirect::route('convenios');
+        return Redirect::route('convenios')->with('done', ['done' => 1]);
     }
 
     public function borrar(Request $request)
