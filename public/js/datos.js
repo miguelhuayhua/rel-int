@@ -48,8 +48,8 @@ let epublicacion = () => {
 }
 
 //Función para mostrar el modal
-let si = document.getElementById('si');
-let no = document.getElementById('no');
+let si = document.getElementById('si') || document.createElement('button');
+let no = document.getElementById('no') || document.createElement('button');
 let modal = document.getElementById('modal');
 
 //función encargado del envío

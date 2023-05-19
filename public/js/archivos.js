@@ -1,4 +1,4 @@
-let img = document.getElementById('imagen');
+let img = document.getElementById('imagen') || document.createElement('img');
 let doc = document.getElementById('doc') || document.createElement('span');
 
 img.addEventListener('change', (e) => {
@@ -25,7 +25,7 @@ doc.addEventListener('change', (e) => {
 })
 
 //agregar publicación listado de archivos
-let docs = document.getElementById('docs');
+let docs = document.getElementById('docs') || document.createElement('p');
 
 docs.addEventListener('change', (ev) => {
     let files = document.getElementById('files');

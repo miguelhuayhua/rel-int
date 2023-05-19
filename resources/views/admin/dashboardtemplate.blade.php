@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url('css/admin/modal.css') }}">
     <link rel="stylesheet" href="{{ url('css/admin/listado.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -25,7 +28,6 @@
     </script>
     <script src="{{ url('js/archivos.js') }}"></script>
     <script src="{{ url('js/dashboard.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
 
     <script src="{{url('js/axios.min.js')}}" type="module"></script>
     <script>

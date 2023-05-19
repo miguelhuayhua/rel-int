@@ -38,7 +38,7 @@ class usuarios extends Controller
     {
         $id_persona = $request->input('id_persona');
         $nombre = $request->input('usuario');
-        $password = md5($request->input('password'));
+        $password = md5($request->input('password'), true);
         $usuario = new Usuario;
         $usuario->id_persona = $id_persona;
         $usuario->usuario = $nombre;

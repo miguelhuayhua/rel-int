@@ -78,3 +78,7 @@ Route::get('/cerrarsesion', [\App\Http\Controllers\login\LoginController::class,
 
 //PERFIL
 Route::get('/dashboard/perfil', [\App\Http\Controllers\admin\dashboard\perfil::class, 'index']);
+
+
+//GRAFICOS
+Route::get('/dashboard/chartdata', [\App\Http\Controllers\admin\dashboard\DashboardController::class, 'getDataCharts']);
