@@ -25,36 +25,37 @@
                     </div>
                     <div class="col-2"></div>
                     <div class="col-2"></div>
-                    <div class="col-12 col-lg-6 col-xl-4">
-                        <div class="user-cards" style="height: 250px">
+                    <div class="col-12 col-lg-6 col-xl-5">
+                        <div class="user-cards" style="height: 200px">
                             <p class="titulo-chart">
                                 Mayor tipo de convenios
                             </p>
                             <canvas id="cconvenios" height="100%"></canvas>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 col-xl-4" style="height: 250px">
+                    <div class="col-12 col-lg-6 col-xl-7" style="height: 250px">
                         <div class="user-cards">
                             <p class="titulo-chart">
-                                Convenio más solicitado
-                            </p>
-                            <canvas id="donutChart" height="100%"></canvas>
-
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 col-xl-4" style="height: 250px">
-                        <div class="user-cards">
-                            <p class="titulo-chart">
-                                Publicaciones más visitadas
+                                Visitas de los últimos 7 días
                             </p>
                             <canvas id="lineChart" height="100%"></canvas>
 
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 col-xl-3" style="height: 250px">
+                    <div class="col-12 col-lg-6 col-xl-6" style="height: 250px">
                         <div class="user-cards">
                             <p class="titulo-chart">
+                                Publicación más visitada
+                            </p>
+                            <canvas id="donutChart" height="100%"></canvas>
 
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 col-xl-6" style="height: 250px">
+                        <div class="user-cards">
+                            <p class="titulo-chart">
+                                Usuario más Activo
                             </p>
                             <canvas id="horizontalBarChart" height="100%"></canvas>
 
@@ -70,6 +71,7 @@
             return response.data
             // do whatever you want if console is [object object] then stringify the response
         }).then(data => {
+
             var ctx = document.getElementById('cconvenios').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
@@ -123,23 +125,25 @@
             var lineChart = new Chart(ctx3, {
                 type: 'line',
                 data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                    labels: data.dataDias.map(value => value.nombre_dia).reverse(),
                     datasets: [{
-                        label: 'Sales',
-                        data: [50, 30, 60, 70, 40, 80],
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
+                        label: 'Visitantes',
+                        data: data.dataDias.map(value => value.cantidad).reverse(),
+                        backgroundColor: 'rgba(165, 42, 42, 0.6)',
+                        borderColor: 'black',
                         borderWidth: 1,
                         pointRadius: 3,
-                        pointBackgroundColor: 'rgba(54, 162, 235, 1)'
+                        pointBackgroundColor: 'rgb(165, 42, 42)'
                     }]
                 },
                 options: {
                     maintainAspectRatio: true,
                     scales: {
-                        y: {
-                            beginAtZero: true
-                        }
+                        yAxes: [{
+                            ticks: {
+                                min: 0,
+                            }
+                        }]
                     }
                 }
             });

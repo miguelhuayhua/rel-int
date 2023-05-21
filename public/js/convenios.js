@@ -48,3 +48,12 @@ function mostrarConvenios(tipo, id) {
         });
     })
 }
+
+
+function hiddeModal(ev) {
+    if (ev.target.id == 'modal') {
+        let modal = ev.target;
+        modal.classList.remove('show-modal');
+
+    }
+}

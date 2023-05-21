@@ -29,7 +29,7 @@
         </div>
 
     </div>
-    <div id="modal" class="modal-container">
+    <div id="modal" class="modal-container" onclick="hiddeModal(event)">
         <div class="custom-modal">
             <div class="row">
                 <ul id="lista-convenios" class="list">
