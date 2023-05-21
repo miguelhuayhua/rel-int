@@ -44,3 +44,20 @@ ALTER TABLE relaciones.sic_convenio ADD correlativo VARCHAR(50);
 
 #14 de mayo
 ALTER TABLE relaciones.sic_usuario ADD ultima_vez DATETIME;
+
+#20 de mayo
+CREATE  TABLE relaciones.publicacion_visita ( 
+	id_publicaciones     INT       ,
+	fecha                TIMESTAMP   DEFAULT (CURRENT_TIMESTAMP)    
+ ) engine=InnoDB;
+
+ALTER TABLE relaciones.publicacion_visita ADD CONSTRAINT fk_publicacion_visita FOREIGN KEY ( id_publicaciones ) REFERENCES relaciones.publicaciones( id_publicaciones ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+CREATE  TABLE relaciones.acciones_usuario ( 
+	id_acciones_usuario  INT  NOT NULL   AUTO_INCREMENT  PRIMARY KEY,
+	id_usuario           INT       ,
+	tipo                 VARCHAR(50)       ,
+	tabla                VARCHAR(100)       ,
+	fecha                DATETIME   DEFAULT (CURRENT_TIMESTAMP)    
+ ) engine=InnoDB;
+
+ALTER TABLE relaciones.acciones_usuario ADD CONSTRAINT fk_acciones_usuario FOREIGN KEY ( id_usuario ) REFERENCES relaciones.sic_usuario( id_usuario ) ON DELETE NO ACTION ON UPDATE NO ACTION;
