@@ -65,12 +65,17 @@ Route::get('dashboard/apersona', [\App\Http\Controllers\admin\personas::class, '
 Route::get('dashboard/personas', [\App\Http\Controllers\admin\personas::class, 'listar'])->name('personas');
 Route::post('dashboard/apersona', [\App\Http\Controllers\admin\personas::class, 'insertar']);
 Route::get('dashboard/persona/{id_persona}', [\App\Http\Controllers\admin\personas::class, 'mostrar']);
+
 Route::post('dashboard/epersona', [\App\Http\Controllers\admin\personas::class, 'editar']);
 
 
 //carreras
 Route::get('dashboard/acarrera', [\App\Http\Controllers\admin\carreras::class, 'index']);
+Route::get('dashboard/carreras', [\App\Http\Controllers\admin\carreras::class, 'listar'])->name('carreras');
 Route::post('dashboard/acarrera', [\App\Http\Controllers\admin\carreras::class, 'insertar']);
+Route::get('dashboard/carreras/{id_carrera}', [\App\Http\Controllers\admin\carreras::class, 'mostrar']);
+Route::post('dashboard/ecarrera', [\App\Http\Controllers\admin\carreras::class, 'editar']);
+
 //RUTAS DE LOGUEO
 Route::post('/login', [\App\Http\Controllers\login\LoginController::class, 'iniciarSesion'])->name('login');
 Route::get('/cerrarsesion', [\App\Http\Controllers\login\LoginController::class, 'cerrarSesion']);

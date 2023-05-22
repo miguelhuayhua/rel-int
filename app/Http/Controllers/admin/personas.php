@@ -24,6 +24,9 @@ class personas extends Controller
         $persona->img = 'assets/imgUsers/' . $img->getClientOriginalName();
         $img->move(public_path('assets/imgUsers'), $img->getClientOriginalName());
         $persona->save();
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'sic_persona']);
+        DB::commit();
         return Redirect::route('personas');
     }
 
@@ -56,8 +59,10 @@ class personas extends Controller
         $persona->telefono = $request->input('telefono');
         $persona->email = $request->input('email');
         $persona->cargo = $request->input('tipo');
-
         $persona->save();
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'editar', 'sic_persona']);
+        DB::commit();
         return Redirect::route('personas')->with('done', ['done' => 1]);
     }
     public function listar(Request $request)

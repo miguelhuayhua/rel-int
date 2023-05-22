@@ -31,6 +31,12 @@ let econvenio = () => {
     document.getElementById('form-econvenio').submit();
 }
 
+let ecarrera = () => {
+    document.getElementById('form-ecarrera').submit();
+}
+let acarrera = () => {
+    document.getElementById('form-acarrera').submit();
+}
 let bconvenio = () => {
     document.getElementById('form-bconvenio').submit();
 }
@@ -46,6 +52,8 @@ let bpublicacion = () => {
 let epublicacion = () => {
     document.getElementById('form-epublicacion').submit();
 }
+
+
 
 //Función para mostrar el modal
 let si = document.getElementById('si') || document.createElement('button');

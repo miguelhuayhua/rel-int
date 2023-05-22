@@ -17,7 +17,6 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
-
         return view('admin.dashboard.index', [
             'title' => "Dashboard",
             "usuario" => $user,
@@ -39,9 +38,17 @@ class DashboardController extends Controller
     DATE(fecha) AS fecha, COUNT(*) AS cantidad
     FROM
         relaciones.visita a group by 1 ORDER BY 1 DESC LIMIT 7 ) as f;");
+        $dataPublicaciones = DB::select("SELECT correlativo, count(*) as cantidad FROM  publicacion_visita pv left join publicaciones p on (p.id_publicaciones = pv.id_publicaciones) WHERE p.estado = 1 
+        AND tipo_publicaciones = 'Publicaciones' group by 1 LIMIT 5");
+        $dataUsuarios = DB::select("SELECT
+        sc.usuario, count(*) as acciones
+    FROM
+        relaciones.acciones_usuario au LEFT JOIN sic_usuario sc ON sc.id_usuario = au.id_usuario WHERE sc.estado = '1' GROUP BY 1  LIMIT 5;");
         return ([
             'dataConvenios' => $dataConvenios,
-            'dataDias' => $dataDias
+            'dataDias' => $dataDias,
+            'dataPublicaciones' => $dataPublicaciones,
+            'dataUsuarios' => $dataUsuarios
         ]);
     }
 }

@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-2"></div>
                     <div class="col-2"></div>
-                    <div class="col-12 col-lg-6 col-xl-5">
+                    <div class="col-12 col-lg-6 col-xl-5 mb-lg-5 mb-2">
                         <div class="user-cards" style="height: 200px">
                             <p class="titulo-chart">
                                 Mayor tipo de convenios
@@ -33,7 +33,7 @@
                             <canvas id="cconvenios" height="100%"></canvas>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 col-xl-7" style="height: 250px">
+                    <div class="col-12 col-lg-6 col-xl-7 mt-5 mt-lg-4 mb-lg-4" style="height: 250px">
                         <div class="user-cards">
                             <p class="titulo-chart">
                                 Visitas de los últimos 7 días
@@ -42,7 +42,7 @@
 
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 col-xl-6" style="height: 250px">
+                    <div class="col-12 col-lg-6 col-xl-6 mt-5" style="height: 250px">
                         <div class="user-cards">
                             <p class="titulo-chart">
                                 Publicación más visitada
@@ -52,13 +52,12 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-lg-6 col-xl-6" style="height: 250px">
+                    <div class="col-12 col-lg-6 col-xl-6 mt-lg-5" style="height: 250px">
                         <div class="user-cards">
                             <p class="titulo-chart">
-                                Usuario más Activo
+                                Usuarios más Activo
                             </p>
                             <canvas id="horizontalBarChart" height="100%"></canvas>
-
                         </div>
                     </div>
                 </div>
@@ -108,12 +107,17 @@
             var donutChart = new Chart(ctx2, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Red', 'Blue', 'Yellow'],
+                    labels: data.dataPublicaciones.map(value => value.correlativo),
                     datasets: [{
-                        data: [30, 20, 50],
-                        backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)',
-                            'rgba(255, 206, 86, 0.6)'
-                        ]
+                        data: data.dataPublicaciones.map(value => value.cantidad),
+                        backgroundColor: ['rgba(165, 42, 42, 1)',
+                            'rgba(165, 42, 42, 0.1)',
+                            'rgba(165, 42, 42, 0.5)',
+                            'rgba(135, 90, 90, 0.6)'
+                        ],
+                        borderColor: 'black',
+                        borderWidth: 1,
+
                     }]
                 },
                 options: {
@@ -151,12 +155,16 @@
             var horizontalBarChart = new Chart(ctx4, {
                 type: 'horizontalBar',
                 data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                    labels: data.dataUsuarios.map(value => value.usuario),
                     datasets: [{
-                        label: 'Sales',
-                        data: [50, 30, 60, 70, 40, 80],
-                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
+                        label: 'Acciones por Usuario',
+                        data: data.dataUsuarios.map(value => value.acciones),
+                        backgroundColor: ['rgba(165, 42, 42, 1)',
+                            'rgba(165, 42, 42, 0.1)',
+                            'rgba(165, 42, 42, 0.5)',
+                            'rgba(135, 90, 90, 0.6)'
+                        ],
+                        borderColor: 'black',
                         borderWidth: 1
                     }]
                 },

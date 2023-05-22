@@ -327,6 +327,7 @@ h6 {
     justify-content: center;
     width: 180px;
     display: none !important;
+    overflow: hidden;
 }
 
 .profile-options ul {

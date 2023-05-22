@@ -97,7 +97,7 @@
                 Agregar Carrera
             </a>
             <a href="/dashboard/carreras" class="btn dash-btn">
-                Ver Carrera
+                Ver Carreras
             </a>
             <a href="/dashboard/gcarrera" class="btn dash-btn">
                 Estadísticas

@@ -13,79 +13,65 @@
                     <div class="col-12">
                         @include('admin.topNavbar')
                     </div>
-                    <div class="col-12 pt-2">
-                        <h2>
-                            Insertar Nuevo Convenio
-                        </h2>
-                        <form enctype="multipart/form-data" id="form-convenio" method="POST" action="/aconvenio">
-                            @csrf
-                            <div class="row">
-                                <div class="col-6">
-                                    <img class="img2" id="imagen2" src="" alt="No seleccionado" srcset="">
-                                    <label for="imagen">Imagen:</label>
-                                    <input name="imagen" type="file" accept=".png, .jpg, .jpeg" class="form-control"
-                                        id="imagen">
+                    @if ($carrera->id_carrera)
+                        <div class="col-12 pt-2">
+                            <h2>
+                                Editar Carrera
+                            </h2>
+                            <form enctype="multipart/form-data" id="form-ecarrera" method="POST"
+                                action="/dashboard/ecarrera">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-4">
+                                        <img class="img2" id="imagen2" src="{{ url($carrera->image_url) }}"
+                                            alt="No seleccionado" srcset="">
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" hidden name="id_carrera" value="{{ $carrera->id_carrera }}">
+                                        <label for="image_url">Imagen:</label>
+                                        <input name="image_url" type="file" accept=".png, .jpg, .jpeg"
+                                            class="form-control" id="image">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="nom_carrera">Nombre de Carrera:</label>
+                                        <input type="text" class="form-control" id="nom_carrera" name="nom_carrera"
+                                            value="{{ $carrera->nom_carrera }}"
+                                            placeholder="Introduzca el nombre de la carrera">
+                                    </div>
                                 </div>
-                                <div class="col-6">
-                                    <p id="doc2">
-                                        <i class="fa " aria-hidden="true"></i>
-                                    </p>
-                                    <label for="doc">Pdf/Word:</label>
-                                    <input name="file" type="file" accept=".docx, .pdf" class="form-control"
-                                        id="doc">
+                                <div onclick="enviar(ecarrera,'¿Está seguro de editar la carrera?')"
+                                    class="btn btn-custom w-25">Editar Carrera</div>
+                            </form>
+                        </div>
+                    @else
+                        <div class="col-12 pt-2">
+                            <h2>
+                                Agregar Carrera
+                            </h2>
+                            <form enctype="multipart/form-data" id="form-acarrera" method="POST"
+                                action="/dashboard/acarrera">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-4">
+                                        <img class="img2" id="imagen2" src="" alt="No seleccionado"
+                                            srcset="">
+                                    </div>
+                                    <div class="col-8">
+                                        <label for="image_url">Imagen:</label>
+                                        <input name="image_url" type="file" accept=".png, .jpg, .jpeg"
+                                            class="form-control" id="image">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="nom_carrera">Nombre de Carrera:</label>
+                                        <input type="text" class="form-control" id="nom_carrera" name="nom_carrera"
+                                            placeholder="Introduzca el nombre de la carrera">
+                                    </div>
                                 </div>
-                                <hr>
-                                <div class="form-group col-12">
-                                    <label for="nombre">Nombre de Convenio:</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre"
-                                        placeholder="Introduzca el nombre del convenio">
-                                </div>
-                                <div class="form-group col-12">
-                                    <label for="objetivo">Objetivo del Convenio:</label>
-                                    <textarea name="objetivo" class="form-control" placeholder="Introduzca el objetivo del convenio" id="objetivo"
-                                        rows="5"></textarea>
-                                </div>
-                                <div class="col-6">
-                                    <label for="firma">Fecha de Firma:</label>
-                                    <input name="fecha_firma" id="firma" class="form-control" type="date">
-                                </div>
-                                <div class="col-6">
-                                    <label for="direccion">Dirección de Convenio:</label>
-                                    <input type="text" class="form-control" id="direccion" name="direccion"
-                                        placeholder="Introduzca la dirección del convenio">
-                                </div>
-                                <div class="col-6">
-                                    <label for="tiempo">Tiempo de Duración:</label>
-                                    <input name="dias" type="number" class="form-control" id="dias"
-                                        placeholder="días">
-                                </div>
-                                <div class="col-6">
-                                    <label for="entidad">Entidad:</label>
-                                    <input name="entidad" type="text" class="form-control" id="entidad"
-                                        placeholder="Introduzca la entidad del convenio">
-                                </div>
-                                <div class="col-6">
-                                    <label for="telefono">Teléfono / Celular:</label>
-                                    <input name="telefono"type="number" class="form-control" id="telefono"
-                                        placeholder="Introduzca su número de teléfono o celular">
-                                </div>
-                                <div class="col-6">
-                                    <label for="email">Email:</label>
-                                    <input type="email" class="form-control" id="email" name="email"
-                                        placeholder="ejemplo@entidad.com">
-                                </div>
-                                <div class="col-6">
-                                    <label for="tipo">Tipo de Convenio:</label>
-                                    <select id="tipo" class="form-select" name="tipo" aria-label="Default select example">
-                                        <option selected>Seleccione el tipo de convenio...</option>
-                                        <option value="1">NACIONALES</option>
-                                        <option value="2">INTERNACIONALES</option>
-                                      </select>
-                                </div>
-                            </div>
-                            <div onclick="enviar(convenio)" class="btn btn-custom w-25">Agregar Convenio</div>
-                        </form>
-                    </div>
+                                <div onclick="enviar(acarrera,'¿Está seguro de agregar la nueva Carrera?')"
+                                    class="btn btn-custom w-25">Agregar Carrera</div>
+                            </form>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

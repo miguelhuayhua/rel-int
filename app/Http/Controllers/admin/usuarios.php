@@ -47,6 +47,9 @@ class usuarios extends Controller
         $usuario->estado = 1;
         $usuario->actualizado = now();
         $usuario->save();
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'sic_usuario']);
+        DB::commit();
         return Redirect::route('dashboard');
     }
 
@@ -90,6 +93,9 @@ class usuarios extends Controller
         $usuario->password = md5($request->input('password'));
         $usuario->actualizado = now();
         $usuario->save();
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'editar', 'sic_usuario']);
+        DB::commit();
         return Redirect::route('usuarios')->with('done', ['done' => 1]);
     }
     public function borrar(Request $request)
@@ -98,7 +104,9 @@ class usuarios extends Controller
         $usuario = Usuario::find($id_usuario);
         $usuario->estado = 0;
         $usuario->save();
-
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'eliminar', 'sic_usuario']);
+        DB::commit();
         return Redirect::route('usuarios');
     }
 }

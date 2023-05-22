@@ -59,6 +59,9 @@ class publicaciones extends Controller
             VALUES (?,?,?,now())', [$id_publicaciones, 'assets/img_publicaciones/archivos/' . $archivo->getClientOriginalName(), '1']);
             DB::commit();
         }
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'publicaciones']);
+        DB::commit();
         return Redirect::route('dashboard');
     }
 
@@ -114,6 +117,9 @@ class publicaciones extends Controller
                 DB::commit();
             }
         }
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'editar', 'publicaciones']);
+        DB::commit();
         return Redirect::route('publicaciones')->with('done', ['done' => 1]);
     }
     public function mostrar(Request $request, $id_publicaciones)
@@ -137,6 +143,9 @@ class publicaciones extends Controller
         $publicacion = Publicacion::find($id_publicaciones);
         $publicacion->estado = 0;
         $publicacion->save();
+        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'eliminar', 'publicaciones']);
+        DB::commit();
         return Redirect::route('publicaciones');
     }
 }
