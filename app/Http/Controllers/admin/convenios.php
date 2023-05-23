@@ -163,6 +163,6 @@ class convenios extends Controller
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'eliminar', 'sic_convenio']);
         DB::commit();
-        return Redirect::route('convenios');
+        return Redirect::route('convenios')->with('done', ['done' => 1]);
     }
 }

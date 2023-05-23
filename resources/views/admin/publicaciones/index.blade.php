@@ -10,7 +10,7 @@
             @include('admin.leftNavbar')
             <div class="col-md-9 col-xl-10" style="background-color: #f5f5f9;">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 mt-4">
                         @include('admin.topNavbar')
                     </div>
                     <div class="col-12 pt-2">

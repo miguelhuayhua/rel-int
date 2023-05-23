@@ -10,7 +10,7 @@
             @include('admin.leftNavbar')
             <div class="col-md-9 col-xl-10" style="background-color: #f5f5f9;">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 mt-4">
                         @include('admin.topNavbar')
                     </div>
                     @if ($carrera->id_carrera)
@@ -41,6 +41,12 @@
                                 </div>
                                 <div onclick="enviar(ecarrera,'¿Está seguro de editar la carrera?')"
                                     class="btn btn-custom w-25">Editar Carrera</div>
+                            </form>
+                            <form action="/dashboard/bcarrera" class="mt-4" method="POST" id="form-bcarrera">
+                                <input type="text" hidden name="id_carrera" value="{{ $carrera->id_carrera }}">
+                                @csrf
+                                <div onclick="enviar(bcarrera,'¿Desea deshabilitar la Carrera?')"
+                                    class="btn btn-custom2 w-25">Desactivar Carrera</div>
                             </form>
                         </div>
                     @else

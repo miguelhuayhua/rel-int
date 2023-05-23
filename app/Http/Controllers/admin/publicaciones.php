@@ -146,6 +146,6 @@ class publicaciones extends Controller
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'eliminar', 'publicaciones']);
         DB::commit();
-        return Redirect::route('publicaciones');
+        return Redirect::route('publicaciones')->with('done', ['done' => 1]);
     }
 }

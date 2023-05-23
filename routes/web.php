@@ -58,7 +58,7 @@ Route::post('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 
 Route::get('dashboard/usuarios', [\App\Http\Controllers\admin\usuarios::class, 'listar'])->name('usuarios');
 Route::get('/dashboard/usuario/{id_usuario}', [\App\Http\Controllers\admin\usuarios::class, 'mostrar']);
 Route::post('/dashboard/eusuario', [\App\Http\Controllers\admin\usuarios::class, 'editar']);
-Route::get('/dashboard/busuario', [\App\Http\Controllers\admin\usuarios::class, 'borrar']);
+Route::post('/dashboard/busuario', [\App\Http\Controllers\admin\usuarios::class, 'borrar']);
 
 //personas
 Route::get('dashboard/apersona', [\App\Http\Controllers\admin\personas::class, 'index']);
@@ -75,6 +75,7 @@ Route::get('dashboard/carreras', [\App\Http\Controllers\admin\carreras::class, '
 Route::post('dashboard/acarrera', [\App\Http\Controllers\admin\carreras::class, 'insertar']);
 Route::get('dashboard/carreras/{id_carrera}', [\App\Http\Controllers\admin\carreras::class, 'mostrar']);
 Route::post('dashboard/ecarrera', [\App\Http\Controllers\admin\carreras::class, 'editar']);
+Route::post('dashboard/bcarrera', [\App\Http\Controllers\admin\carreras::class, 'borrar']);
 
 //RUTAS DE LOGUEO
 Route::post('/login', [\App\Http\Controllers\login\LoginController::class, 'iniciarSesion'])->name('login');

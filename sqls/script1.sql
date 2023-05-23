@@ -61,3 +61,5 @@ CREATE  TABLE relaciones.acciones_usuario (
  ) engine=InnoDB;
 
 ALTER TABLE relaciones.acciones_usuario ADD CONSTRAINT fk_acciones_usuario FOREIGN KEY ( id_usuario ) REFERENCES relaciones.sic_usuario( id_usuario ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+#23 de mayo
+ALTER TABLE relaciones.sic_carrera ADD estado TINYINT   DEFAULT (1);

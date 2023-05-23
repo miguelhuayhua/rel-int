@@ -9,7 +9,7 @@
             @include('admin.leftNavbar')
             <div class="col-md-9 col-xl-10" style="background-color: #f5f5f9;">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 mt-4">
                         @include('admin.topNavbar')
                     </div>
                     <div class="col-8">
@@ -19,7 +19,6 @@
                             </h3>
                             <p>
                                 Haz obtenido <b>90</b> visitas hoy, puedes revisar tu perfil para mayor información
-
                             </p>
                         </div>
                     </div>

@@ -38,7 +38,7 @@
                                     Editar Usuario</div>
                             </form>
                             <form action="/dashboard/busuario" class="mt-4" method="POST" id="form-busuario">
-                                <div onclick="enviar(busuario,'¿Desea eliminar el convenio?')" class="btn btn-custom2 w-25">
+                                <div onclick="enviar(busuario,'¿Desea eliminar el usuario?')" class="btn btn-custom2 w-25">
                                     ¿Deshabilitar Usuario?</div>
                             </form>
                         @else

@@ -37,6 +37,9 @@ let ecarrera = () => {
 let acarrera = () => {
     document.getElementById('form-acarrera').submit();
 }
+let bcarrera = () => {
+    document.getElementById('form-bcarrera').submit();
+}
 let bconvenio = () => {
     document.getElementById('form-bconvenio').submit();
 }

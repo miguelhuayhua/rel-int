@@ -24,7 +24,7 @@ class personas extends Controller
         $persona->img = 'assets/imgUsers/' . $img->getClientOriginalName();
         $img->move(public_path('assets/imgUsers'), $img->getClientOriginalName());
         $persona->save();
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'sic_persona']);
         DB::commit();
         return Redirect::route('personas');
@@ -32,7 +32,7 @@ class personas extends Controller
 
     public function index(Request $request)
     {
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $persona = new Persona;
         return view(
             'admin.usuario.persona',
@@ -60,7 +60,7 @@ class personas extends Controller
         $persona->email = $request->input('email');
         $persona->cargo = $request->input('tipo');
         $persona->save();
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'editar', 'sic_persona']);
         DB::commit();
         return Redirect::route('personas')->with('done', ['done' => 1]);
@@ -70,7 +70,7 @@ class personas extends Controller
         $estado = session('done');
         $done = $estado != null ? 1 : 0;
         $personas = Persona::orderBy('id_persona', 'desc')->get();
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
 
         return view(
             'admin.usuario.listadopersona',
@@ -79,13 +79,12 @@ class personas extends Controller
                 'personas' => $personas,
                 'usuario' => $user,
                 'done' => $done
-
             ]
         );
     }
     public function mostrar(Request $request, $id_persona)
     {
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $persona = Persona::find($id_persona);
         return view(
             'admin.usuario.persona',

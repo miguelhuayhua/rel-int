@@ -19,7 +19,7 @@ class usuarios extends Controller
     }
     public function index(Request $request)
     {
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $usuario = new Usuario;
         $personas = Persona::all(['id_persona', 'nombre', 'paterno', 'materno']);
         return view(
@@ -36,26 +36,32 @@ class usuarios extends Controller
     }
     public function insertar(Request $request)
     {
-        $id_persona = $request->input('id_persona');
-        $nombre = $request->input('usuario');
-        $password = md5($request->input('password'), true);
-        $usuario = new Usuario;
-        $usuario->id_persona = $id_persona;
-        $usuario->usuario = $nombre;
-        $usuario->password = $password;
-        $usuario->fecha_registro = now()->toDate();
-        $usuario->estado = 1;
-        $usuario->actualizado = now();
-        $usuario->save();
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
-        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'sic_usuario']);
-        DB::commit();
-        return Redirect::route('dashboard');
+        try {
+            $id_persona = $request->input('id_persona');
+            $nombre = $request->input('usuario');
+            $password = md5($request->input('password'));
+            $usuario = new Usuario;
+            $usuario->id_persona = $id_persona;
+            $usuario->usuario = $nombre;
+            $usuario->password = $password;
+            $usuario->fecha_registro = now()->toDate();
+            $usuario->estado = 1;
+            $usuario->actualizado = now();
+            $usuario->ultima_vez = null;
+            $usuario->login_token = null;
+            $usuario->save();
+            $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+            DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'sic_usuario']);
+            DB::commit();
+            return Redirect::route('usuarios')->with('done', ['done' => 1]);
+        } catch (\Illuminate\Database\QueryException $e) {
+            dd($e->getMessage());
+        }
     }
 
     public function listar(Request $request)
     {
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $estado = session('done');
         $done = $estado != null ? 1 : 0;
         $usuarios = Usuario::orderBy('id_usuario', 'desc')->get()->filter(function ($usuario) {
@@ -72,7 +78,7 @@ class usuarios extends Controller
 
     public function mostrar(Request $request, $id_usuario)
     {
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $usuario = Usuario::find($id_usuario);
         return view(
             'admin.usuario.index',
@@ -93,7 +99,7 @@ class usuarios extends Controller
         $usuario->password = md5($request->input('password'));
         $usuario->actualizado = now();
         $usuario->save();
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'editar', 'sic_usuario']);
         DB::commit();
         return Redirect::route('usuarios')->with('done', ['done' => 1]);
@@ -107,6 +113,6 @@ class usuarios extends Controller
         $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'eliminar', 'sic_usuario']);
         DB::commit();
-        return Redirect::route('usuarios');
+        return Redirect::route('usuarios')->with('done', ['done' => 1]);
     }
 }
