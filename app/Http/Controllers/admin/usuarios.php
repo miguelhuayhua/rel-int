@@ -10,9 +10,11 @@ use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class usuarios extends Controller
 {
+
     public function __construct()
     {
         $this->middleware(EnsureTokenIsValid::class);
@@ -39,6 +41,7 @@ class usuarios extends Controller
         try {
             $id_persona = $request->input('id_persona');
             $nombre = $request->input('usuario');
+
             $password = md5($request->input('password'));
             $usuario = new Usuario;
             $usuario->id_persona = $id_persona;
@@ -64,9 +67,7 @@ class usuarios extends Controller
         $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $estado = session('done');
         $done = $estado != null ? 1 : 0;
-        $usuarios = Usuario::orderBy('id_usuario', 'desc')->get()->filter(function ($usuario) {
-            return $usuario->estado = '1';
-        });
+        $usuarios = Usuario::where('estado', '=', 1)->orderBy('id_usuario', 'desc')->get();
         $usuarios->sortByDesc('id_usuario');
         return view('admin.usuario.listado', [
             'title' => 'Listado de Usuarios',
@@ -80,12 +81,14 @@ class usuarios extends Controller
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $usuario = Usuario::find($id_usuario);
+        $persona = Persona::find($usuario->id_persona);
         return view(
             'admin.usuario.index',
             [
                 'title' => 'Editar usuario',
                 "usuario" => $user,
-                'user' => $usuario
+                'user' => $usuario,
+                'persona' => $persona
             ]
         )->with('replace', true);
     }

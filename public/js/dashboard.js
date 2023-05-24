@@ -1,5 +1,5 @@
 let tipo1 = document.getElementById('tipo1');
-let tipo2 = document.getElementById('tipo2');
+let tipo2 = document.getElementById('tipo2') || document.createElement('li');
 let tipo3 = document.getElementById('tipo3');
 let tipo4 = document.getElementById('tipo4');
 //parte para girar los iconos de los botones del panel izquierdo

@@ -36,7 +36,7 @@ class carreras extends Controller
         });
         $estado = session('done');
         $done = $estado != null ? 1 : 0;
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         return view(
             'admin.carrera.listado',
             [
@@ -81,7 +81,7 @@ class carreras extends Controller
     public function mostrar(Request $request, $id_carrera)
     {
         $carrera = Carrera::find($id_carrera);
-        $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp WHERE su.login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         return view(
             'admin.carrera.index',
             [
@@ -97,7 +97,7 @@ class carreras extends Controller
         $carrera = Carrera::find($id_carrera);
         $carrera->estado = 0;
         $carrera->save();
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'eliminar', 'sic_carrera']);
         DB::commit();
         return Redirect::route('carreras')->with('done', ['done' => 1]);

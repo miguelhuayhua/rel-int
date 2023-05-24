@@ -1,7 +1,7 @@
 <div class="user-cards  mx-auto  dashboard-profile position-relative">
     <a href="/dashboard">Dashboard</a>
     <div class="profile" onclick="showProfile()">
-        <i class="fa fa-user-circle-o icon" aria-hidden="true"></i>
+        <img src="{{ url($usuario->img) }}" alt="" srcset="" class="profile-img">
         <span>
             {{ $usuario->usuario }}
         </span>

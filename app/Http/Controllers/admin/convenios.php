@@ -80,7 +80,7 @@ class convenios extends Controller
         $id_convenios = $request->input('id_convenios');
         $id_carrera = $request->input('carrera');
         DB::insert('INSERT INTO sic_convenio_carrera VALUES (?,?)', [$id_convenios, $id_carrera]);
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'sic_convenio_carrera']);
         DB::commit();
         return Redirect::route('dashboard');
@@ -88,7 +88,7 @@ class convenios extends Controller
 
     public function listar(Request $request)
     {
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $estado = session('done');
         $done = $estado != null ? 1 : 0;
         $convenios = Convenio::orderBy('id_convenios', 'desc')->get()->filter(function ($convenio) {
@@ -108,7 +108,7 @@ class convenios extends Controller
     public function mostrar(Request $request, $id_convenios)
     {
 
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $convenio = Convenio::find($id_convenios);
         return view(
             'admin.convenio.index',
@@ -160,7 +160,7 @@ class convenios extends Controller
         $convenio = Convenio::find($id_convenios);
         $convenio->estado = 'Concluido';
         $convenio->save();
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'eliminar', 'sic_convenio']);
         DB::commit();
         return Redirect::route('convenios')->with('done', ['done' => 1]);

@@ -22,22 +22,36 @@
                                 action="/dashboard/eusuario">
                                 @csrf
                                 <div class="row">
+                                    <p><span>Encargado del usuario:
+                                        </span>{{ $persona->nombre . ' ' . $persona->paterno . ' ' . $persona->materno }}
+                                    </p>
                                     <div class="form-group col-12">
                                         <label for="usuario">Nombre de Usuario:</label>
                                         <input type="text" class="form-control" id="usuario" name="usuario"
                                             placeholder="Introduzca el nombre del usuario" value="{{ $user->usuario }}">
                                     </div>
                                     <div class="form-group col-12">
-                                        <label for="password">Introduzca su contraseña:</label>
+                                        <label for="password">Introduzca su contraseña nueva:</label>
+                                        <input class="form-control" placeholder="Introduzca su nueva contraseña"
+                                            id="password1" type="password">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="password">Vuelva a introducir su contraseña:</label>
                                         <input name="password" class="form-control"
-                                            placeholder="Introduzca su nueva contraseña" id="password" type="password">
+                                            placeholder="Introduzca su nueva contraseña" id="password2" type="password">
+                                        <small id="mensajePassword"
+                                            style="color:red; font-size: .8em; font-wheight:200; display: none;">
+                                            Las contraseñas no coinciden</small>
                                     </div>
                                     <input type="text" hidden value="{{ $user->id_usuario }}" name="id_usuario">
+
                                 </div>
                                 <div onclick="enviar(eusuario), '¿Desea editar el Usuario?'" class="btn btn-custom w-25">
                                     Editar Usuario</div>
                             </form>
                             <form action="/dashboard/busuario" class="mt-4" method="POST" id="form-busuario">
+                                @csrf
+                                <input type="text" hidden value="{{ $user->id_usuario }}" name="id_usuario">
                                 <div onclick="enviar(busuario,'¿Desea eliminar el usuario?')" class="btn btn-custom2 w-25">
                                     ¿Deshabilitar Usuario?</div>
                             </form>

@@ -24,13 +24,16 @@
                 <i class="fa fa-eye icon" aria-hidden="true"></i>
                 Ver Convenios
             </a>
-            <a href="/dashboard/gconvenio" class="btn dash-btn">
+
+            {{-- 
+                    <a href="/dashboard/gconvenio" class="btn dash-btn">
                 <i class="fa fa-bar-chart icon" aria-hidden="true"></i>
                 Estadísticas
-            </a>
+                </a>
+                    --}}
+
         </div>
     </div>
-    {{$usuario->cargo}}
     @if ($usuario->cargo == 'DIRECTOR')
         <button id="tipo2" class="btn collapse-button dash-parent-button" type="button" data-toggle="collapse"
             data-target="#tipos2" aria-expanded="false" aria-controls="collapseExample">
@@ -52,6 +55,8 @@
                     Ver Usuarios
                 </a>
                 <a href="/dashboard/apersona" class="btn dash-btn">
+                    <i class="fa fa-plus icon" aria-hidden="true"></i>
+
                     Agregar Persona
                 </a>
                 <a href="/dashboard/personas" class="btn dash-btn">
@@ -59,10 +64,13 @@
 
                     Ver Personas
                 </a>
-                <a href="/dashboard/gusuario" class="btn dash-btn">
+
+                {{-- <a href="/dashboard/gusuario" class="btn dash-btn">
                     <i class="fa fa-bar-chart icon" aria-hidden="true"></i>
                     Estadísticas
-                </a>
+                    </a> --}}
+
+
             </div>
         </div>
     @endif
@@ -84,10 +92,11 @@
                 <i class="fa fa-eye icon" aria-hidden="true"></i>
                 Ver Publicaciones
             </a>
-            <a href="/dashboard/gpublicacion" class="btn dash-btn">
+
+            {{-- <a href="/dashboard/gpublicacion" class="btn dash-btn">
                 <i class="fa fa-bar-chart icon" aria-hidden="true"></i>
                 Estadísticas
-            </a>
+                </a> --}}
         </div>
     </div>
     <button id="tipo4" class="btn collapse-button dash-parent-button" type="button" data-toggle="collapse"
@@ -109,10 +118,11 @@
 
                 Ver Carreras
             </a>
-            <a href="/dashboard/gcarrera" class="btn dash-btn">
+
+            {{-- <a href="/dashboard/gcarrera" class="btn dash-btn">
                 <i class="fa fa-bar-chart icon" aria-hidden="true"></i>
                 Estadísticas
-            </a>
+            </a> --}}
         </div>
     </div>
 </div>

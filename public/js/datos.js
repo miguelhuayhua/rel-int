@@ -8,14 +8,17 @@ let convenio = () => {
     document.getElementById('form-convenio').submit();
 }
 
-let publicacion = () => {
-    document.getElementById('form-publicacion').submit();
+let econvenio = () => {
+    document.getElementById('form-econvenio').submit();
 }
 
 let asconvenio = () => {
     document.getElementById('form-asconvenio').submit();
 }
 
+let bconvenio = () => {
+    document.getElementById('form-bconvenio').submit();
+}
 let apersona = () => {
     document.getElementById('form-persona').submit();
 }
@@ -23,12 +26,11 @@ let apersona = () => {
 let epersona = () => {
     document.getElementById('form-epersona').submit();
 }
+let eppersona = () => {
+    document.getElementById('form-eppersona').submit();
+}
 let ausuario = () => {
     document.getElementById('form-ausuario').submit();
-}
-
-let econvenio = () => {
-    document.getElementById('form-econvenio').submit();
 }
 
 let ecarrera = () => {
@@ -40,14 +42,14 @@ let acarrera = () => {
 let bcarrera = () => {
     document.getElementById('form-bcarrera').submit();
 }
-let bconvenio = () => {
-    document.getElementById('form-bconvenio').submit();
-}
 let busuario = () => {
     document.getElementById('form-busuario').submit();
 }
 let eusuario = () => {
     document.getElementById('form-eusuario').submit();
+}
+let epusuario = () => {
+    document.getElementById('form-epusuario').submit();
 }
 let bpublicacion = () => {
     document.getElementById('form-bpublicacion').submit();
@@ -55,8 +57,9 @@ let bpublicacion = () => {
 let epublicacion = () => {
     document.getElementById('form-epublicacion').submit();
 }
-
-
+let publicacion = () => {
+    document.getElementById('form-publicacion').submit();
+}
 
 //Función para mostrar el modal
 let si = document.getElementById('si') || document.createElement('button');
@@ -81,3 +84,15 @@ no.addEventListener('click', () => {
 });
 
 
+//SECCIÓN DE VALIDACIÓN DE CONTRASEÑAS
+let password1 = document.getElementById('password1');
+let password2 = document.getElementById('password2');
+let mensajePassword = document.getElementById('mensajePassword');
+password2.addEventListener('input', (ev) => {
+    if (password2.value != password1.value) {
+        mensajePassword.classList.add('showAlertPass');
+    }
+    else {
+        mensajePassword.classList.remove('showAlertPass');
+    }
+})

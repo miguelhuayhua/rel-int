@@ -56,16 +56,15 @@ Route::post('dashboard/bpublicacion', [\App\Http\Controllers\admin\publicaciones
 Route::get('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 'index']);
 Route::post('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 'insertar']);
 Route::get('dashboard/usuarios', [\App\Http\Controllers\admin\usuarios::class, 'listar'])->name('usuarios');
-Route::get('/dashboard/usuario/{id_usuario}', [\App\Http\Controllers\admin\usuarios::class, 'mostrar']);
-Route::post('/dashboard/eusuario', [\App\Http\Controllers\admin\usuarios::class, 'editar']);
-Route::post('/dashboard/busuario', [\App\Http\Controllers\admin\usuarios::class, 'borrar']);
+Route::get('dashboard/usuario/{id_usuario}', [\App\Http\Controllers\admin\usuarios::class, 'mostrar']);
+Route::post('dashboard/eusuario', [\App\Http\Controllers\admin\usuarios::class, 'editar']);
+Route::post('dashboard/busuario', [\App\Http\Controllers\admin\usuarios::class, 'borrar']);
 
 //personas
 Route::get('dashboard/apersona', [\App\Http\Controllers\admin\personas::class, 'index']);
 Route::get('dashboard/personas', [\App\Http\Controllers\admin\personas::class, 'listar'])->name('personas');
 Route::post('dashboard/apersona', [\App\Http\Controllers\admin\personas::class, 'insertar']);
 Route::get('dashboard/persona/{id_persona}', [\App\Http\Controllers\admin\personas::class, 'mostrar']);
-
 Route::post('dashboard/epersona', [\App\Http\Controllers\admin\personas::class, 'editar']);
 
 
@@ -83,7 +82,9 @@ Route::get('/cerrarsesion', [\App\Http\Controllers\login\LoginController::class,
 
 
 //PERFIL
-Route::get('/dashboard/perfil', [\App\Http\Controllers\admin\dashboard\perfil::class, 'index']);
+Route::get('/dashboard/perfil', [\App\Http\Controllers\admin\dashboard\perfil::class, 'index'])->name('perfil');
+Route::post('/dashboard/eppersona', [\App\Http\Controllers\admin\dashboard\perfil::class, 'editarPersona']);
+Route::post('/dashboard/epusuario', [\App\Http\Controllers\admin\dashboard\perfil::class, 'editarUsuario']);
 
 
 //GRAFICOS

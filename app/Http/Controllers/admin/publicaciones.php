@@ -18,7 +18,7 @@ class publicaciones extends Controller
     }
     public function index(Request $request)
     {
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $publicacion = new Publicacion;
         return view(
             'admin.publicaciones.index',
@@ -59,7 +59,9 @@ class publicaciones extends Controller
             VALUES (?,?,?,now())', [$id_publicaciones, 'assets/img_publicaciones/archivos/' . $archivo->getClientOriginalName(), '1']);
             DB::commit();
         }
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+                $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
+
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'publicaciones']);
         DB::commit();
         return Redirect::route('dashboard');
@@ -67,7 +69,7 @@ class publicaciones extends Controller
 
     public function listar(Request $request)
     {
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $estado = session()->get('done');
         $done = $estado != null ? 1 : 0;
         $publicaciones = Publicacion::orderBy('id_publicaciones', 'desc')->get()->filter(function ($publi) {
@@ -125,7 +127,7 @@ class publicaciones extends Controller
     public function mostrar(Request $request, $id_publicaciones)
     {
         $publicacion = Publicacion::find($id_publicaciones);
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
 
         return view(
             'admin.publicaciones.index',
@@ -143,7 +145,7 @@ class publicaciones extends Controller
         $publicacion = Publicacion::find($id_publicaciones);
         $publicacion->estado = 0;
         $publicacion->save();
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'eliminar', 'publicaciones']);
         DB::commit();
         return Redirect::route('publicaciones')->with('done', ['done' => 1]);

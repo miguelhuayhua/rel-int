@@ -93,3 +93,8 @@
         transform: translateX(150%);
     }
 }
+
+/*ALERTA DE ERROR DE IGUALDAD DE PASSWORD*/
+.showAlertPass {
+    display: block !important;
+}

@@ -16,7 +16,7 @@ class DashboardController extends Controller
     }
     public function index(Request $request)
     {
-        $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         return view('admin.dashboard.index', [
             'title' => "Dashboard",
             "usuario" => $user,
