@@ -17,7 +17,7 @@ class carreras extends Controller
     }
     public function index(Request $request)
     {
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $carrera = new Carrera;
         return view(
             'admin.carrera.index',
@@ -28,7 +28,6 @@ class carreras extends Controller
             ]
         )->with('replace', true);
     }
-
     public function listar(Request $request)
     {
         $carreras = Carrera::all()->filter(function ($carrera) {

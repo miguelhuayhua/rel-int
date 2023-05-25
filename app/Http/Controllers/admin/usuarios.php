@@ -36,32 +36,6 @@ class usuarios extends Controller
             ]
         )->with('replace', true);
     }
-    public function insertar(Request $request)
-    {
-        try {
-            $id_persona = $request->input('id_persona');
-            $nombre = $request->input('usuario');
-
-            $password = md5($request->input('password'));
-            $usuario = new Usuario;
-            $usuario->id_persona = $id_persona;
-            $usuario->usuario = $nombre;
-            $usuario->password = $password;
-            $usuario->fecha_registro = now()->toDate();
-            $usuario->estado = 1;
-            $usuario->actualizado = now();
-            $usuario->ultima_vez = null;
-            $usuario->login_token = null;
-            $usuario->save();
-            $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
-            DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'sic_usuario']);
-            DB::commit();
-            return Redirect::route('usuarios')->with('done', ['done' => 1]);
-        } catch (\Illuminate\Database\QueryException $e) {
-            dd($e->getMessage());
-        }
-    }
-
     public function listar(Request $request)
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();

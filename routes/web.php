@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,11 +55,11 @@ Route::post('dashboard/bpublicacion', [\App\Http\Controllers\admin\publicaciones
 
 //usuarios
 Route::get('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 'index']);
-Route::post('dashboard/ausuario', [\App\Http\Controllers\admin\usuarios::class, 'insertar']);
 Route::get('dashboard/usuarios', [\App\Http\Controllers\admin\usuarios::class, 'listar'])->name('usuarios');
 Route::get('dashboard/usuario/{id_usuario}', [\App\Http\Controllers\admin\usuarios::class, 'mostrar']);
-Route::post('dashboard/eusuario', [\App\Http\Controllers\admin\usuarios::class, 'editar']);
+Route::post('dashboard/eusuario', [RegisteredUserController::class, 'editar']);
 Route::post('dashboard/busuario', [\App\Http\Controllers\admin\usuarios::class, 'borrar']);
+Route::post('dashboard/ausuario', RegisteredUserController::class)->name('register');
 
 //personas
 Route::get('dashboard/apersona', [\App\Http\Controllers\admin\personas::class, 'index']);
@@ -75,6 +76,14 @@ Route::post('dashboard/acarrera', [\App\Http\Controllers\admin\carreras::class, 
 Route::get('dashboard/carreras/{id_carrera}', [\App\Http\Controllers\admin\carreras::class, 'mostrar']);
 Route::post('dashboard/ecarrera', [\App\Http\Controllers\admin\carreras::class, 'editar']);
 Route::post('dashboard/bcarrera', [\App\Http\Controllers\admin\carreras::class, 'borrar']);
+
+//galeria
+Route::get('dashboard/agaleria', [\App\Http\Controllers\admin\galeria::class, 'index']);
+Route::get('dashboard/galeria', [\App\Http\Controllers\admin\galeria::class, 'listar'])->name('galeria');
+Route::post('dashboard/agaleria', [\App\Http\Controllers\admin\galeria::class, 'insertar']);
+Route::get('dashboard/galeria/{id_galeria}', [\App\Http\Controllers\admin\galeria::class, 'mostrar']);
+
+
 
 //RUTAS DE LOGUEO
 Route::post('/login', [\App\Http\Controllers\login\LoginController::class, 'iniciarSesion'])->name('login');

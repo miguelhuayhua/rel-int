@@ -20,7 +20,7 @@ class convenios extends Controller
     }
     public function index(Request $request)
     {
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $convenio = new Convenio;
         return view(
             'admin.convenio.index',
@@ -54,7 +54,7 @@ class convenios extends Controller
         $idlast = Convenio::all()->last()->id_convenios;
         $convenio->correlativo = "CV-" . ($idlast + 1);
         $convenio->save();
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'sic_convenio']);
         DB::commit();
         return Redirect::route('convenios');
@@ -62,7 +62,7 @@ class convenios extends Controller
     public function asconvenio(Request $request)
     {
         $carreras = Carrera::all();
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $convenios = Convenio::all(['id_convenios', 'nombre_convenio', 'entidad', 'correlativo'])->sortByDesc('id_convenios')->take(10);
         return view(
             'admin.convenio.asconvenio',

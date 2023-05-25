@@ -24,7 +24,6 @@
                 <i class="fa fa-eye icon" aria-hidden="true"></i>
                 Ver Convenios
             </a>
-
             {{-- 
                     <a href="/dashboard/gconvenio" class="btn dash-btn">
                 <i class="fa fa-bar-chart icon" aria-hidden="true"></i>
@@ -117,6 +116,32 @@
                 <i class="fa fa-eye icon" aria-hidden="true"></i>
 
                 Ver Carreras
+            </a>
+
+            {{-- <a href="/dashboard/gcarrera" class="btn dash-btn">
+                <i class="fa fa-bar-chart icon" aria-hidden="true"></i>
+                Estadísticas
+            </a> --}}
+        </div>
+    </div>
+    <button id="tipo5" class="btn collapse-button dash-parent-button" type="button" data-toggle="collapse"
+        data-target="#tipos5" aria-expanded="false" aria-controls="collapseExample">
+        <div class="icon-flex">
+            <i class="fa fa-picture-o icon" aria-hidden="true"></i>
+            Galeria
+        </div>
+        <i class="fa fa-angle-right custom-icon" aria-hidden="true"></i>
+    </button>
+    <div class="collapse" id="tipos5">
+        <div class="ri-info">
+            <a href="/dashboard/agaleria" class="btn dash-btn">
+                <i class="fa fa-plus icon" aria-hidden="true"></i>
+                Agregar Fotografía
+            </a>
+            <a href="/dashboard/galeria" class="btn dash-btn">
+                <i class="fa fa-eye icon" aria-hidden="true"></i>
+
+                Ver Fotografías
             </a>
 
             {{-- <a href="/dashboard/gcarrera" class="btn dash-btn">

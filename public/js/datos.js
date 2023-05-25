@@ -39,6 +39,15 @@ let ecarrera = () => {
 let acarrera = () => {
     document.getElementById('form-acarrera').submit();
 }
+let egaleria = () => {
+    document.getElementById('form-egaleria').submit();
+}
+let agaleria = () => {
+    document.getElementById('form-agaleria').submit();
+}
+let bgaleria = () => {
+    document.getElementById('form-bgaleria').submit();
+}
 let bcarrera = () => {
     document.getElementById('form-bcarrera').submit();
 }
@@ -85,8 +94,8 @@ no.addEventListener('click', () => {
 
 
 //SECCIÓN DE VALIDACIÓN DE CONTRASEÑAS
-let password1 = document.getElementById('password1');
-let password2 = document.getElementById('password2');
+let password1 = document.getElementById('password1') || document.createElement('input');
+let password2 = document.getElementById('password2') || document.createElement('input');
 let mensajePassword = document.getElementById('mensajePassword');
 password2.addEventListener('input', (ev) => {
     if (password2.value != password1.value) {
