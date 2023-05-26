@@ -1,6 +1,9 @@
 <div class="container-fluid contact-info">
     <p class="my-0 py-0">©2023 SIE - DRNI - UPEA </p>
     <div class="d-flex justify-content-center">
+        <div class="fondo-dec">
+            <img src="{{url("")}}" alt="">
+        </div>
         <a href="#" class="social">
             <i class="fa fa-facebook"></i>
         </a>
@@ -19,7 +22,7 @@
 <nav class="navbar navbar-expand-lg custom-navbar">
     <a class="navbar-brand" style="    border-right: #7e0c0a34 1px solid;
     " href="/">
-        <img src="{{url('/images/logorrnnii.png')}}" class="custom-img mx-3 px-3" alt="">
+        <img src="{{ url('/images/logorrnnii.png') }}" class="custom-img mx-3 px-3" alt="">
         <p>Relaciones Internacionales
             <span>UPEA</span>
         </p>
@@ -44,8 +47,8 @@
             <li class="nav-item custom-nav-item" id="galeria">
                 <a class="nav-link custom-link" href="/galeria">Galeria</a>
             </li>
-            <li class="nav-item custom-nav-item" id="contacto">
-                <a class="nav-link custom-link" href="/contacto">Contactos</a>
+            <li class="nav-item custom-nav-item" id="about">
+                <a class="nav-link custom-link" href="/about">Sobre Nosotros</a>
             </li>
         </ul>
     </div>
@@ -65,8 +68,8 @@
             <li class="nav-item custom-nav-item">
                 <a class="nav-link custom-link" href="/galeria">Galeria</a>
             </li>
-            <li class="nav-item custom-nav-item" id="contacto">
-                <a class="nav-link custom-link" href="/contacto">Contactos</a>
+            <li class="nav-item custom-nav-item" id="about">
+                <a class="nav-link custom-link" href="/about">Sobre Nosotros</a>
             </li>
         </ul>
     </nav>

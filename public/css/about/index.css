@@ -1,0 +1,21 @@
+.banner-about {
+    display: flex;
+    background-color: brown;
+    align-items: center;
+}
+
+.banner-about img {
+    width: 50px;
+}
+
+.banner-about h3 {
+    font-size: 1em;
+
+    color: white;
+}
+
+p{
+    padding: 2em;
+    font-weight: 300;
+    color: rgb(16, 16, 16);
+}
