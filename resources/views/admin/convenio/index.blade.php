@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="col-6">
                                         <label for="tiempo">Tiempo de Duración:</label>
-                                        <input name="dias" type="number" class="form-control" id="dias"
+                                        <input name="dias" min="0" type="number" class="form-control" id="dias"
                                             value="{{ $convenio->tiempo_duracion }}" placeholder="días">
                                     </div>
                                     <div class="col-6">
@@ -76,6 +76,7 @@
                                         <label for="telefono">Teléfono / Celular:</label>
                                         <input name="telefono" type="number" class="form-control" id="telefono"
                                             value="{{ $convenio->telefono }}"
+                                            min="0"
                                             placeholder="Introduzca su número de teléfono o celular">
                                     </div>
                                     <div class="col-6">

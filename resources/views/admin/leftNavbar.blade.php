@@ -87,7 +87,7 @@
                 <i class="fa fa-plus icon" aria-hidden="true"></i>
                 Agregar Publicación
             </a>
-            <a href="/dashboard/publicaciones?i=0" class="btn dash-btn">
+            <a href="/dashboard/publicaciones" class="btn dash-btn">
                 <i class="fa fa-eye icon" aria-hidden="true"></i>
                 Ver Publicaciones
             </a>

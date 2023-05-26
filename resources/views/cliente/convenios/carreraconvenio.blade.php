@@ -14,9 +14,10 @@
                     @foreach ($detalles as $convenio)
                         <li class="list-item">
                             <div class="custom-item">
-                                <p class="publicacion">
-                                    Publicado el:
+                                <p class="publicacion" >
                                     <span>
+                                        Publicado el:
+
                                         {{ $convenio->fecha_publicacion }}
                                     </span>
                                 </p>

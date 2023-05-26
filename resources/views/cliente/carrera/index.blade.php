@@ -26,8 +26,9 @@
                             <li class="list-item">
                                 <div class="custom-item">
                                     <p class="publicacion">
-                                        Publicado el:
                                         <span>
+                                            Publicado el:
+
                                             {{ date('Y-m-d', strtotime($convenio->fecha_publicacion)) }}
                                         </span>
                                     </p>

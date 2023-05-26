@@ -12,19 +12,8 @@
                     <div class="col-12 mt-4">
                         @include('admin.topNavbar')
                     </div>
-                    <div class="col-8">
-                        <div class="user-cards">
-                            <h3>
-                                Felicidades {{ $usuario->usuario }}
-                            </h3>
-                            <p>
-                                Haz obtenido <b>90</b> visitas hoy, puedes revisar tu perfil para mayor información
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-2"></div>
-                    <div class="col-2"></div>
-                    <div class="col-12 col-lg-6 col-xl-5 mb-lg-5 mb-2">
+                    
+                    <div class="col-12 col-lg-6 col-xl-5 mt-5 mb-lg-5 mb-2">
                         <div class="user-cards" style="height: 200px">
                             <p class="titulo-chart">
                                 Mayor tipo de convenios

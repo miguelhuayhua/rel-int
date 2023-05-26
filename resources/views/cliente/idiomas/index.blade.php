@@ -21,6 +21,10 @@
                             <span class="fecha">
                                 {{ $idioma->fecha }}
                             </span>
+                            @if ($idioma->nombre_archivo)
+                                <a href="{{ url($idioma->nombre_archivo) }}" download class="download-file">
+                                    <i class="fa fa-download" aria-hidden="true"></i> </a>
+                            @endif
                         </div>
                     </div>
                 </div>
