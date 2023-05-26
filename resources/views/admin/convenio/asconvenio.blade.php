@@ -17,11 +17,11 @@
                         <h2>
                             Asignar Convenio
                         </h2>
-                        <form class="form-inline">
+                        {{--<form class="form-inline">
                             <input class="form-control mr-sm-2" type="search" placeholder="Buscar por código"
                                 aria-label="Search">
                             <button class="btn btn-custom" type="submit">Buscar Convenio</button>
-                        </form>
+                        </form>--}}
                         <h5>Listado de convenios</h5>
                         <ul class="list-group lista">
                             @foreach ($convenios as $convenio)

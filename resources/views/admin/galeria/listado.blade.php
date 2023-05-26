@@ -34,7 +34,7 @@
                                 <tr>
                                     <th scope="row">{{ $index + 1 }}</th>
                                     <td>{{ $galeria->nombre_galeria }}</td>
-                                    <td>{{ $carrera->fecha_galeria }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($galeria->fecha_galeria)->format('Y-m-d') }}</td>
 
                                     <td>
                                         <a class="icono btn" href="/dashboard/galeria/{{ $galeria->id_galeria }}">

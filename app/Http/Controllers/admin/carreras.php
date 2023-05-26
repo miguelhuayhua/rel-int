@@ -79,16 +79,21 @@ class carreras extends Controller
     }
     public function mostrar(Request $request, $id_carrera)
     {
-        $carrera = Carrera::find($id_carrera);
         $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
-        return view(
-            'admin.carrera.index',
-            [
-                'title' => 'Editar Carrera',
-                "usuario" => $user,
-                'carrera' => $carrera
-            ]
-        );
+
+        $carrera = Carrera::find($id_carrera);
+        if ($carrera == null || $carrera->estado == 0) {
+            return Redirect::route('carreras')->with('error', ['error' => 1]);
+        } else {
+            return view(
+                'admin.carrera.index',
+                [
+                    'title' => 'Editar Carrera',
+                    "usuario" => $user,
+                    'carrera' => $carrera
+                ]
+            );
+        }
     }
     public function borrar(Request $request)
     {

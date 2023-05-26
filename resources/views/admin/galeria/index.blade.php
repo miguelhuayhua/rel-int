@@ -30,20 +30,27 @@
                                         <input type="text" hidden name="id_galeria" value="{{ $galeria->id_galeria }}">
                                         <label for="url_galeria">Imagen:</label>
                                         <input name="url_galeria" type="file" accept=".png, .jpg, .jpeg"
-                                            class="form-control" id="image">
+                                            class="form-control" id="imagen">
                                     </div>
-                                    <div class="form-group col-12">
+                                    <div class="form-group col-6">
                                         <label for="nombre_galeria">Nombre de Fotografía:</label>
                                         <input type="text" class="form-control" id="nombre_galeria" name="nombre_galeria"
                                             value="{{ $galeria->nombre_galeria }}"
                                             placeholder="Introduzca el nombre de la fotografía">
                                     </div>
+                                    <div class="col-6">
+                                        <label for="f_galeria">Fecha de la Fotografía:</label>
+                                        <input name="fecha_galeria"
+                                            value="{{ \Carbon\Carbon::parse($galeria->fecha_galeria)->format('Y-m-d') }}"
+                                            id="f_galeria" class="form-control" type="date">
+                                    </div>
+
                                 </div>
                                 <div onclick="enviar(egaleria,'¿Está seguro de editar la Fotografía?')"
-                                    class="btn btn-custom w-25">Editar Carrera</div>
+                                    class="btn btn-custom w-25">Editar Fotografía</div>
                             </form>
-                            <form action="/dashboard/bgaleria" class="mt-4" method="POST" id="form-bcarrera">
-                                <input type="text" hidden name="id_carrera" value="{{ $carrera->id_carrera }}">
+                            <form action="/dashboard/bgaleria" class="mt-4" method="POST" id="form-bgaleria">
+                                <input type="text" hidden name="id_galeria" value="{{ $galeria->id_galeria }}">
                                 @csrf
                                 <div onclick="enviar(bgaleria,'¿Desea borrar la Fotografía?')" class="btn btn-custom2 w-25">
                                     Eliminar Fotografía</div>
@@ -75,7 +82,7 @@
                                         <label for="f_galeria">Fecha de la Fotografía:</label>
                                         <input name="fecha_galeria" id="f_galeria" class="form-control" type="date">
                                     </div>
-                                   
+
                                 </div>
                                 <div onclick="enviar(agaleria,'¿Está seguro de añadir la nueva Fotografía?')"
                                     class="btn btn-custom w-25">Agregar Fotografía</div>

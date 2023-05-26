@@ -14,3 +14,13 @@ h1 {
     border-radius: 10px;
     color: white;
 }
+.download-file {
+    position: absolute;
+    box-shadow: 3px 3px 10px rgba(165, 42, 42, 0.212);
+    border-radius: 3px;
+    right: 0;
+    padding: 10px  20px;
+    top: 0;
+    color: brown;
+    transition: background-color 1s, color 1s;
+}

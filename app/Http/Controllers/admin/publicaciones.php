@@ -52,19 +52,18 @@ class publicaciones extends Controller
         $publicacion->estado = 1;
         $publicacion->save();
         $id_publicaciones = $publicacion->getKey();
-        $archivos = (array) $request->file('files');
-        foreach ($archivos as $archivo) {
-            $archivo->move(public_path('assets/img_publicaciones/archivos/'), $archivo->getClientOriginalName());
-            DB::insert('INSERT INTO publicaciones_archivo (id_publicaciones, nombre_archivo, estado_archivo, fecha) 
+        $archivo = $request->file('file');
+        $archivo->move(public_path('assets/img_publicaciones/archivos/'), $archivo->getClientOriginalName());
+        DB::insert('INSERT INTO publicaciones_archivo (id_publicaciones, nombre_archivo, estado_archivo, fecha) 
             VALUES (?,?,?,now())', [$id_publicaciones, 'assets/img_publicaciones/archivos/' . $archivo->getClientOriginalName(), '1']);
-            DB::commit();
-        }
-                $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
+        DB::commit();
+
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
 
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'publicaciones']);
         DB::commit();
-        return Redirect::route('dashboard');
+        return Redirect::route('publicaciones')->with('done', ['done' => 1]);
     }
 
     public function listar(Request $request)
@@ -110,17 +109,16 @@ class publicaciones extends Controller
         $publicacion->fecha = now()->toDate();
         $publicacion->estado = 1;
         $publicacion->save();
-        if ($request->hasFile('files')) {
-            $archivos = (array) $request->file('files');
-            foreach ($archivos as $archivo) {
-                $archivo->move(public_path('assets/img_publicaciones/archivos/'), $archivo->getClientOriginalName());
-                DB::insert('INSERT INTO publicaciones_archivo (id_publicaciones, nombre_archivo, estado_archivo, fecha) 
+        $archivo = $request->file('file');
+        $archivo->move(public_path('assets/img_publicaciones/archivos/'), $archivo->getClientOriginalName());
+        DB::insert('INSERT INTO publicaciones_archivo (id_publicaciones, nombre_archivo, estado_archivo, fecha) 
             VALUES (?,?,?,now())', [$id_publicaciones, 'assets/img_publicaciones/archivos/' . $archivo->getClientOriginalName(), '1']);
-                DB::commit();
-            }
-        }
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
-        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'editar', 'publicaciones']);
+        DB::commit();
+
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
+
+        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'publicaciones']);
         DB::commit();
         return Redirect::route('publicaciones')->with('done', ['done' => 1]);
     }

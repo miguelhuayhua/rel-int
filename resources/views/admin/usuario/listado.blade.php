@@ -16,7 +16,7 @@
             @include('admin.leftNavbar')
             <div class="col-md-9 col-xl-10" style="background-color: #f5f5f9;">
                 <div class="col-12">
-                    <div class="col-12">
+                    <div class="col-12 mt-4">
                         @include('admin.topNavbar')
                     </div>
                     <h2>Listado de Usuarios</h2>

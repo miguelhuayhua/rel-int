@@ -10,12 +10,14 @@ class IdiomasController extends Controller
 {
     public function index()
     {
-        $idiomas = DB::select("SELECT * FROM publicaciones WHERE tipo_publicaciones = 'Idiomas' AND estado = 1");
+        $idiomas = DB::select("SELECT * FROM publicaciones_archivo pa RIGHT JOIN publicaciones  p on pa.id_publicaciones= p.id_publicaciones WHERE p.tipo_publicaciones = 'Idiomas'");
 
         return view(
             'cliente.idiomas.index',
-            ['title' => 'Idiomas - Relaciones Internacionales UPEA',
-            'idiomas'=>$idiomas]
+            [
+                'title' => 'Idiomas - Relaciones Internacionales UPEA',
+                'idiomas' => $idiomas
+            ]
         );
     }
 }

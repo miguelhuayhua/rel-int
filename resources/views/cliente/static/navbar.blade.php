@@ -41,11 +41,12 @@
             <li class="nav-item custom-nav-item" id="publicaciones">
                 <a class="nav-link custom-link" href="/publicaciones">Publicaciones</a>
             </li>
+
+            <li class="nav-item custom-nav-item" id="notipas">
+                <a class="nav-link custom-link" href="/notipas">Noticias y Pasantías</a>
+            </li>
             <li class="nav-item custom-nav-item" id="galeria">
                 <a class="nav-link custom-link" href="/galeria">Galeria</a>
-            </li>
-            <li class="nav-item custom-nav-item" id="contacto">
-                <a class="nav-link custom-link" href="/contacto">Contactos</a>
             </li>
         </ul>
     </div>
@@ -62,12 +63,13 @@
             <li class="nav-item custom-nav-item" id="publicaciones">
                 <a class="nav-link custom-link" href="/publicaciones">Publicaciones</a>
             </li>
+            <li class="nav-item custom-nav-item" id="notipas">
+                <a class="nav-link custom-link" href="/notipas">Noticias y Pasantías</a>
+            </li>
             <li class="nav-item custom-nav-item">
                 <a class="nav-link custom-link" href="/galeria">Galeria</a>
             </li>
-            <li class="nav-item custom-nav-item" id="contacto">
-                <a class="nav-link custom-link" href="/contacto">Contactos</a>
-            </li>
+            
         </ul>
     </nav>
 </div>

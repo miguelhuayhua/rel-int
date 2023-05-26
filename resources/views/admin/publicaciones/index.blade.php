@@ -40,9 +40,9 @@
                                     <div class="col-12">
                                         <div id="files" class="w-100 d-flex">
                                         </div>
-                                        <label for="docs">Seleccione 1 o más Archivos:</label>
-                                        <input multiple name="files[]" type="file" accept=".docx, .pdf"
-                                            class="form-control" id="docs">
+                                        <label for="docs">Seleccione su archivo</label>
+                                        <input name="file" type="file" accept=".docx, .pdf" class="form-control"
+                                            id="docs">
                                     </div>
                                     <hr>
                                     <div class="form-group col-12">
@@ -132,9 +132,9 @@
                                     <div class="col-12">
                                         <div id="files" class="w-100 d-flex">
                                         </div>
-                                        <label for="docs">Seleccione 1 o más Archivos:</label>
-                                        <input multiple name="files[]" type="file" accept=".docx, .pdf"
-                                            class="form-control" id="docs">
+                                        <label for="docs">Seleccione su archivo</label>
+                                        <input name="file" type="file" accept=".docx, .pdf" class="form-control"
+                                            id="docs">
                                     </div>
                                     <hr>
                                     <div class="form-group col-12">
