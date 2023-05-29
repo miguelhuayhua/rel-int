@@ -63,3 +63,6 @@ CREATE  TABLE relaciones.acciones_usuario (
 ALTER TABLE relaciones.acciones_usuario ADD CONSTRAINT fk_acciones_usuario FOREIGN KEY ( id_usuario ) REFERENCES relaciones.sic_usuario( id_usuario ) ON DELETE NO ACTION ON UPDATE NO ACTION;
 #23 de mayo
 ALTER TABLE relaciones.sic_carrera ADD estado TINYINT   DEFAULT (1);
+
+#29 de mayo
+CREATE VIEW ${nameWithSchemaName} AS select `sc`.`id_carrera` AS `id_carrera`,`sc`.`nom_carrera` AS `nom_carrera`,`sc`.`image_url` AS `image_url`,count(`tabla1`.`nombre_convenio`) AS `convenios`,`sc`.`estado` AS `estado` from (`relaciones`.`sic_carrera` `sc` left join (select `scc`.`id_carrera` AS `id_carrera`,`scon`.`nombre_convenio` AS `nombre_convenio` from ((`relaciones`.`sic_convenio` `scon` join `relaciones`.`sic_tipo_convenio` `stc` on((`scon`.`id_tipo_convenio` = `stc`.`id_tipo_convenio`))) join `relaciones`.`sic_convenio_carrera` `scc` on((`scc`.`id_convenios` = `scon`.`id_convenios`))) where ((`stc`.`nombre_tipo_convenio` = 'Nacionales') and (`scon`.`estado` = 'Activo'))) `tabla1` on((`tabla1`.`id_carrera` = `sc`.`id_carrera`))) where (`sc`.`estado` = 1) group by `sc`.`id_carrera`,`sc`.`nom_carrera`,`sc`.`image_url`

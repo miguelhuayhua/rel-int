@@ -12,7 +12,7 @@ class ConveniosController extends Controller
 {
     public function index()
     {
-        $carreras = DB::select('SELECT * FROM sic_carrera');
+        $carreras = DB::select('SELECT * FROM sic_carrera WHERE estado = 1');
 
         return view('cliente.convenios.index', [
             'title' => 'Convenios Relaciones Internacionales',

@@ -3,7 +3,7 @@
     <!-- Toda la sección del header en la ruta principal "/" -->
     <header class="container-fluid">
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-8 p-0 position-relative">
+            <div class="col-12 col-md-6 col-lg-8 p-0 position-relative title-container">
                 <div class="main-title">
                     <h1>
                         Relaciones Internacionales - UPEA
@@ -16,13 +16,30 @@
                     <img class="img-mono" src="{{ url('images/fondo_monolito.png') }}" alt="logo monolito">
                 </div>
             </div>
-            <div
-                class="col-12 col-md-6 col-lg-4
-            order-first order-md-0 position-relative p-0 m-0 overflow-hidden">
+            <div class="col-12 col-md-6 col-lg-4
+            order-first order-md-0 position-relative p-0 m-0 overflow-hidden"
+                style="border-bottom: 3px solid brown">
                 <img class="img-home" id="imgHome" src="{{ url('images/fondo.jpeg') }}" alt="">
-                <button class="btn custom-btn">Ver más</button>
                 <div class="img-banner" id="imgBanner">
                 </div>
+                <ul class="lista-home">
+                    <li>
+                        <a href="/convenios">
+                            <i class="fa fa-map"></i>
+                            Convenios</a>
+                    </li>
+                    <li>
+                        <a href="/becas">
+                            <i class="fa fa-suitcase" aria-hidden="true"></i>
+                            Becas</a>
+                    </li>
+                    <li>
+                        <a href="/actividades">
+                            <i class="fa fa-street-view" style="font-size: 2.5em"></i>
+                            Actividades</a>
+                    </li>
+                    </li>
+                </ul>
             </div>
             <div class="row">
                 <div class="slider">
@@ -68,21 +85,8 @@
             </div>
 
     </header>
-    <main class="container my-5">
-        <div class="row d-flex justify-content-around">
-            <a href="convenios" class="col-5 col-md-3 news-card">
-                <i class="fa fa-map"></i>
-                <h4>Convenios</h4>
-            </a>
-            <a class="col-5 col-md-3 news-card" href="/becas">
-                <i class="fa fa-suitcase" aria-hidden="true"></i>
-                <h4>Becas</h4>
-            </a>
-            <a class="col-5 col-md-3 news-card" href="/actividades">
-                <i class="fa fa-street-view"></i>
-                <h4>Actividades</h4>
-            </a>
-        </div>
+    <main class="container-fluid my-5">
+        {{--
 
         <div class="row">
             <div class="col-12 col-md-6">
@@ -241,6 +245,54 @@
                             </li>
                         </ol>
                     </div>
+                </div>
+            </div>
+        </div> --}}
+        <div class="row">
+            <div class="col-6">
+                <h2>Últimas Noticias</h2>
+                <div class="row">
+                    @foreach ($noticias as $noticia)
+                        <div class="col-12 col-sm-6 col-lg-4 noticia">
+                            <img src="{{ $noticia->url }}" width="100%" alt="">
+                            <div class="info-noticia">
+                                <span>
+                                    {{ $noticia->fecha }}
+                                </span>
+                            </div>
+
+                            <h3>{{ $noticia->titulo }}</h3>
+                            <p>{{ $noticia->subtitulo }}</p>
+                            <a class="btn custom-btn-2" href="/publicaciones/{{ $noticia->id_publicaciones }}">Ver
+                                Noticia</a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="col-6">
+                <h2>Últimos Convenios</h2>
+                <div class="row">
+                    @foreach ($convenios as $convenio)
+                        <div class="col-12 col-lg-6 position-relative">
+                            <img src="{{ $convenio->img_convenio }}" width="70%" style="display:block;margin: 0 auto;"
+                                alt="">
+                            <div class="info-noticia">
+                                <span>
+                                    <b>Finaliza el:</b>
+                                    {{ $convenio->fecha_finalizacion }}
+                                </span>
+                            </div>
+
+                            <h3 class="mt-3">{{ $convenio->nombre_convenio }}</h3>
+                            <p><b>Entidad:</b>{{ $convenio->entidad }}</p>
+                            @if ($convenio->pdf_convenio)
+                                <a href="{{ url($convenio->pdf_convenio) }}" target="blank" class="pdf">
+                                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                    Descargar Información
+                                </a>
+                            @endif
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

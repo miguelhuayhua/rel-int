@@ -7,7 +7,7 @@
                 Noticias y Pasantías - Relaciones Internacionales
             </h1>
             @foreach ($publicaciones as $publicacion)
-                <div class="col-12 col-sm-8 col-md-4 p-0 m-3">
+                <div class="col-12 col-sm-8 col-md-4 col-lg-3 p-0 m-3">
                     <div class="card">
                         <div class="card-header">
                             {{ $publicacion->correlativo }}

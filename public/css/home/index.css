@@ -1,3 +1,33 @@
+/*custom scroll bar*/
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(213, 213, 213);
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: brown;
+    border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+}
+
+body {
+    overflow: scroll;
+    scrollbar-color: red orange;
+    scrollbar-width: thin;
+}
+
+/*animaciones del h1*/
 @keyframes h1enter {
     from {
         transform: translateY(-200%);
@@ -9,6 +39,11 @@
 }
 
 /*titulo "Relaciones Internacionales - UPEA"*/
+.title-container {
+    border-right: #7e0c0a 3px solid;
+    border-bottom: 3px solid brown;
+}
+
 .main-title {
     padding: 0 !important;
     margin: 0 !important;
@@ -29,6 +64,18 @@
     transition: scale 1s;
     font-weight: bold !important;
     font-variant: small-caps;
+}
+
+@media (max-width: 768px) {
+    .title-container {
+        border: none !important;
+    }
+
+    .main-title {
+        font-size: .9em;
+        width: 100%;
+
+    }
 }
 
 /*subtitulo de los convenios*/
@@ -62,8 +109,51 @@
 }
 
 .img-banner:hover {
-    opacity: 0.8;
+    opacity: 0.5;
     transition: opacity 1s;
+}
+
+/*Listado de convenios becas y actividades de home*/
+.lista-home {
+    list-style: none;
+    position: absolute;
+    border-radius: 5px;
+    overflow: hidden;
+    right: 10px;
+    margin: 0 auto;
+    top: 20%;
+    width: 70%;
+    background-color: rgba(255, 255, 255, 0.815) !important;
+    padding-bottom: 20px;
+
+}
+
+.lista-home a {
+    text-decoration: none;
+    color: #7e0c0a;
+    border-bottom: 1px solid brown;
+    display: block;
+    width: 100%;
+    margin: 15px 0 !important;
+    transition: background-color 1s, color 1s;
+    padding: 5px;
+    border-top-left-radius: 5px;
+}
+
+.lista-home i {
+    font-size: 2em;
+}
+
+.lista-home a:hover {
+    background-color: #7e0c0a;
+    color: white;
+    transition: background-color 1s, color 1s;
+}
+
+.lista-home a:hover i {
+
+    transform: rotate(360deg);
+    transition: transform 1s;
 }
 
 .custom-btn {
@@ -87,6 +177,12 @@
     position: absolute;
     color: #7e0c0a;
     transition: background 0.5s, color 0.5s;
+}
+
+.custom-btn-2 {
+    background-color: #7e0c0a;
+    color: white;
+    width: 100%;
 }
 
 /*counters*/
@@ -175,11 +271,6 @@ hr {
     transition: transform 1s;
 }
 
-.news-card:hover i,
-.collapse-button:hover i {
-    transform: rotate(360deg);
-    transition: transform 1s;
-}
 
 .news-card h4 {
     color: #7e0c0a;
@@ -290,4 +381,60 @@ hr {
 .slider .slide {
     height: 100px;
     width: 250px;
+}
+
+
+/*SECCIÓN DE NOTICAS Y CONVENIOS EN LA PANTALLA DE HOME*/
+h2 {
+    background-color: #7e0c0a;
+    color: white;
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+h3 {
+    font-size: 1em;
+    color: brown;
+    font-weight: 300;
+}
+
+.noticia {
+    position: relative;
+    margin: 10px 0px;
+
+}
+
+
+.info-noticia span {
+    background-color: brown;
+    color: whitesmoke;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 50%;
+    text-align: center;
+    display: block;
+    margin: 0 auto !important;
+}
+
+.pdf {
+    height: 90px !important;
+    text-decoration: none;
+    color: brown;
+    font-weight: 300;
+}
+
+.pdf:hover {
+    text-decoration: underline;
+}
+
+.pdf i {
+    color: brown;
+    font-size: 2em;
+    transition: color .7s;
+    height: 30px !important;
 }

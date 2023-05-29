@@ -8,10 +8,10 @@
             @foreach ($idiomas as $idioma)
                 <div class="col-12 py-3">
                     <div class="row">
-                        <div class="col-12 col-sm-4 col-md-3">
+                        <div class="col-12 col-sm-6 col-md-5">
                             <img width="100%" src="{{ url($idioma->url) }}" alt="" srcset="">
                         </div>
-                        <div class="col-12 col-sm-8 col-md-9 position-relative">
+                        <div class="col-12 col-sm-6 col-md-7 position-relative">
                             <h2>
                                 {{ $idioma->titulo }}
                             </h2>
