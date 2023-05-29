@@ -51,12 +51,9 @@
             <li class="nav-item custom-nav-item" id="galeria">
                 <a class="nav-link custom-link" href="/galeria">Galeria</a>
             </li>
-<<<<<<< HEAD
             <li class="nav-item custom-nav-item" id="about">
                 <a class="nav-link custom-link" href="/about">Sobre Nosotros</a>
             </li>
-=======
->>>>>>> origin/miguel
         </ul>
     </div>
 </nav>
@@ -78,13 +75,10 @@
             <li class="nav-item custom-nav-item">
                 <a class="nav-link custom-link" href="/galeria">Galeria</a>
             </li>
-<<<<<<< HEAD
             <li class="nav-item custom-nav-item" id="about">
                 <a class="nav-link custom-link" href="/about">Sobre Nosotros</a>
             </li>
-=======
             
->>>>>>> origin/miguel
         </ul>
     </nav>
 </div>

@@ -16,7 +16,7 @@
             @include('admin.leftNavbar')
             <div class="col-md-9 col-xl-10" style="background-color: #f5f5f9;">
                 <div class="col-12">
-                    <div class="col-12">
+                    <div class="col-12 mt-4">
                         @include('admin.topNavbar')
                     </div>
                     <h2>Listado de Fotografías</h2>
@@ -25,6 +25,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nombre Fotografía</th>
+                                <th scope="col">Imagen</th>
                                 <th scope="col">Fecha Fotografía</th>
                                 <th scope="col"></th>
                             </tr>
@@ -34,8 +35,9 @@
                                 <tr>
                                     <th scope="row">{{ $index + 1 }}</th>
                                     <td>{{ $galeria->nombre_galeria }}</td>
+                                    
+                                    <td><img src="{{url($galeria->url_galeria)}}" width="110px" alt="" srcset=""></td>
                                     <td>{{ \Carbon\Carbon::parse($galeria->fecha_galeria)->format('Y-m-d') }}</td>
-
                                     <td>
                                         <a class="icono btn" href="/dashboard/galeria/{{ $galeria->id_galeria }}">
                                             <i class="fa fa-pencil" aria-hidden="true"></i></a>
