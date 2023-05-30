@@ -17,7 +17,6 @@
                                 <p class="publicacion">
                                     <span>
                                         Publicado el:
-
                                         {{ $convenio->fecha_publicacion }}
                                     </span>
                                 </p>
