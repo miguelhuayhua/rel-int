@@ -12,9 +12,11 @@ h1 {
     display: block;
     width: 70%;
     margin: 10px auto;
-    background: linear-gradient(90deg,
-            rgb(184, 60, 58) 0%,
-            rgb(107, 27, 20) 100%);
+    background: linear-gradient(
+        90deg,
+        rgb(184, 60, 58) 0%,
+        rgb(107, 27, 20) 100%
+    );
     color: white;
 }
 
@@ -58,17 +60,21 @@ img {
     text-align: center;
     margin: 20px auto !important;
 }
-
-.fecha {
-    display: block;
-    background-color: brown;
+/*sector de fecha*/
+.info-publicacion span {
+    display: flex;
+    flex-direction: column;
+    color: brown;
+    border-radius: 5px;
+    padding: 5px;
     font-weight: 300;
-    color: white;
-    width: 130px;
-    border-radius: 10px;
     text-align: center;
-    padding: 5px 10px;
-    font-size: .9em;
+    display: block;
+    margin: 0 auto !important;
+}
+
+.info-publicacion b {
+    font-size: 1.5em;
 }
 
 .download-file {
@@ -76,18 +82,18 @@ img {
     box-shadow: 3px 3px 10px rgba(165, 42, 42, 0.212);
     border-radius: 3px;
     right: 0;
-    padding: 10px  20px;
+    padding: 10px 20px;
     top: 0;
     color: brown;
     transition: background-color 1s, color 1s;
 }
 
-.download-file i{
+.download-file i {
     color: inherit;
     font-size: 1.5em;
 }
 
-.download-file:hover{
+.download-file:hover {
     background-color: brown;
     color: white;
     transition: background-color 1s, color 1s;

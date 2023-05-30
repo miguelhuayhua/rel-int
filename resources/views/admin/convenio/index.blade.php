@@ -56,6 +56,11 @@
                                             class="form-control" type="date">
                                     </div>
                                     <div class="col-6">
+                                        <label for="final">Fecha de Finalización:</label>
+                                        <input value="{{ $convenio->fecha_finalizacion }}" name="fecha_finalizacion"
+                                            id="final" class="form-control" type="date">
+                                    </div>
+                                    <div class="col-6">
                                         <label for="direccion">Dirección de Convenio:</label>
                                         <input type="text" class="form-control" id="direccion" name="direccion"
                                             value="{{ $convenio->direccion }}"
@@ -63,8 +68,8 @@
                                     </div>
                                     <div class="col-6">
                                         <label for="tiempo">Tiempo de Duración:</label>
-                                        <input name="dias" min="0" type="number" class="form-control" id="dias"
-                                            value="{{ $convenio->tiempo_duracion }}" placeholder="días">
+                                        <input name="dias" min="0" type="number" class="form-control"
+                                            id="dias" value="{{ $convenio->tiempo_duracion }}" placeholder="días">
                                     </div>
                                     <div class="col-6">
                                         <label for="entidad">Entidad:</label>
@@ -75,8 +80,7 @@
                                     <div class="col-6">
                                         <label for="telefono">Teléfono / Celular:</label>
                                         <input name="telefono" type="number" class="form-control" id="telefono"
-                                            value="{{ $convenio->telefono }}"
-                                            min="0"
+                                            value="{{ $convenio->telefono }}" min="0"
                                             placeholder="Introduzca su número de teléfono o celular">
                                     </div>
                                     <div class="col-6">
@@ -144,6 +148,11 @@
                                     <div class="col-6">
                                         <label for="firma">Fecha de Firma:</label>
                                         <input name="fecha_firma" id="firma" class="form-control" type="date">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="final">Fecha de Finalización:</label>
+                                        <input value="{{ $convenio->fecha_finalizacion }}" name="fecha_finalizacion"
+                                            id="final" class="form-control" type="date">
                                     </div>
                                     <div class="col-6">
                                         <label for="direccion">Dirección de Convenio:</label>

@@ -102,14 +102,7 @@
                 </div>
                 <div class="collapse" id="mision">
                     <div class="ri-info">
-                        <p>
-                            “La Dirección de Relaciones Nacionales e Internacionales DRNI de la UPEA, es la encargada de la
-                            internacionalización del conocimiento académico, científico, tecnológico, de Interacción Social
-                            e
-                            Investigación en todos los campos del conocimiento, para fortalecer y expandir los vínculos
-                            internacionales con universidades nacionales y extranjeras; de beneficio para docentes y
-                            estudiantes.”
-                        </p>
+                        
                     </div>
                 </div>
             </div>
@@ -123,15 +116,7 @@
                 </div>
                 <div class="collapse" id="vision">
                     <div class="ri-info">
-                        <p>
-                            “Profundizar los procesos de coordinación, gestión, formalización y seguimiento de programas
-                            estratégicos y los acuerdos de cooperación con universidades nacionales y del exterior, así como
-                            las
-                            instituciones académicas, instituciones públicas, privadas, embajadas, consulados y
-                            organizaciones
-                            bilaterales y multilaterales que coadyuven en el proceso de internalización de la Educación
-                            Superior.”
-                        </p>
+                        
                     </div>
                 </div>
             </div>
@@ -202,54 +187,11 @@
                         <i class="fa fa-eye" aria-hidden="true"></i>
                     </button>
                 </div>
-                <div class="collapse" id="objetivos">
-                    <div class="ri-info">
-                        <ol>
-                            <li>
-                                <p>
-                                    Promover el fortalecimiento de las relaciones de la Universidad Pública de El Alto
-                                    (UPEA),
-                                    con
-                                    instituciones Nacionales, Internacionales relacionadas con la Educación Superior.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    Promover el intercambio de docentes y estudiantes con universidades del exterior.
-                                </p>
-                            </li>
-                            </li>
-                            <li>
-                                <p>
-                                    Gestionar financiamiento para la ejecución de programas y proyectos de investigación
-                                    tecnológica
-                                    en todas las áreas del conocimiento insertados en el Plan de desarrollo del a UPEA.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    Gestionar la concreción de convenios de cooperación bilateral y multilateral con
-                                    instituciones
-                                    extranjeras y nacionales.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    Fortalecer las actividades de investigación ciencia y tecnología a través de la
-                                    realización
-                                    de
-                                    conferencias internacionales, talleres, seminarios en todos los campos del conocimiento
-                                    dirigido
-                                    a la comunidad universitaria en temas de actualidad.
-                                </p>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
+               
             </div>
         </div> --}}
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <h2>Últimas Noticias</h2>
                 <div class="row">
                     @foreach ($noticias as $noticia)
@@ -269,22 +211,26 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <h2>Últimos Convenios</h2>
                 <div class="row">
                     @foreach ($convenios as $convenio)
-                        <div class="col-12 col-lg-6 position-relative">
+                        <div class="col-12 col-lg-6 position-relative mt-5" style="border-bottom: 1px solid brown; padding-bottom: 10px;">
                             <img src="{{ $convenio->img_convenio }}" width="70%" style="display:block;margin: 0 auto;"
                                 alt="">
-                            <div class="info-noticia">
-                                <span>
-                                    <b>Finaliza el:</b>
-                                    {{ $convenio->fecha_finalizacion }}
-                                </span>
-                            </div>
 
                             <h3 class="mt-3">{{ $convenio->nombre_convenio }}</h3>
-                            <p><b>Entidad:</b>{{ $convenio->entidad }}</p>
+                            <div class="d-flex">
+                                <p style="color: #666"><b>Entidad:</b>{{ $convenio->entidad }}</p>
+                                <div class="info-convenio">
+                                    <span>
+                                        Hasta el:
+                                        <b> {{ \Carbon\Carbon::parse($convenio->fecha_finalizacion)->format('d/m') }}</b>
+                                        Del {{ \Carbon\Carbon::parse($convenio->fecha_finalizacion)->year }}
+                                    </span>
+                                </div>
+
+                            </div>
                             @if ($convenio->pdf_convenio)
                                 <a href="{{ url($convenio->pdf_convenio) }}" target="blank" class="pdf">
                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i>

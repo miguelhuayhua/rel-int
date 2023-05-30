@@ -44,12 +44,12 @@ class convenios extends Controller
         $convenio->img_convenio = '/imgConvenios/' . $image->getClientOriginalName();
         $convenio->fecha_firma = $request->input('fecha_firma');
         $convenio->pdf_convenio = 'conveniosPdf/' . $request->input('file');
+        $convenio->fecha_finalizacion = $request->input('fecha_finalizacion');
         $convenio->tiempo_duracion = $request->input('dias');
         $convenio->entidad = $request->input('entidad');
         $convenio->telefono = $request->input('telefono');
         $convenio->email = $request->input('email');
         $convenio->direccion = $request->input('direccion');
-        $convenio->fecha_finalizacion = now();
         $convenio->id_tipo_convenio = $request->input('tipo');
         $idlast = Convenio::all()->last()->id_convenios;
         $convenio->correlativo = "CV-" . ($idlast + 1);
@@ -140,11 +140,11 @@ class convenios extends Controller
         $convenio->objetivo_convenio = $request->input('objetivo');
         $convenio->fecha_firma = $request->input('fecha_firma');
         $convenio->tiempo_duracion = $request->input('dias');
+        $convenio->fecha_finalizacion = $request->input('fecha_finalizacion');
         $convenio->entidad = $request->input('entidad');
         $convenio->telefono = $request->input('telefono');
         $convenio->email = $request->input('email');
         $convenio->direccion = $request->input('direccion');
-        $convenio->fecha_finalizacion = now();
         $convenio->correlativo = "CV-" . $id_convenios;
         $convenio->id_tipo_convenio = $request->input('tipo');
         $convenio->save();

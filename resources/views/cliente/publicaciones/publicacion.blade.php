@@ -12,7 +12,13 @@
                 </h2>
             </div>
             <div class="col-12 col-md-6 d-flex flex-column justify-content-center position-relative">
-                <span class="fecha">{{ $publicacion->fecha }}</span>
+                <div class="info-publicacion">
+                    <span>
+                        Publicado el:
+                        <b> {{ \Carbon\Carbon::parse($publicacion->fecha)->format('d/m') }}</b>
+                        Del {{ \Carbon\Carbon::parse($publicacion->fecha)->year }}
+                    </span>
+                </div>
                 @if ($publicacion->nombre_archivo)
                     <a href="{{ url($publicacion->nombre_archivo) }}" download class="download-file">
                         <i class="fa fa-download" aria-hidden="true"></i> </a>

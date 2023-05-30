@@ -48,7 +48,11 @@ body {
     padding: 0 !important;
     margin: 0 !important;
     background: rgb(215, 40, 37);
-    background: linear-gradient(90deg, rgba(215, 40, 37, 1) 0%, rgba(79, 26, 21, 1) 100%);
+    background: linear-gradient(
+        90deg,
+        rgba(215, 40, 37, 1) 0%,
+        rgba(79, 26, 21, 1) 100%
+    );
     display: block;
     color: white;
     width: 90%;
@@ -72,15 +76,13 @@ body {
     }
 
     .main-title {
-        font-size: .9em;
+        font-size: 0.9em;
         width: 100%;
-
     }
 }
 
 /*subtitulo de los convenios*/
 .main-title p {
-
     font-weight: 300;
     font-size: 1.2em;
 }
@@ -125,7 +127,6 @@ body {
     width: 70%;
     background-color: rgba(255, 255, 255, 0.815) !important;
     padding-bottom: 20px;
-
 }
 
 .lista-home a {
@@ -151,13 +152,16 @@ body {
 }
 
 .lista-home a:hover i {
-
     transform: rotate(360deg);
     transition: transform 1s;
 }
 
 .custom-btn {
-    background: linear-gradient(90deg, rgb(184, 60, 58) 0%, rgb(107, 27, 20) 100%);
+    background: linear-gradient(
+        90deg,
+        rgb(184, 60, 58) 0%,
+        rgb(107, 27, 20) 100%
+    );
     position: absolute;
     border: none !important;
     color: white;
@@ -173,7 +177,11 @@ body {
 }
 
 .custom-btn:hover {
-    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(233, 195, 192) 100%);
+    background: linear-gradient(
+        90deg,
+        rgb(255, 255, 255) 0%,
+        rgb(233, 195, 192) 100%
+    );
     position: absolute;
     color: #7e0c0a;
     transition: background 0.5s, color 0.5s;
@@ -188,8 +196,11 @@ body {
 /*counters*/
 
 .bg-counters {
-    background: linear-gradient(90deg, rgba(215, 40, 37, 1) 0%, rgba(79, 26, 21, 1) 100%);
-
+    background: linear-gradient(
+        90deg,
+        rgba(215, 40, 37, 1) 0%,
+        rgba(79, 26, 21, 1) 100%
+    );
 }
 
 .counter {
@@ -271,7 +282,6 @@ hr {
     transition: transform 1s;
 }
 
-
 .news-card h4 {
     color: #7e0c0a;
     text-align: center;
@@ -300,15 +310,12 @@ hr {
     margin: 20px 0 !important;
 }
 
-
-
 .ri-info p {
     text-align: center;
     padding: 10px 0 !important;
     color: rgb(67, 67, 67);
     font-weight: 300;
 }
-
 
 /*Parte de carusel infinito*/
 .bg-img-carreras:hover {
@@ -329,7 +336,7 @@ hr {
     height: 80px;
     padding: 0px 10px !important;
     margin: 10px 20px !important;
-    opacity: .95;
+    opacity: 0.95;
 }
 
 @keyframes scroll {
@@ -354,7 +361,11 @@ hr {
 
 .slider::before,
 .slider::after {
-    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(
+        to right,
+        white 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
     content: "";
     height: 100px;
     position: absolute;
@@ -383,7 +394,6 @@ hr {
     width: 250px;
 }
 
-
 /*SECCIÓN DE NOTICAS Y CONVENIOS EN LA PANTALLA DE HOME*/
 h2 {
     background-color: #7e0c0a;
@@ -403,22 +413,22 @@ h3 {
 .noticia {
     position: relative;
     margin: 10px 0px;
-
 }
 
-
-.info-noticia span {
-    background-color: brown;
-    color: whitesmoke;
+.info-convenio span {
+    display: flex;
+    flex-direction: column;
+    color: brown;
     border-radius: 5px;
     padding: 5px;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 50%;
+    font-weight: 300;
     text-align: center;
     display: block;
     margin: 0 auto !important;
+}
+
+.info-convenio b {
+    font-size: 1.5em;
 }
 
 .pdf {
@@ -435,6 +445,6 @@ h3 {
 .pdf i {
     color: brown;
     font-size: 2em;
-    transition: color .7s;
+    transition: color 0.7s;
     height: 30px !important;
 }

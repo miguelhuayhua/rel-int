@@ -14,8 +14,13 @@
     color: white;
 }
 
-p{
-    padding: 2em;
+p {
     font-weight: 300;
     color: rgb(16, 16, 16);
+}
+
+h2 {
+    font-weight: 300;
+    color: brown;
+    text-align: center;
 }

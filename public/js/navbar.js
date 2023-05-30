@@ -19,6 +19,9 @@ else if (url.includes('notipas')) {
 else if (url.includes('galeria')) {
     document.getElementById('galeria').classList.add('active-navbar-item');
 }
+else if (url.includes('about')) {
+    document.getElementById('about').classList.add('active-navbar-item');
+}
 //evento click al boton del navbar modo responsive
 let toggle = document.getElementById('toggle');
 toggle.addEventListener('click', (ev) => {

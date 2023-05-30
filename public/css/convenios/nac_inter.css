@@ -177,3 +177,20 @@ p span {
     color: white;
     transition: color .7s;
 }
+
+
+.info-convenio span {
+    display: flex;
+    flex-direction: column;
+    color: brown;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: 300;
+    text-align: center;
+    display: block;
+    margin: 0 auto !important;
+}
+
+.info-convenio b {
+    font-size: 1.5em;
+}

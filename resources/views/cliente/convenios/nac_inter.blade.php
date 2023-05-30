@@ -20,6 +20,7 @@
                                             <h3>
                                                 {{ $convenio->nombre_convenio }}
                                             </h3>
+                                            <img src="{{url($convenio->img_convenio)}}" width="100%" alt="">
                                             <p>
                                                 <span>OBJETIVO:</span>
                                                 {{ $convenio->objetivo_convenio }}
@@ -27,8 +28,15 @@
                                             <p>
                                                 <span>ENTIDAD:</span>
                                                 {{ $convenio->entidad }}
-
                                             </p>
+                                            <div class="info-convenio">
+                                                <span>
+                                                    Hasta el:
+                                                    <b>
+                                                        {{ \Carbon\Carbon::parse($convenio->fecha_finalizacion)->format('d/m') }}</b>
+                                                    Del {{ \Carbon\Carbon::parse($convenio->fecha_finalizacion)->year }}
+                                                </span>
+                                            </div>
                                             @if ($convenio->pdf_convenio)
                                                 <a href="{{ url($convenio->pdf_convenio) }}" target="blank" class="pdf">
                                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
