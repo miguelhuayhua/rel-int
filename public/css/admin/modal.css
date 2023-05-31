@@ -62,6 +62,7 @@
     height: 60px;
     padding: 10px;
     animation: completado-in 5s ease-in-out both;
+    z-index: 1000;
 }
 
 .completado i {

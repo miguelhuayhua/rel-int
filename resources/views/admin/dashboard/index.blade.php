@@ -14,7 +14,7 @@
                     </div>
                     
                     <div class="col-12 col-lg-6 col-xl-5 mt-5 mb-lg-5 mb-2">
-                        <div class="user-cards" style="height: 200px">
+                        <div class="user-cards" style="height: 250px">
                             <p class="titulo-chart">
                                 Mayor tipo de convenios
                             </p>

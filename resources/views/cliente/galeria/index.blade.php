@@ -3,7 +3,7 @@
     <section class="container">
         <div class="row">
             @foreach ($imagenes as $imagen)
-                <div class="col-12 my-2 my-md-0 col-md-6 col-lg-4  p-0 img-main">
+                <div class="col-12 my-2 my-md-0 col-md-6 col-lg-4  p-2 img-main">
                     <div class="img-container position-relative">
                         <div class="img-banner">
                             <h3>

@@ -20,7 +20,7 @@
                         @include('admin.topNavbar')
                     </div>
                     <h2>Listado de Carreras</h2>
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="tabla">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>

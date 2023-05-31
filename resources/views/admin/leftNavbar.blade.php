@@ -33,7 +33,7 @@
 
         </div>
     </div>
-    @if ($usuario->cargo == 'DIRECTOR')
+    @if ($usuario->cargo == 'DIRECTOR' || $usuario->cargo == 'ADMINISTRADOR')
         <button id="tipo2" class="btn collapse-button dash-parent-button" type="button" data-toggle="collapse"
             data-target="#tipos2" aria-expanded="false" aria-controls="collapseExample">
             <div class="icon-flex">
@@ -150,4 +150,12 @@
             </a> --}}
         </div>
     </div>
+    @if ($usuario->cargo == 'ADMINISTRADOR')
+        <a href="/dashboard/auditoria" class="btn collapse-button dash-parent-button" type="button">
+            <div class="icon-flex">
+                <i class="fa fa-user-secret icon" aria-hidden="true"></i>
+                Auditoría
+            </div>
+        </a>
+    @endif
 </div>

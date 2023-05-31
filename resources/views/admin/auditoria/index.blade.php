@@ -16,37 +16,38 @@
             @include('admin.leftNavbar')
             <div class="col-md-9 col-xl-10" style="background-color: #f5f5f9;">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 mt-4">
                         @include('admin.topNavbar')
                     </div>
-                    <div class="col-12 pt-2">
-                        <h2>Listado de Convenios</h2>
-                        <table class="table table-bordered" id="tabla">
+                    <div class="col-12">
+                        <h3>Listado de Acciones Realizadas por los Usuarios</h3>
+                        <table class="table table-bordered w-100" id="tabla">
                             <thead>
                                 <tr>
-                                    <th scope="col">Correlativo</th>
-                                    <th scope="col">Nombre de Convenio</th>
-                                    <th scope="col">Entidad</th>
-                                    <th scope="col">Fecha Publicación</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">ID Usuario</th>
+                                    <th scope="col">Tipo
+                                    </th>
+                                    <th scope="col">Tabla</th>
+                                    <th scope="col">Fecha</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($convenios as $index => $convenio)
+                                @foreach ($acciones as $accion)
                                     <tr>
-                                        <th scope="row">{{ $convenio->correlativo }}</th>
-                                        <td>{{ $convenio->nombre_convenio }}</td>
-                                        <td>{{ $convenio->entidad }}</td>
-                                        <td>{{ $convenio->fecha_publicacion }}</td>
-                                        <td>
-                                            <a class="icono btn" href="/dashboard/convenios/{{ $convenio->id_convenios }}">
-                                                <i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        </td>
+                                        <td>{{ $accion->id_acciones_usuario }}</td>
+                                        <td>{{ $accion->id_usuario }}</td>
+                                        <td>{{ $accion->tipo}}</td>
+                                        <td>{{ $accion->tabla }}</td>
+                                        <td>{{ $accion->fecha }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
+
+
+
                 </div>
             </div>
         </div>

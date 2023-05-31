@@ -100,3 +100,7 @@ Route::post('/dashboard/epusuario', [\App\Http\Controllers\admin\dashboard\perfi
 
 //GRAFICOS
 Route::get('/dashboard/chartdata', [\App\Http\Controllers\admin\dashboard\DashboardController::class, 'getDataCharts']);
+
+
+//AUDITORIA
+Route::get('/dashboard/auditoria', [\App\Http\Controllers\admin\auditoria::class, 'index']);

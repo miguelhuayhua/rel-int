@@ -41,3 +41,5 @@ let showProfile = () => {
     let profileOptions = document.getElementById('profileOptions');
     profileOptions.classList.toggle('showProfile');
 }
+
+let table = new DataTable('#tabla');

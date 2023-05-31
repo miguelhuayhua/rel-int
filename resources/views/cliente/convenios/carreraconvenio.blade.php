@@ -38,7 +38,6 @@
                                     </a>
                                 @endif
                             </div>
-
                         </li>
                     @endforeach
                 </ul>

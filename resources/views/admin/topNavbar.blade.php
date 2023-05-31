@@ -6,7 +6,7 @@
             {{ $usuario->usuario }}
         </span>
     </div>
-    <div class="profile-options" id="profileOptions">
+    <div class="profile-options" id="profileOptions" style="z-index: 1000">
         <ul>
             <li>
                 <a href="/dashboard/perfil">

@@ -9,6 +9,7 @@ function mostrarConvenios(tipo, id) {
         let listaConvenios = document.getElementById("lista-convenios");
         let detalles = [];
         detalles = data.detalles;
+        console.log(detalles)
         listaConvenios.innerHTML = '';
         detalles.forEach(convenio => {
             let item = document.createElement('div');
@@ -21,9 +22,16 @@ function mostrarConvenios(tipo, id) {
             let objetivoSpan = document.createElement('span');
             let pdf = document.createElement('a');
             let icono = document.createElement('i');
+            let imagen = document.createElement('img');
             item.classList.add('custom-item');
             publicacion.classList.add('publicacion');
             nombre.innerText = convenio.nombre_convenio;
+            imagen.src = 'http://127.0.0.1:8000' + convenio.img_convenio;
+            console.log(convenio)
+            imagen.classList.add(['w-25']);
+            imagen.style.display = 'block';
+            imagen.style.marginLeft = 'auto';
+            imagen.style.marginRight = 'auto';
             objetivoSpan.innerText = "OBJETIVO: ";
             objetivo.append(objetivoSpan);
             objetivo.append(convenio.objetivo_convenio);
@@ -32,7 +40,7 @@ function mostrarConvenios(tipo, id) {
             entidad.append(convenio.entidad);
             publicacionSpan.innerText = convenio.fecha_publicacion;
             publicacion.appendChild(publicacionSpan);
-            pdf.href = '/' + convenio.pdf_convenio;
+            pdf.href = 'http://127.0.0.1:8000' + convenio.pdf_convenio;
             pdf.classList.add('pdf');
             pdf.download = convenio.pdf;
             pdf.target = 'blank';
@@ -41,6 +49,7 @@ function mostrarConvenios(tipo, id) {
             pdf.appendChild(icono);
             item.appendChild(publicacion);
             item.appendChild(nombre);
+            item.appendChild(imagen);
             item.appendChild(objetivo);
             item.appendChild(entidad);
             item.appendChild(pdf);

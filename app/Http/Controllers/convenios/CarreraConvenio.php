@@ -26,7 +26,8 @@ class CarreraConvenio extends Controller
             'id' => $id,
             'title' => $title,
             'detalles' => $detalles,
-            'carrera_conteo' => $carrera_conteo
+            
+            
         ]);
     }
 }

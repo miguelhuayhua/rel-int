@@ -74,6 +74,11 @@
                                                 TÉCNICO</option>
                                             <option value="SECRETARIO"
                                                 {{ $persona->cargo == 'SECRETARIO' ? 'selected' : '' }}>SECRETARIO</option>
+                                            @if ($usuario->cargo == 'ADMINISTRADOR')
+                                                <option value="ADMINISTRADOR"
+                                                    {{ $persona->cargo == 'ADMINISTRADOR' ? 'selected' : '' }}>
+                                                    ADMINISTRADOR</option>
+                                            @endif
                                         </select>
                                     </div>
                                 </div>
@@ -134,6 +139,9 @@
                                             <option value="DIRECTOR">DIRECTOR</option>
                                             <option value="TECNICO">TÉCNICO</option>
                                             <option value="SECRETARIO">SECRETARIO</option>
+                                            @if ($usuario->cargo == 'ADMINISTRADOR')
+                                                <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+                                            @endif
                                         </select>
                                     </div>
                                 </div>

@@ -63,7 +63,7 @@ class convenios extends Controller
     {
         $carreras = Carrera::all();
         $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
-        $convenios = Convenio::all(['id_convenios', 'nombre_convenio', 'entidad', 'correlativo'])->sortByDesc('id_convenios')->take(10);
+        $convenios = Convenio::all(['id_convenios', 'nombre_convenio', 'entidad', 'correlativo', 'estado'])->where('estado', 'Activo')->sortByDesc('id_convenios');
         return view(
             'admin.convenio.asconvenio',
             [
@@ -83,7 +83,7 @@ class convenios extends Controller
         $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'sic_convenio_carrera']);
         DB::commit();
-        return Redirect::route('dashboard');
+        return Redirect::route('convenios');
     }
 
     public function listar(Request $request)
