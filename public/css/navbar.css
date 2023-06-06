@@ -1,6 +1,6 @@
 .custom-navbar {
     padding: 0 !important;
-    height: 60px;
+    height: 80px;
     border-bottom: #7e0c0a34 1px solid;
     position: sticky;
     top: 0;
@@ -12,7 +12,7 @@
 .custom-navbar a {
     display: flex;
     align-items: center;
-    height: 60px;
+    height: 80px;
 }
 
 .custom-navbar p {
@@ -47,7 +47,7 @@
     align-items: center;
 
     color: #7e0c0a;
-    height: 60px;
+    height: 80px;
     padding: 0 10px !important;
     transition: background-color 1s, color 1s;
 }
@@ -75,7 +75,7 @@
 
 .contact-info {
     background: rgb(215, 40, 37);
-    background: linear-gradient(90deg, rgba(215, 40, 37, 1) 0%, rgba(79, 26, 21, 1) 100%);
+    background: linear-gradient(90deg, rgb(16, 32, 68) 0%, rgb(21, 37, 79) 100%);
     color: white;
     font-weight: 300;
     height: 50px;

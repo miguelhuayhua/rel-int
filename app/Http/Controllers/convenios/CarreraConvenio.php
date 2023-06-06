@@ -21,6 +21,7 @@ class CarreraConvenio extends Controller
             AND sc.estado = ?',
             [$id, ucfirst($tipo), 'Activo']
         ); // hace el listado de todos los convenios dado el id de la carrera y el tipo de convenio 'Nacionales' | 'Internacionales'
+        
         return ([
             'tipo' => $tipo,
             'id' => $id,

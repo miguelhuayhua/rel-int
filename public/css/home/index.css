@@ -50,16 +50,13 @@ body {
     background: rgb(215, 40, 37);
     background: linear-gradient(
         90deg,
-        rgba(215, 40, 37, 1) 0%,
-        rgba(79, 26, 21, 1) 100%
+        rgb(145, 25, 23) 0%,
+        rgb(23, 21, 79) 100%
     );
     display: block;
     color: white;
-    width: 90%;
-    margin-top: 50px !important;
+    width: 100%;
     text-align: center;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
     box-shadow: 5px 5px 10px rgba(75, 30, 30, 0.384);
     font-size: 1em;
     padding: 20px 0 !important;
@@ -160,7 +157,7 @@ body {
     background: linear-gradient(
         90deg,
         rgb(184, 60, 58) 0%,
-        rgb(107, 27, 20) 100%
+        rgb(20, 26, 107) 100%
     );
     position: absolute;
     border: none !important;
@@ -198,8 +195,8 @@ body {
 .bg-counters {
     background: linear-gradient(
         90deg,
-        rgba(215, 40, 37, 1) 0%,
-        rgba(79, 26, 21, 1) 100%
+        rgb(112, 22, 20) 0%,
+        rgb(21, 27, 79) 100%
     );
 }
 
@@ -222,7 +219,7 @@ body {
 }
 
 /*estilos para el fondo de monolito*/
-.img-mono {
+.img-upea {
     display: block;
     width: 60%;
     position: absolute;
@@ -230,6 +227,7 @@ body {
     top: 0;
     display: block;
     margin: 30px;
+    margin-top: 50px;
     opacity: 0.4;
     max-width: 350px;
     animation: mono-routing infinite 10s ease-in-out;
@@ -259,7 +257,7 @@ hr {
 /*PARTE DEL MAIN DE LA VISTA home.index*/
 
 .news-card {
-    box-shadow: 10px 10px 10px #7e0c0a17;
+    box-shadow: 10px 10px 10px #0a147e17;
     border-radius: 10px;
     transition: scale 1s, box-shadow 1s;
     margin: 20px 0 !important;
@@ -396,7 +394,7 @@ hr {
 
 /*SECCIÓN DE NOTICAS Y CONVENIOS EN LA PANTALLA DE HOME*/
 h2 {
-    background-color: #7e0c0a;
+    background-color: #0e1139;
     color: white;
     display: block;
     text-align: center;

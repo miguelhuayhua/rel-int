@@ -7,7 +7,7 @@
 
 .footer-banner {
     position: absolute;
-    background-color: #7e0c0ab6;
+    background-color: #5f0909b6;
     top: 0;
     width: 100%;
     height: 100%;
@@ -32,7 +32,7 @@
 /*información del desarrollador*/
 .info-dev {
     color: rgb(218, 218, 218);
-    background-color: #5a0908;
+    background-color: #101e4d;
     text-align: center;
     
     padding-top: 20px !important;

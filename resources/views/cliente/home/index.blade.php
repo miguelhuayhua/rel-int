@@ -13,7 +13,7 @@
                     </p>
                 </div>
                 <div class="position-absolute w-100 top-0 d-flex justify-content-center">
-                    <img class="img-mono" src="{{ url('images/fondo_monolito.png') }}" alt="logo monolito">
+                    <img class="img-upea" src="{{ url('iconos/logo-upea.png') }}" alt="logo monolito">
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4

@@ -154,7 +154,7 @@
                                 </p>
                             </div>
                             <div class="col-4">
-                                <img width="100px" src=""
+                                <img  class="perfiles" src="{{url('images/tecnico.png')}}"
                                     alt="Fotografía Técnico de Unidad de Relaciones Internacionales">
                             </div>
                             <div class="col-8">
