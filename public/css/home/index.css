@@ -50,8 +50,8 @@ body {
     background: rgb(215, 40, 37);
     background: linear-gradient(
         90deg,
-        rgb(145, 25, 23) 0%,
-        rgb(23, 21, 79) 100%
+        rgb(213, 33, 30) 0%,
+        rgb(29, 26, 131) 100%
     );
     display: block;
     color: white;
@@ -128,7 +128,7 @@ body {
 
 .lista-home a {
     text-decoration: none;
-    color: #7e0c0a;
+    color: #ad2724;
     border-bottom: 1px solid brown;
     display: block;
     width: 100%;
@@ -156,7 +156,7 @@ body {
 .custom-btn {
     background: linear-gradient(
         90deg,
-        rgb(184, 60, 58) 0%,
+        rgb(228, 64, 61) 0%,
         rgb(20, 26, 107) 100%
     );
     position: absolute;
@@ -195,8 +195,8 @@ body {
 .bg-counters {
     background: linear-gradient(
         90deg,
-        rgb(112, 22, 20) 0%,
-        rgb(21, 27, 79) 100%
+        rgb(213, 33, 30) 0%,
+        rgb(29, 26, 131) 100%
     );
 }
 
@@ -394,7 +394,7 @@ hr {
 
 /*SECCIÓN DE NOTICAS Y CONVENIOS EN LA PANTALLA DE HOME*/
 h2 {
-    background-color: #0e1139;
+    background-color: #13196d;
     color: white;
     display: block;
     text-align: center;

@@ -46,14 +46,14 @@
     display: flex;
     align-items: center;
 
-    color: #7e0c0a;
+    color: #ab1513;
     height: 80px;
     padding: 0 10px !important;
     transition: background-color 1s, color 1s;
 }
 
 .custom-nav-item:hover {
-    background-color: #7e0c0a;
+    background-color: #ae2320;
     color: white;
     transition: background-color 1s, color 1s;
 }
@@ -75,7 +75,7 @@
 
 .contact-info {
     background: rgb(215, 40, 37);
-    background: linear-gradient(90deg, rgb(16, 32, 68) 0%, rgb(21, 37, 79) 100%);
+    background: linear-gradient(90deg, rgb(21, 42, 92) 0%, rgb(21, 37, 79) 100%);
     color: white;
     font-weight: 300;
     height: 50px;

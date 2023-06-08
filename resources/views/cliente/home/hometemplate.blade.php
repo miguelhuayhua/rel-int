@@ -10,7 +10,9 @@
     <link rel="stylesheet" type="text/css" href="{{ url('css/home/index.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/footer.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ url('favicon.ico') }}">
-
+    <meta name="description" content="{{ $descripcion }}">
+    <meta name="keywords" content="{{ $palabrasClave }}">
+    <meta name="robots" content="index, follow">
 
 
 

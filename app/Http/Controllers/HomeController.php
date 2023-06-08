@@ -29,7 +29,9 @@ class HomeController extends Controller
             'oferta_becas' => $oferta_becas,
             'carreras' => $carreras,
             'noticias' => $noticias,
-            'convenios' => $convenios
+            'convenios' => $convenios,
+            'descripcion'=>'Vea información sobre Convenios, Becas, Ofertas de Idiomas, Pasantías Disponibles, Noticias y más Publicaciones de Relaciones Internacionales de la Universidad Pública de El Alto',
+            'palabrasClave'=>'Relaciones Internacionales UPEA, UPEA Relaciones Internacionales, RRNNII UPEA, UPEA, Becas UPEA, Convenios UPEA'
         ]);
     }
 }

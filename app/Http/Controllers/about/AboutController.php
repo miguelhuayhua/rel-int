@@ -15,6 +15,8 @@ class AboutController extends Controller
             'cliente.about.index',
             [
                 'title' => 'Sobre Nosotros- Relaciones Internacionales UPEA',
+                'descripcion'=>'Conozca al equipo de Relaciones Internacionales de  de la Universidad Pública de El Alto',
+                'palabrasClave'=>'Equipos Relaciones Internacionales UPEA, Equipo Relaciones Internacionales Organigrama relaciones internacionales UPEA, Organigrama relaciones internacionales upea'
             ]
         );
     }

@@ -16,7 +16,9 @@ class BecasController extends Controller
             'cliente/becas/index',
             [
                 'title' => 'Becas - Relaciones Internacionales',
-                'becas' => $becas
+                'becas' => $becas,
+                'descripcion'=>'Conozca las becas disponibles ofrecido por  relaciones internacionales de la Universidad Pública de El Alto',
+                'palabrasClave'=>'Becas Upea, Becas Relaciones Internacionales, Becas Bolivia, Becas de la Upea'
             ]
         );
     }
