@@ -141,11 +141,11 @@
                     <div class="col-6">
                         <h2>Conoce a Nuestro Equipo</h2>
                         <div class="row mt-4">
-                            <div class="col-4">
-                                <img width="100px" src=""
+                            <div class="col-2">
+                                <img class="perfiles" width="100px" src="{{url('images/director.jpeg')}}"
                                     alt="Fotografía Jefe de Unidad de Relaciones Internacionales">
                             </div>
-                            <div class="col-8">
+                            <div class="col-10">
                                 <b>Dr. Victor Edwin Campos
                                     Ugarte</b>
                                 <p
@@ -153,23 +153,23 @@
                                     Jefe de relaciones Internacionales
                                 </p>
                             </div>
-                            <div class="col-4">
+                            <div class="col-2">
                                 <img  class="perfiles" src="{{url('images/tecnico.png')}}"
                                     alt="Fotografía Técnico de Unidad de Relaciones Internacionales">
                             </div>
-                            <div class="col-8">
-                                <b>Mgs. Lic. Hugo Madeny López</b>
+                            <div class="col-10">
+                                <b>MSc. Lic. Hugo Madeny López</b>
                                 <p
                                     style="color: brown; font-weight: bold;border-top: 1px solid #AAA; padding-top: .5em; width: 60%">
 
                                     Técnico de Relaciones Internacionales
                                 </p>
                             </div>
-                            <div class="col-4">
-                                <img width="100px" src=""
+                            <div class="col-2">
+                                <img class="perfiles" width="100px" src="{{url('images/secretaria.jpeg')}}"
                                     alt="Fotografía Secretaría de Unidad de Relaciones Internacionales">
                             </div>
-                            <div class="col-8">
+                            <div class="col-10">
                                 <b>Cristina Teresa Mamani Mamani</b>
                                 <p
                                     style="color: brown; font-weight: bold;border-top: 1px solid #AAA; padding-top: .5em; width: 60%">

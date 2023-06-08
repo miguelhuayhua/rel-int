@@ -30,36 +30,45 @@ let counter3 = 0;
 let counter4 = 0;
 
 let int1 = setInterval(() => {
-    counter1 += 100;
-    span1.innerText = counter1;
 
-    if (counter1 >= number1) {
+    if (counter1 > number1) {
         counter1 = counter1 - (counter1 - number1);
         span1.innerText = counter1;
 
         clearInterval(int1);
     }
+    counter1 += 100;
+
+    span1.innerText = counter1;
+
 }, 20);
 
 let int2 = setInterval(() => {
-    counter2++;
-    span2.innerText = counter2;
-    if (counter2 == number2) {
+    if (counter2 >= number2) {
         clearInterval(int2);
     }
+
+    span2.innerText = counter2;
+    counter2++;
+
+
 }, 40);
 let int3 = setInterval(() => {
-    counter3++;
-    span3.innerText = counter3;
-    if (counter3 == number3) {
+    if (counter3 >= number3) {
         clearInterval(int3);
     }
+    span3.innerText = counter3;
+    counter3++;
+
+
 }, 30);
 let int4 = setInterval(() => {
-    counter4++;
-    span4.innerText = counter4;
-    if (counter4 == number4) {
+    if (counter4 >= number4) {
         clearInterval(int4);
     }
+    span4.innerText = counter4;
+    counter4++;
+
+
 }, 30);
 

@@ -33,4 +33,5 @@ h2 {
     height: 120px;
     overflow: hidden;
    border: 3px solid rgb(219, 25, 25);
+   margin: 10px 0;
 }
