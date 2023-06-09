@@ -41,7 +41,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="row">
+            <div class="row p-0 m-0">
                 <div class="slider">
                     <div class="slide-track">
                         @foreach ($carreras as $carrera)
@@ -190,7 +190,8 @@
                
             </div>
         </div> --}}
-        <div class="row">
+
+        <div class="row mt-4">
             <div class="col-12 col-md-6">
                 <h2>Últimas Noticias</h2>
                 <div class="row">
@@ -215,7 +216,8 @@
                 <h2>Últimos Convenios</h2>
                 <div class="row">
                     @foreach ($convenios as $convenio)
-                        <div class="col-12 col-lg-6 position-relative mt-5" style="border-bottom: 1px solid brown; padding-bottom: 10px;">
+                        <div class="col-12 col-lg-6 position-relative mt-5"
+                            style="border-bottom: 1px solid brown; padding-bottom: 10px;">
                             <img src="{{ $convenio->img_convenio }}" width="70%" style="display:block;margin: 0 auto;"
                                 alt="">
 
@@ -242,6 +244,20 @@
                 </div>
             </div>
         </div>
+        <h3 class="text-center mt-5" style="font-size: 1.5em">Enlaces Institucionales</h3>
+        <div class="row mt-5">
+            @foreach ($enlaces as $enlace)
+                <div class="col-4 col-md-3 col-xl-2 p-2 position-relative">
+                    <a target="_blank" href="{{ $enlace->links_enlace }}">
+                        <img src="{{ url($enlace->url_enlace) }}" width="100%" alt="" srcset="">
+                    </a>
+                    <span class="enlace_name">{{ $enlace->nombre_enlace }}</span>
+                    <span class="enlace_telefono">Teléfono: {{ $enlace->telefono }}</span>
+                </div>
+            @endforeach
+        </div>
+        <hr class="mt-5">
+
     </main>
 
     <script src="{{ url('js/home.js') }}"></script>

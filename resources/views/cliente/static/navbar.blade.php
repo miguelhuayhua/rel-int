@@ -1,8 +1,8 @@
 <div class="container-fluid contact-info">
-    <p class="my-0 py-0">©2023 SIE - DRNI - UPEA </p>
+    <p class="my-0 py-0 text-white">©2023 SIE - DRNI - UPEA </p>
     <div class="d-flex justify-content-center">
         <div class="fondo-dec">
-            <img src="{{url("")}}" alt="">
+            <img src="{{ url('') }}" alt="">
         </div>
         <a href="#" class="social">
             <i class="fa fa-facebook"></i>
@@ -20,6 +20,8 @@
     </a>
 </div>
 <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="decoracion"></div>
+
     <a class="navbar-brand" style="    border-right: #7e0c0a34 1px solid;
     " href="/">
         <img src="{{ url('/images/logorrnnii.png') }}" class="custom-img mx-3 px-3" alt="">
@@ -33,7 +35,7 @@
         <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
 
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse position-relative">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item custom-nav-item" id="home">
                 <a class="nav-link custom-link" href="/">Inicio</span></a>
@@ -55,6 +57,7 @@
                 <a class="nav-link custom-link" href="/about">Sobre Nosotros</a>
             </li>
         </ul>
+
     </div>
 </nav>
 <div class="custom-toggle-navbar" id="navbarResponsive">
@@ -78,7 +81,9 @@
             <li class="nav-item custom-nav-item" id="about">
                 <a class="nav-link custom-link" href="/about">Sobre Nosotros</a>
             </li>
-            
+
         </ul>
+
     </nav>
+
 </div>

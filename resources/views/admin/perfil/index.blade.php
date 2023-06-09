@@ -76,12 +76,10 @@
                                 </div>
                                 <input type="text" hidden value="{{ $usuario->id_usuario }}" name="id_usuario">
                             </div>
-                            <div onclick="enviar(epusuario), '¿Desea editar el Usuario?'" class="btn btn-custom w-25">
-                                Editar Usuario</div>
+                            <div onclick="enviar(epusuario, '¿Desea editar su Perfil?')" class="btn btn-custom w-25">
+                                Editar Perfil</div>
                         </form>
                     </div>
-
-
                 </div>
             </div>
         </div>

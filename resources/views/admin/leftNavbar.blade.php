@@ -150,6 +150,31 @@
             </a> --}}
         </div>
     </div>
+    <button id="tipo6" class="btn collapse-button dash-parent-button" type="button" data-toggle="collapse"
+        data-target="#tipos6" aria-expanded="false" aria-controls="collapseExample">
+        <div class="icon-flex">
+            <i class="fa fa-link icon" aria-hidden="true"></i> Enlaces
+        </div>
+        <i class="fa fa-angle-right custom-icon" aria-hidden="true"></i>
+    </button>
+    <div class="collapse" id="tipos6">
+        <div class="ri-info">
+            <a href="/dashboard/aenlace" class="btn dash-btn">
+                <i class="fa fa-plus icon" aria-hidden="true"></i>
+                Agregar Enlace
+            </a>
+            <a href="/dashboard/enlaces" class="btn dash-btn">
+                <i class="fa fa-eye icon" aria-hidden="true"></i>
+
+                Ver Enlaces
+            </a>
+
+            {{-- <a href="/dashboard/gcarrera" class="btn dash-btn">
+                <i class="fa fa-bar-chart icon" aria-hidden="true"></i>
+                Estadísticas
+            </a> --}}
+        </div>
+    </div>
     @if ($usuario->cargo == 'ADMINISTRADOR')
         <a href="/dashboard/auditoria" class="btn collapse-button dash-parent-button" type="button">
             <div class="icon-flex">

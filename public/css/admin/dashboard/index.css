@@ -89,7 +89,7 @@
     border: 1px solid brown;
     margin-right: 10px;
 }
-.profile span{
+.profile span {
     font-weight: 300;
 }
 h3 {
@@ -113,14 +113,14 @@ b {
     text-align: center;
     color: rgb(138, 39, 39);
     width: 100%;
-    background-color: #eeeeee;
+    background-color: #f4f4f4;
     font-weight: 300;
     transition: background-color 0.5s, color 0.5s;
     display: flex;
     padding-left: 40px;
 }
 
-.dash-btn:hover>.icon {
+.dash-btn:hover > .icon {
     color: white !important;
     transition: color 0.5s;
 }
@@ -243,7 +243,7 @@ label {
 .btn-custom:hover {
     background-color: rgb(134, 51, 51);
     color: white;
-    transition: background-color .5s, color .5s;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 .btn-custom2 {
@@ -253,7 +253,6 @@ label {
     background-color: rgb(134, 51, 51);
     color: white;
 }
-
 
 /*Apartado especial para los inputs de tipo file*/
 .img2 {
@@ -358,7 +357,7 @@ h6 {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.344);
     border-radius: 5px;
     justify-content: center;
-    width: 180px;
+    width: 250px;
     display: none !important;
     overflow: hidden;
 }
@@ -387,4 +386,9 @@ h6 {
 
 .showProfile {
     display: block !important;
+}
+
+/* Estilos personalizados para el paginador */
+.current {
+    background-color: #c87777 !important;
 }

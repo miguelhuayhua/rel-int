@@ -1,7 +1,7 @@
 .custom-navbar {
     padding: 0 !important;
     height: 80px;
-    border-bottom: #7e0c0a34 1px solid;
+    border-bottom: #b0100e34 1px solid;
     position: sticky;
     top: 0;
     z-index: 2000;
@@ -22,7 +22,7 @@
     justify-content: center !important;
     font-size: .6em;
     margin-top: 1em;
-    color: #7e0c0a;
+    color: #a2100d;
     padding-right: 1em;
 }
 
@@ -75,10 +75,10 @@
 
 .contact-info {
     background: rgb(215, 40, 37);
-    background: linear-gradient(90deg, rgb(21, 42, 92) 0%, rgb(21, 37, 79) 100%);
+    background: linear-gradient(90deg, rgb(21, 42, 92) 0%, rgb(21, 46, 107) 100%);
     color: white;
     font-weight: 300;
-    height: 50px;
+    height: 60px;
     position: relative;
 }
 
@@ -114,7 +114,7 @@
 
 /*estilos del toggle de bootstrap*/
 .toggle-icon {
-    color: #7e0c0a;
+    color: #960d0b;
     font-size: 2.5em !important;
     width: 80px;
     margin-right: .5em;
@@ -153,7 +153,7 @@
 
 /*this sections works with javascript navbar.js*/
 .active-navbar-item {
-    background-color: #7e0c0a;
+    background-color: #ad100d;
     color: white;
 }
 
@@ -169,5 +169,19 @@
     .custom-toggle-navbar {
         display: none;
     }
+
+}
+
+
+.decoracion{
+    width: 100%;
+    height: 80px;
+    background-image: url('http://127.0.0.1:8000/images/fondo_monolito.png');
+    background-size: contain;
+    background-repeat: repeat-x;
+    opacity: .07;
+    position: absolute;
+    top: 0;
+    z-index: -1;
 
 }

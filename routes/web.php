@@ -84,6 +84,15 @@ Route::get('dashboard/galeria', [\App\Http\Controllers\admin\galeria::class, 'li
 Route::post('dashboard/agaleria', [\App\Http\Controllers\admin\galeria::class, 'insertar']);
 Route::post('dashboard/egaleria', [\App\Http\Controllers\admin\galeria::class, 'editar']);
 Route::get('dashboard/galeria/{id_galeria}', [\App\Http\Controllers\admin\galeria::class, 'mostrar']);
+Route::post('dashboard/bgaleria', [\App\Http\Controllers\admin\galeria::class, 'borrar']);
+//enlaces
+
+Route::get('dashboard/aenlace', [\App\Http\Controllers\admin\enlaces::class, 'index']);
+Route::get('dashboard/enlaces', [\App\Http\Controllers\admin\enlaces::class, 'listar'])->name('enlaces');
+Route::post('dashboard/aenlace', [\App\Http\Controllers\admin\enlaces::class, 'insertar']);
+Route::post('dashboard/eenlace', [\App\Http\Controllers\admin\enlaces::class, 'editar']);
+Route::get('dashboard/enlace/{id_enlace}', [\App\Http\Controllers\admin\enlaces::class, 'mostrar']);
+Route::post('dashboard/benlace', [\App\Http\Controllers\admin\enlaces::class, 'borrar']);
 
 
 
@@ -96,6 +105,8 @@ Route::get('/cerrarsesion', [\App\Http\Controllers\login\LoginController::class,
 Route::get('/dashboard/perfil', [\App\Http\Controllers\admin\dashboard\perfil::class, 'index'])->name('perfil');
 Route::post('/dashboard/eppersona', [\App\Http\Controllers\admin\dashboard\perfil::class, 'editarPersona']);
 Route::post('/dashboard/epusuario', [\App\Http\Controllers\admin\dashboard\perfil::class, 'editarUsuario']);
+Route::get('/dashboard/informacion', [\App\Http\Controllers\admin\dashboard\perfil::class, 'informacion'])->name('informacion');
+Route::post('/dashboard/einformacion', [\App\Http\Controllers\admin\dashboard\perfil::class, 'editarInformacion']);
 
 
 //GRAFICOS

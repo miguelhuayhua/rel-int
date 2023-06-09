@@ -69,7 +69,15 @@ let epublicacion = () => {
 let publicacion = () => {
     document.getElementById('form-publicacion').submit();
 }
-
+let einformacion = () => {
+    document.getElementById('form-einformacion').submit();
+}
+let eenlace = () => {
+    document.getElementById('form-eenlace').submit();
+}
+let benlace = () => {
+    document.getElementById('form-benlace').submit();
+}
 //Función para mostrar el modal
 let si = document.getElementById('si') || document.createElement('button');
 let no = document.getElementById('no') || document.createElement('button');

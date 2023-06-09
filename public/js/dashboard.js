@@ -42,4 +42,14 @@ let showProfile = () => {
     profileOptions.classList.toggle('showProfile');
 }
 
-let table = new DataTable('#tabla');
+let table = new DataTable('#tabla',
+    {
+        language: {
+            search: "Buscar: ",
+            oPaginate: {
+                sNext: "Siguiente",
+                sPrevious: "Anterior"
+            },
+            sInfo: "Mostrando _START_ a _END_ de _TOTAL_ filas"
+        }
+    });

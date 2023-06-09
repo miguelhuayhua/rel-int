@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Enlace;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,7 +21,9 @@ class HomeController extends Controller
         $oferta_becas = collect(DB::select("SELECT count(*) AS total FROM publicaciones WHERE estado = 1 AND tipo_publicaciones = 'Becas'"))->first();
         $carreras = DB::select("SELECT * FROM sic_carrera WHERE estado = 1");
         $noticias = DB::select("SELECT * FROM publicaciones WHERE tipo_publicaciones = 'Noticias'AND ESTADO = 1 ORDER BY 1 DESC LIMIT 6;");
+        $informacion = collect(DB::select("SELECT * FROM contacto_informacion"))->first();
         $convenios = DB::select("SELECT * from sic_convenio WHERE estado = 'Activo' ORDER BY 1 DESC LIMIT 6;");
+        $enlaces = Enlace::all()->where('estado', '=', 1);
         return view('cliente.home.index', [
             'title' => 'Relaciones Internacionales - UPEA',
             'visitas' => $visitas,
@@ -30,8 +33,10 @@ class HomeController extends Controller
             'carreras' => $carreras,
             'noticias' => $noticias,
             'convenios' => $convenios,
-            'descripcion'=>'Vea información sobre Convenios, Becas, Ofertas de Idiomas, Pasantías Disponibles, Noticias y más Publicaciones de Relaciones Internacionales de la Universidad Pública de El Alto',
-            'palabrasClave'=>'Relaciones Internacionales UPEA, UPEA Relaciones Internacionales, RRNNII UPEA, UPEA, Becas UPEA, Convenios UPEA'
+            'informacion' => $informacion,
+            'enlaces' => $enlaces,
+            'descripcion' => 'Vea información sobre Convenios, Becas, Ofertas de Idiomas, Pasantías Disponibles, Noticias y más Publicaciones de Relaciones Internacionales de la Universidad Pública de El Alto',
+            'palabrasClave' => 'Relaciones Internacionales UPEA, UPEA Relaciones Internacionales, RRNNII UPEA, UPEA, Becas UPEA, Convenios UPEA'
         ]);
     }
 }

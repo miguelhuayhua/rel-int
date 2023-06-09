@@ -10,6 +10,8 @@ class InternacionalesController extends Controller
 {
     public function index()
     {
+        $informacion = collect(DB::select("SELECT * FROM contacto_informacion"))->first();
+
         $internacionales = DB::select("
         SELECT
 	id_convenios, id_detalle_grupo, id_tipo_convenio, nombre_convenio, objetivo_convenio, img_convenio, pdf_convenio, 
@@ -20,7 +22,10 @@ FROM
         return view('cliente.convenios.nac_inter', [
             'title' => 'Convenios Internacionales - UPEA',
             'convenios' => $internacionales,
-            'tipo' => 'Internacionales'
+            'tipo' => 'Internacionales',
+            'descripcion' => 'Conozca los convenios internacionales de la Universidad Pública de El Alto',
+            'palabrasClave' => 'Convenios Internacionales, Convenios Internacionales UPEA',
+            'informacion' => $informacion
         ]);
     }
 }

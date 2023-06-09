@@ -10,6 +10,8 @@ class NacionalesController extends Controller
 {
     public function index()
     {
+        $informacion = collect(DB::select("SELECT * FROM contacto_informacion"))->first();
+
         $vista = DB::select("select sc.id_carrera AS id_carrera,sc.nom_carrera AS nom_carrera,sc.image_url AS image_url,count(tabla1.nombre_convenio) AS convenios,sc.estado AS estado from 
         sic_carrera sc left join 
             (
@@ -22,7 +24,10 @@ class NacionalesController extends Controller
         return view('cliente.convenios.nac_inter', [
             'title' => 'Convocatorias Nacionales - UPEA',
             'vista' => $vista,
-            'tipo' => 'Nacionales'
+            'tipo' => 'Nacionales',
+            'descripcion' => 'Conozca los convenios nacionales de la Universidad Pública de El Alto',
+            'palabrasClave' => 'Convenios Nacionales UPEA, Convenios Nacionales',
+            'informacion' => $informacion
         ]);
     }
 }

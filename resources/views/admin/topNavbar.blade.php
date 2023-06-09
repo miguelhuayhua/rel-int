@@ -13,6 +13,14 @@
                     <i class="fa fa-edit icon" aria-hidden="true"></i>
                     Editar Perfil</a>
             </li>
+
+            @if ($usuario->cargo != 'SECRETARIA')
+                <li>
+                    <a href="/dashboard/informacion">
+                        <i class="fa fa-cog icon" aria-hidden="true"></i>
+                        Editar Información DRRNI</a>
+                </li>
+            @endif
             <li>
                 <a href="/cerrarsesion">
                     <i class="fa fa-sign-out icon" aria-hidden="true"></i>

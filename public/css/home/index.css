@@ -321,6 +321,9 @@ hr {
     transition: scale 1s;
     width: 100%;
 }
+.bg-img-carreras {
+    width: 100%;
+}
 
 .bg-img-carreras {
     transition: scale 1s;
@@ -355,6 +358,7 @@ hr {
     overflow: hidden;
     position: relative;
     width: 100%;
+    padding: 0;
 }
 
 .slider::before,
@@ -367,7 +371,7 @@ hr {
     content: "";
     height: 100px;
     position: absolute;
-    width: 200px;
+    width: 150px;
     z-index: 2;
 }
 
@@ -445,4 +449,29 @@ h3 {
     font-size: 2em;
     transition: color 0.7s;
     height: 30px !important;
+}
+
+/*ENLACES*/
+.enlace_name {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #13196d;
+    color: white;
+    font-weight: 200;
+    border-radius: 4px;
+    font-size: 0.8em;
+    padding: 3px;
+}
+
+.enlace_telefono {
+    font-size: 0.8em;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #13196d;
+    color: white;
+    font-weight: 200;
+    border-radius: 4px;
+    padding: 3px;
 }

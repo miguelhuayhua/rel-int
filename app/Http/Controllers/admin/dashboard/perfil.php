@@ -63,4 +63,40 @@ class perfil extends Controller
         DB::commit();
         return Redirect::route('perfil')->with('done', ['done' => 1]);
     }
+
+
+
+
+
+    //contacto y ubicación de la dirección
+    public function editarInformacion(Request $request)
+    {
+        $correo = $request->input('correo');
+        $fax = $request->input('fax');
+        $celular = $request->input('celular');
+        $telefono = $request->input('telefono');
+        $ubicacion = $request->input('ubicacion');
+        DB::update("UPDATE contacto_informacion SET telefono = ?, celular = ?, fax = ?, ubicacion = ?, correo = ?", [$telefono, $celular, $fax, $ubicacion, $correo]);
+        $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
+        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'editar_informacion', 'contacto_informacion']);
+        DB::commit();
+        return Redirect::route('informacion')->with('done', ['done' => 1]);
+    }
+
+    public function informacion(Request $request)
+    {
+        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
+        $estado = session('done');
+        $done = $estado != null ? 1 : 0;
+        $informacion = collect(DB::select("SELECT * FROM contacto_informacion"))->first();
+        return view(
+            'admin.perfil.informacion',
+            [
+                'title' => 'Editar Información Relaciones Internacionales',
+                'usuario' => $user,
+                'done' => $done,
+                'informacion' => $informacion
+            ]
+        );
+    }
 }
