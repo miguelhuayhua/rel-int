@@ -34,16 +34,20 @@ class convenios extends Controller
 
     public function insertar(Request $request)
     {
-        $image = $request->file('imagen');
-        $image->move(public_path('imgConvenios'), $image->getClientOriginalName());
-        $archivo = $request->file('file');
-        $archivo->move(public_path('conveniosPdf'), $archivo->getClientOriginalName());
         $convenio = new Convenio;
         $convenio->nombre_convenio = $request->input('nombre');
         $convenio->objetivo_convenio = $request->input('objetivo');
-        $convenio->img_convenio = '/imgConvenios/' . $image->getClientOriginalName();
         $convenio->fecha_firma = $request->input('fecha_firma');
-        $convenio->pdf_convenio = 'conveniosPdf/' . $request->input('file');
+        if ($request->hasFile('file')) {
+            $archivo = $request->file('file');
+            $archivo->move(public_path('conveniosPdf'), $archivo->getClientOriginalName());
+            $convenio->pdf_convenio = "/conveniosPdf/" . $archivo->getClientOriginalName();
+        }
+        if ($request->hasFile('imagen')) {
+            $image = $request->file('imagen');
+            $image->move(public_path('imgConvenios'), $image->getClientOriginalName());
+            $convenio->img_convenio = "/imgConvenios/" . $image->getClientOriginalName();
+        }
         $convenio->fecha_finalizacion = $request->input('fecha_finalizacion');
         $convenio->tiempo_duracion = $request->input('dias');
         $convenio->entidad = $request->input('entidad');
@@ -51,8 +55,13 @@ class convenios extends Controller
         $convenio->email = $request->input('email');
         $convenio->direccion = $request->input('direccion');
         $convenio->id_tipo_convenio = $request->input('tipo');
-        $idlast = Convenio::all()->last()->id_convenios;
-        $convenio->correlativo = "CV-" . ($idlast + 1);
+        if (Convenio::all()->last() == null) {
+            $convenio->correlativo = "CV-01";
+        } else {
+            $idlast = Convenio::all()->last()->id_convenios;
+            $convenio->correlativo = "CV-0" . ($idlast + 1);
+        }
+
         $convenio->save();
         $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'sic_convenio']);

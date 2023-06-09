@@ -52,13 +52,15 @@ class publicaciones extends Controller
         $publicacion->estado = 1;
         $publicacion->save();
         $id_publicaciones = $publicacion->getKey();
-        $archivo = $request->file('file');
-        $archivo->move(public_path('assets/img_publicaciones/archivos/'), $archivo->getClientOriginalName());
-        DB::insert('INSERT INTO publicaciones_archivo (id_publicaciones, nombre_archivo, estado_archivo, fecha) 
+        if ($request->file('file') != null) {
+            $archivo = $request->file('file');
+            $archivo->move(public_path('assets/img_publicaciones/archivos/'), $archivo->getClientOriginalName());
+            DB::insert('INSERT INTO publicaciones_archivo (id_publicaciones, nombre_archivo, estado_archivo, fecha) 
             VALUES (?,?,?,now())', [$id_publicaciones, 'assets/img_publicaciones/archivos/' . $archivo->getClientOriginalName(), '1']);
-        DB::commit();
+            DB::commit();
+        }
 
-        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
+
         $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
 
         DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'insertar', 'publicaciones']);

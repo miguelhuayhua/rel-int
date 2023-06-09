@@ -59,7 +59,7 @@
                 @foreach ($vista as $carrera)
                     <div class="col-12 col-sm-6 col-lg-4">
                         <div class="custom-card">
-                            <img src='http://127.0.0.1:8000{{ $carrera->image_url }}' alt="...">
+                            <img src='https://rrnnii.upea.bo{{ $carrera->image_url }}' alt="...">
                             <div class="custom-card-body">
                                 <h5>
                                     {{ $carrera->nom_carrera }}

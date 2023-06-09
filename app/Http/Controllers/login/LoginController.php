@@ -27,12 +27,13 @@ class LoginController extends Controller
         //obtención de datos de login
         $username = $request->get('usuario');
         $password = $request->get('password');
-
         //verificar primero si existe algún token
         if ($request->hasCookie('t')) {
             if (collect(DB::select("SELECT * FROM sic_usuario WHERE login_token = ?", [$request->cookie('t')]))) {
                 return Redirect::route('dashboard');
             } else {
+
+
                 $cookie = Cookie::forget('t');
                 return redirect()->route('login')->withCookie($cookie);
             }

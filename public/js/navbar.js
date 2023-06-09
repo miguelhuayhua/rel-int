@@ -1,6 +1,6 @@
 console.log(this.document.URL, this.document)
 let url = this.document.URL;
-if (url == 'http://127.0.0.1:8000/') {
+if (url == 'https://rrnnii.upea.bo/') {
     document.getElementById('home').classList.add('active-navbar-item');
 }
 else if (url.includes('contacto')) {

@@ -54,7 +54,7 @@
         </div>
     </section>
     <script>
-        axios.get("http://127.0.0.1:8000/dashboard/chartdata").then(function(response) {
+        axios.get("https://rrnnii.upea.bo/dashboard/chartdata").then(function(response) {
             return response.data
             // do whatever you want if console is [object object] then stringify the response
         }).then(data => {

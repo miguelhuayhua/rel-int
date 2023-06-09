@@ -32,18 +32,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($convenios as $index => $convenio)
-                                    <tr>
-                                        <th scope="row">{{ $convenio->correlativo }}</th>
-                                        <td>{{ $convenio->nombre_convenio }}</td>
-                                        <td>{{ $convenio->entidad }}</td>
-                                        <td>{{ $convenio->fecha_publicacion }}</td>
-                                        <td>
-                                            <a class="icono btn" href="/dashboard/convenios/{{ $convenio->id_convenios }}">
-                                                <i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                @if ($convenios != null)
+                                    @foreach ($convenios as $index => $convenio)
+                                        <tr>
+                                            <th scope="row">{{ $convenio->correlativo }}</th>
+                                            <td>{{ $convenio->nombre_convenio }}</td>
+                                            <td>{{ $convenio->entidad }}</td>
+                                            <td>{{ $convenio->fecha_publicacion }}</td>
+                                            <td>
+                                                <a class="icono btn"
+                                                    href="/dashboard/convenios/{{ $convenio->id_convenios }}">
+                                                    <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>
