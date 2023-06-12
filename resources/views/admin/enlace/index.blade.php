@@ -38,7 +38,7 @@
                                             value="{{ $enlace->nombre_enlace }}">
                                     </div>
                                     <div class="form-group col-12">
-                                        <label for="link_enlace">Link de Enlace:</label>
+                                        <label for="links_enlace">Link de Enlace:</label>
                                         <input type="text" class="form-control" id="link_enlace" name="links_enlace"
                                             placeholder="Introduzca el link del enlace" value="{{ $enlace->links_enlace }}">
                                     </div>
@@ -89,8 +89,8 @@
                                             placeholder="Introduzca el nombre del enlace">
                                     </div>
                                     <div class="form-group col-12">
-                                        <label for="link_enlace">Link de Enlace:</label>
-                                        <input type="text" class="form-control" id="link_enlace" name="link_enlace"
+                                        <label for="links_enlace">Link de Enlace:</label>
+                                        <input type="text" class="form-control" id="link_enlace" name="links_enlace"
                                             placeholder="Introduzca el link del enlace">
                                     </div>
                                     <div class="form-group col-6">

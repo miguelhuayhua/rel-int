@@ -196,7 +196,7 @@
                 <h2>Últimas Noticias</h2>
                 <div class="row">
                     @foreach ($noticias as $noticia)
-                        <div class="col-12 col-sm-6 col-lg-4 noticia">
+                        <div class="col-12 col-lg-6 col-xl-4 noticia">
                             <img src="{{ $noticia->url }}" width="100%" alt="">
                             <div class="info-noticia">
                                 <span>
@@ -233,7 +233,7 @@
                                 </div>
 
                             </div>
-                            @if ($convenio->pdf_convenio )
+                            @if ($convenio->pdf_convenio)
                                 <a href="{{ url($convenio->pdf_convenio) }}" target="blank" class="pdf">
                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                                     Descargar Información
@@ -245,9 +245,9 @@
             </div>
         </div>
         <h3 class="text-center mt-5" style="font-size: 1.5em">Enlaces Institucionales</h3>
-        <div class="row mt-5">
+        <div class="row mt-5 d-flex justify-content-center">
             @foreach ($enlaces as $enlace)
-                <div class="col-4 col-md-3 col-xl-2 p-2 position-relative">
+                <div class="col-3 col-md-3 col-xl-2 p-2 position-relative shadow rounded m-3">
                     <a target="_blank" href="{{ $enlace->links_enlace }}">
                         <img src="{{ url($enlace->url_enlace) }}" width="100%" alt="" srcset="">
                     </a>

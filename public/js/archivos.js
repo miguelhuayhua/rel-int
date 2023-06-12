@@ -29,15 +29,15 @@ let docs = document.getElementById('docs') || document.createElement('p');
 
 docs.addEventListener('change', (ev) => {
     let files = document.getElementById('files');
-    let archivos = ev.target.files;
-    for (let index = 0; index < archivos.length; index++) {
-        let p = document.createElement('p');
-        p.classList.add('file')
-        let i = document.createElement('i');
-        i.classList.add('fa');
-        i.classList.add('fa-file');
-        p.textContent = archivos[index].name;
-        p.appendChild(i);
-        files.appendChild(p);
-    }
+    files.removeChild(files.lastChild);
+    let archivo = ev.target.files[0];
+    let p = document.createElement('p');
+    p.classList.add('file')
+    let i = document.createElement('i');
+    i.classList.add('fa');
+    i.classList.add('fa-file');
+    p.textContent = archivo.name;
+    p.appendChild(i);
+    files.appendChild(p);
+
 })

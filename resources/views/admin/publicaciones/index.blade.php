@@ -115,16 +115,15 @@
                                 action="/dashboard/apublicacion">
                                 @csrf
                                 <div class="row">
-
-                                    <div class="col-6">
-                                        <label for="url">Inserte Banner:</label>
+                                    <div class="col-4">
                                         <img class="img2" id="imagen2" src="" alt="No seleccionado"
                                             srcset="">
+                                        <label for="imagen">Imagen:</label>
                                         <input name="url" type="file" accept=".png, .jpg, .jpeg"
-                                            class="form-control" id="url">
+                                            class="form-control" id="imagen">
                                     </div>
 
-                                    <div class="col-6">
+                                    <div class="col-8">
                                         <label for="titulo">Título de Publicación:</label>
                                         <input type="text" class="form-control" id="titulo" name="titulo"
                                             placeholder="Introduzca el nombre del convenio">

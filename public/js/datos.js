@@ -78,6 +78,9 @@ let eenlace = () => {
 let benlace = () => {
     document.getElementById('form-benlace').submit();
 }
+let aenlace = () => {
+    document.getElementById('form-aenlace').submit();
+}
 //Función para mostrar el modal
 let si = document.getElementById('si') || document.createElement('button');
 let no = document.getElementById('no') || document.createElement('button');

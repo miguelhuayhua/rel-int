@@ -23,7 +23,7 @@ class HomeController extends Controller
         $noticias = DB::select("SELECT * FROM publicaciones WHERE tipo_publicaciones = 'Noticias'AND ESTADO = 1 ORDER BY 1 DESC LIMIT 6;");
         $informacion = collect(DB::select("SELECT * FROM contacto_informacion"))->first();
         $convenios = DB::select("SELECT * from sic_convenio WHERE estado = 'Activo' ORDER BY 1 DESC LIMIT 6;");
-        $enlaces = Enlace::all()->where('estado', '=', 1);
+        $enlaces = Enlace::all()->where('estado', '=', 1)->sortByDesc('orden');
         return view('cliente.home.index', [
             'title' => 'Relaciones Internacionales - UPEA',
             'visitas' => $visitas,
