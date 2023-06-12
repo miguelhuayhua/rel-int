@@ -233,7 +233,7 @@
                                 </div>
 
                             </div>
-                            @if ($convenio->pdf_convenio)
+                            @if ($convenio->pdf_convenio )
                                 <a href="{{ url($convenio->pdf_convenio) }}" target="blank" class="pdf">
                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                                     Descargar Información

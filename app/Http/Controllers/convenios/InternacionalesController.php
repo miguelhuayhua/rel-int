@@ -14,7 +14,7 @@ class InternacionalesController extends Controller
 
         $internacionales = DB::select("
         SELECT
-	id_convenios, id_detalle_grupo, id_tipo_convenio, nombre_convenio, objetivo_convenio, img_convenio, pdf_convenio, 
+	id_convenios,  id_tipo_convenio, nombre_convenio, objetivo_convenio, img_convenio, pdf_convenio, 
 	fecha_firma, fecha_finalizacion, tiempo_duracion, fecha_publicacion, direccion, entidad, telefono, email, estado, correlativo
 FROM
 	relaciones.sic_convenio o WHERE o.id_tipo_convenio = 2 AND o.estado = 'Activo';"); //hace referencia al conteo que se genera en la vista para la cantidad de convenios por carrera

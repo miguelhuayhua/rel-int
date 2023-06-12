@@ -20,7 +20,7 @@
                                             <h3>
                                                 {{ $convenio->nombre_convenio }}
                                             </h3>
-                                            <img src="{{url($convenio->img_convenio)}}" width="100%" alt="">
+                                            <img src="{{ url($convenio->img_convenio) }}" width="100%" alt="">
                                             <p>
                                                 <span>OBJETIVO:</span>
                                                 {{ $convenio->objetivo_convenio }}
@@ -64,13 +64,7 @@
                                 <h5>
                                     {{ $carrera->nom_carrera }}
                                 </h5>
-                                <p>
-                                    Convenios Disponibles
-                                    <span>
-                                        {{ $carrera->convenios }}
 
-                                    </span>
-                                </p>
                                 <button class="btn"
                                     onclick="mostrarConvenios('{{ $tipo }}','{{ $carrera->id_carrera }}','a')">
                                     Ver convenios {{ ucfirst(trans($tipo)) }}</button>
