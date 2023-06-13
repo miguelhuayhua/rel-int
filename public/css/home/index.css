@@ -224,7 +224,7 @@ body {
     width: 60%;
     position: absolute;
     z-index: -10;
-    top: 0;
+    top: 40px;
     display: block;
     margin: 30px;
     margin-top: 50px;

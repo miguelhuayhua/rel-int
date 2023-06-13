@@ -32,20 +32,23 @@ class publicaciones extends Controller
     }
     public function insertar(Request $request)
     {
+        $publicacion = new Publicacion;
+
         $titulo = $request->input('titulo');
         $descripcion = $request->input('descripcion');
         $correlativo = $request->input('correlativo');
-        $url = $request->file('url');
-        $url->move(public_path('assets/img_publicaciones'), $url->getClientOriginalName());
+        if ($request->hasFile('url')) {
+            $url = $request->file('url');
+            $url->move(public_path('assets/img_publicaciones'), $url->getClientOriginalName());
+            $publicacion->url = 'assets/img_publicaciones/' . $url->getClientOriginalName();
+        }
         $links = $request->input('links');
         $tipo = $request->input('tipo');
         $subtitulo = $request->input('subtitulo');
-        $publicacion = new Publicacion;
         $publicacion->titulo = strtoupper($titulo);
         $publicacion->descripcion = $descripcion;
         $publicacion->subtitulo = $subtitulo;
         $publicacion->correlativo = $correlativo;
-        $publicacion->url = 'assets/img_publicaciones/' . $url->getClientOriginalName();
         $publicacion->links = $links;
         $publicacion->tipo_publicaciones = $tipo;
         $publicacion->fecha = now()->toDate();
@@ -72,7 +75,7 @@ class publicaciones extends Controller
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $estado = session()->get('done');
-        $done = $estado != null ? 1 : 0;
+        $done = $estado != null ? 1 : 2;
         $publicaciones = Publicacion::orderBy('id_publicaciones', 'desc')->get()->filter(function ($publi) {
             return $publi->estado == 1;
         });

@@ -56,10 +56,10 @@ class convenios extends Controller
         $convenio->direccion = $request->input('direccion');
         $convenio->id_tipo_convenio = $request->input('tipo');
         if (Convenio::all()->last() == null) {
-            $convenio->correlativo = "CV-01";
+            $convenio->correlativo = "CV-21";
         } else {
             $idlast = Convenio::all()->last()->id_convenios;
-            $convenio->correlativo = "CV-0" . ($idlast + 1);
+            $convenio->correlativo = "CV-2" . ($idlast + 1);
         }
 
         $convenio->save();
@@ -99,7 +99,7 @@ class convenios extends Controller
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $estado = session('done');
-        $done = $estado != null ? 1 : 0;
+        $done = $estado != null ? 1 : 2;
         $convenios = Convenio::orderBy('id_convenios', 'desc')->get()->filter(function ($convenio) {
             return $convenio->estado == 'Activo';
         });
@@ -117,61 +117,75 @@ class convenios extends Controller
     public function mostrar(Request $request, $id_convenios)
     {
 
-        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
-        $convenio = Convenio::find($id_convenios);
-        return view(
-            'admin.convenio.index',
-            [
-                'title' => 'Agregar Convenio',
-                "usuario" => $user,
-                'convenio' => $convenio,
-                'id_convenios' => $id_convenios
-            ]
-        )->with('replace', true);
+        try {
+            $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
+            $convenio = Convenio::find($id_convenios);
+            return view(
+                'admin.convenio.index',
+                [
+                    'title' => 'Agregar Convenio',
+                    "usuario" => $user,
+                    'convenio' => $convenio,
+                    'id_convenios' => $id_convenios
+                ]
+            );
+        } catch (\Throwable $th) {
+            return Redirect::route('convenios')->with('done', ['done' => 2]); //code...
+
+        }
     }
 
     public function editar(Request $request)
     {
-        $id_convenios = $request->input('id_convenios');
-        $convenio = Convenio::find($id_convenios);
-        $convenio->nombre_convenio = $request->input('nombre_convenio');
-        if ($request->hasFile('file')) {
-            $archivo = $request->file('file');
-            $archivo->move(public_path('conveniosPdf'), $archivo->getClientOriginalName());
-            $convenio->pdf_convenio = "/conveniosPdf/" . $archivo->getClientOriginalName();
+        try {
+            $id_convenios = $request->input('id_convenios');
+            $convenio = Convenio::find($id_convenios);
+            $convenio->nombre_convenio = $request->input('nombre_convenio');
+            if ($request->hasFile('file')) {
+                $archivo = $request->file('file');
+                $archivo->move(public_path('conveniosPdf'), $archivo->getClientOriginalName());
+                $convenio->pdf_convenio = "/conveniosPdf/" . $archivo->getClientOriginalName();
+            }
+            if ($request->hasFile('imagen')) {
+                $image = $request->file('imagen');
+                $image->move(public_path('imgConvenios'), $image->getClientOriginalName());
+                $convenio->img_convenio = "/imgConvenios/" . $image->getClientOriginalName();
+            }
+            $convenio->nombre_convenio = $request->input('nombre');
+            $convenio->objetivo_convenio = $request->input('objetivo');
+            $convenio->fecha_firma = $request->input('fecha_firma');
+            $convenio->tiempo_duracion = $request->input('dias');
+            $convenio->fecha_finalizacion = $request->input('fecha_finalizacion');
+            $convenio->entidad = $request->input('entidad');
+            $convenio->telefono = $request->input('telefono');
+            $convenio->email = $request->input('email');
+            $convenio->direccion = $request->input('direccion');
+            $convenio->correlativo = "CV-" . $id_convenios;
+            $convenio->id_tipo_convenio = $request->input('tipo');
+            $convenio->save();
+            $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
+            DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'editar', 'sic_convenio']);
+            DB::commit();
+            return Redirect::route('convenios')->with('done', ['done' => 1]); //code...
+        } catch (\Throwable $th) {
+            return Redirect::route('convenios')->with('done', ['done' => 2]); //code...
+
         }
-        if ($request->hasFile('imagen')) {
-            $image = $request->file('imagen');
-            $image->move(public_path('imgConvenios'), $image->getClientOriginalName());
-            $convenio->img_convenio = "/imgConvenios/" . $image->getClientOriginalName();
-        }
-        $convenio->nombre_convenio = $request->input('nombre');
-        $convenio->objetivo_convenio = $request->input('objetivo');
-        $convenio->fecha_firma = $request->input('fecha_firma');
-        $convenio->tiempo_duracion = $request->input('dias');
-        $convenio->fecha_finalizacion = $request->input('fecha_finalizacion');
-        $convenio->entidad = $request->input('entidad');
-        $convenio->telefono = $request->input('telefono');
-        $convenio->email = $request->input('email');
-        $convenio->direccion = $request->input('direccion');
-        $convenio->correlativo = "CV-" . $id_convenios;
-        $convenio->id_tipo_convenio = $request->input('tipo');
-        $convenio->save();
-        $user = collect(DB::select('SELECT * FROM sic_usuario WHERE login_token = ?', [$request->cookie('t')]))->first();
-        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'editar', 'sic_convenio']);
-        DB::commit();
-        return Redirect::route('convenios')->with('done', ['done' => 1]);
     }
 
     public function borrar(Request $request)
     {
-        $id_convenios = $request->input('id_convenios');
-        $convenio = Convenio::find($id_convenios);
-        $convenio->estado = 'Concluido';
-        $convenio->save();
-        $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
-        DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'eliminar', 'sic_convenio']);
-        DB::commit();
-        return Redirect::route('convenios')->with('done', ['done' => 1]);
+        try {
+            $id_convenios = $request->input('id_convenios');
+            $convenio = Convenio::find($id_convenios);
+            $convenio->estado = 'Concluido';
+            $convenio->save();
+            $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
+            DB::insert("INSERT INTO acciones_usuario (id_usuario, tipo,tabla, fecha)  VALUES (?,?,?,now())", [$user->id_usuario, 'eliminar', 'sic_convenio']);
+            DB::commit();
+            return Redirect::route('convenios')->with('done', ['done' => 1]);
+        } catch (\Throwable $th) {
+            return Redirect::route('convenios')->with('done', ['done' => 2]);
+        }
     }
 }

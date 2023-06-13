@@ -24,7 +24,8 @@
 
                                     </div>
                                     <div class="col-6 col-md-4 mb-4">
-                                        <img width="100%" src="{{ url($beca->url) }}" alt="">
+                                        <img width="100%" src="{{ url($beca->url == null ? '' : $beca->url) }}"
+                                            alt="">
                                     </div>
                                 </div>
                                 <p>
@@ -33,7 +34,7 @@
                                 <span>
                                     {{ $beca->fecha }}
                                 </span>
-                                <a class="pdf" href="{{ url($beca->nombre_archivo) }}">
+                                <a class="pdf" href="{{ url($beca->nombre_archivo == null ? '' : $beca->nombre_archivo) }}">
                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                                 </a>
                                 <p>

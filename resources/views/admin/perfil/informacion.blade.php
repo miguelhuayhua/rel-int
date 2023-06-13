@@ -8,10 +8,12 @@
                 <i class="fa fa-check-circle-o" aria-hidden="true"></i>
             </div>
         @endif
-        <button id="toggleLeft" class="btn btn-toggle">
-            <i class="fa fa-bars" aria-hidden="true">
-            </i>
-        </button>
+        @if ($done == 2)
+            <div class="error" id="completado">
+                <p>Ha ocurrido un error</p>
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            </div>
+        @endif
         <div class="row">
             @include('admin.leftNavbar')
             <div class="col-md-9 col-xl-10" style="background-color: #f5f5f9;">

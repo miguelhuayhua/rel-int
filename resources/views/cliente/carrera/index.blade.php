@@ -6,7 +6,7 @@
             <div class="col-12 col-md-5">
                 <div class="custom-card">
                     <h2>Todos los convenios:</h2>
-                    <img src="{{ url($carrera->image_url) }}" alt="" srcset="">
+                    <img src="{{ url($carrera->image_url == null ? '' : $carrera->image_url) }}" alt="" srcset="">
                     <h1>
                         {{ $carrera->nom_carrera }}
                     </h1>

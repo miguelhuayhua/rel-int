@@ -47,7 +47,8 @@
                         @foreach ($carreras as $carrera)
                             <div class="slide">
                                 <a class="bg-img-carreras" href="carrera/{{ $carrera->id_carrera }}">
-                                    <img class="img-carreras" src="{{ url($carrera->image_url) }}" alt="">
+                                    <img class="img-carreras"
+                                        src="{{ url($carrera->image_url == null ? '' : $carrera->image_url) }}" alt="">
                                 </a>
                             </div>
                         @endforeach

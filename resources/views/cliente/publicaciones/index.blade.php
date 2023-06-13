@@ -11,10 +11,10 @@
                     <div class="card">
                         <div class="card-header">
                             {{ $publicacion->correlativo }}
-                            
+
                         </div>
                         <div class="card-body">
-                            <img src="{{ url($publicacion->url) }}" alt="" srcset="">
+                            <img src="{{ url($publicacion->url == null ? '' : $publicacion->url) }}" alt="" srcset="">
                             <h5 class="card-title">
                                 {{ $publicacion->titulo }}
                             </h5>

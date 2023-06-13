@@ -25,7 +25,8 @@
 
                                     <div class="col-6">
                                         <label for="url">Inserte Banner:</label>
-                                        <img class="img2" id="imagen2" src="{{ url($publicacion->url) }}"
+                                        <img class="img2" id="imagen2"
+                                            src="{{ url($publicacion->url == null ? '' : $publicacion->url) }}"
                                             alt="No seleccionado">
                                         <input name="url" type="file" accept=".png, .jpg, .jpeg" class="form-control"
                                             id="imagen">

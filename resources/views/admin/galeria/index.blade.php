@@ -23,7 +23,8 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-4">
-                                        <img class="img2" id="imagen2" src="{{ url($galeria->url_galeria) }}"
+                                        <img class="img2" id="imagen2"
+                                            src="{{ url($galeria->url_galeria == null ? '' : $galeria->url_galeria) }}"
                                             alt="No seleccionado" srcset="">
                                     </div>
                                     <div class="col-8">

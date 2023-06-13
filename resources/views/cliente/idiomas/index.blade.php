@@ -9,7 +9,8 @@
                 <div class="col-12 py-3">
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-5">
-                            <img width="100%" src="{{ url($idioma->url) }}" alt="" srcset="">
+                            <img width="100%" src="{{ url($idioma->url == null ? '' : $idioma->url) }}" alt=""
+                                srcset="">
                         </div>
                         <div class="col-12 col-sm-6 col-md-7 position-relative">
                             <h2>

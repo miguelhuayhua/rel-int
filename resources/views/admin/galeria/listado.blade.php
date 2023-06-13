@@ -8,6 +8,12 @@
                 <i class="fa fa-check-circle-o" aria-hidden="true"></i>
             </div>
         @endif
+        @if ($done == 2)
+            <div class="error" id="completado">
+                <p>Ha ocurrido un error</p>
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            </div>
+        @endif
         <button id="toggleLeft" class="btn btn-toggle">
             <i class="fa fa-bars" aria-hidden="true">
             </i>
@@ -35,8 +41,9 @@
                                 <tr>
                                     <th scope="row">{{ $index + 1 }}</th>
                                     <td>{{ $galeria->nombre_galeria }}</td>
-                                    
-                                    <td><img src="{{url($galeria->url_galeria)}}" width="110px" alt="" srcset=""></td>
+
+                                    <td><img src="{{ url($galeria->url_galeria) }}" width="110px" alt=""
+                                            srcset=""></td>
                                     <td>{{ \Carbon\Carbon::parse($galeria->fecha_galeria)->format('Y-m-d') }}</td>
                                     <td>
                                         <a class="icono btn" href="/dashboard/galeria/{{ $galeria->id_galeria }}">

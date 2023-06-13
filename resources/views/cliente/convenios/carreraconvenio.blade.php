@@ -4,7 +4,8 @@
         <div class="row">
             <div class="col-6 custom-card">
                 <h2>Convenios {{ $tipo }}</h2>
-                <img src="{{ url($carrera_conteo->image_url) }}" alt="" srcset="">
+                <img src="{{ url($carrera_conteo->image_url == null ? '' : $carrera_conteo->image_url) }}" alt=""
+                    srcset="">
                 <h1>
                     {{ $carrera_conteo->nom_carrera }}
                 </h1>

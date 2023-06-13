@@ -4,7 +4,7 @@
         <div class="row d-flex justify-content-around mt-4">
             <div class="col-12 col-md-6">
                 <h1 class="titulo">{{ $publicacion->titulo }}</h1>
-                <img class="img-url" src="{{ url($publicacion->url) }}" alt="">
+                <img class="img-url" src="{{ url($publicacion->url == null ? '' : $publicacion->url) }}" alt="">
                 <h2 class="subtitulo">
                     {{ $publicacion->subtitulo }}
                     <span><b>
