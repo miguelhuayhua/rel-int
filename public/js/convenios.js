@@ -1,6 +1,6 @@
 
 function mostrarConvenios(tipo, id) {
-    axios.get("http://127.0.0.1:8000/convenios/" + tipo + "/" + id).then(function (response) {
+    axios.get("http://pruebarriinn.upea.edu.bo/" + tipo + "/" + id).then(function (response) {
         return response.data
         // do whatever you want if console is [object object] then stringify the response
     }).then(data => {
@@ -26,7 +26,7 @@ function mostrarConvenios(tipo, id) {
             item.classList.add('custom-item');
             publicacion.classList.add('publicacion');
             nombre.innerText = convenio.nombre_convenio;
-            imagen.src = 'http://127.0.0.1:8000' + convenio.img_convenio;
+            imagen.src = 'http://pruebarriinn.upea.edu.bo' + convenio.img_convenio;
             console.log(convenio)
             imagen.classList.add(['w-25']);
             imagen.style.display = 'block';
@@ -40,7 +40,7 @@ function mostrarConvenios(tipo, id) {
             entidad.append(convenio.entidad);
             publicacionSpan.innerText = convenio.fecha_publicacion;
             publicacion.appendChild(publicacionSpan);
-            pdf.href = 'http://127.0.0.1:8000' + convenio.pdf_convenio;
+            pdf.href = 'http://pruebarriinn.upea.edu.bo' + convenio.pdf_convenio;
             pdf.classList.add('pdf');
             pdf.download = convenio.pdf;
             pdf.target = 'blank';
