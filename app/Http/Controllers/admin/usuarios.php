@@ -41,7 +41,7 @@ class usuarios extends Controller
         try {
             $user = collect(DB::select('SELECT * FROM sic_usuario su INNER JOIN sic_persona sp  WHERE su.login_token = ?', [$request->cookie('t')]))->first();
             $estado = session('done');
-            $done = $estado != null ? 1 : 2;
+            $done = $estado != null ? 1 : 0;
             $usuarios = Usuario::where('estado', '=', 1)->orderBy('id_usuario', 'desc')->get();
             $usuarios->sortByDesc('id_usuario');
             return view('admin.usuario.listado', [

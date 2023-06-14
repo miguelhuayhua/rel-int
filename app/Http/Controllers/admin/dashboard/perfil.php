@@ -22,7 +22,7 @@ class perfil extends Controller
         try {
             $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
             $estado = session('done');
-            $done = $estado != null ? 1 : 2;
+            $done = $estado != null ? 1 : 0;
             return view(
                 'admin.perfil.index',
                 [
@@ -34,7 +34,7 @@ class perfil extends Controller
         } catch (\Throwable $th) {
             $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
             $estado = session('done');
-            $done = $estado != null ? 1 : 2;
+            $done = $estado != null ? 1 : 0;
             return view(
                 'admin.perfil.index',
                 [
@@ -114,7 +114,7 @@ class perfil extends Controller
         try {
             $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
             $estado = session('done');
-            $done = $estado != null ? 1 : 2;
+            $done = $estado != null ? 1 : 0;
             $informacion = collect(DB::select("SELECT * FROM contacto_informacion"))->first();
             return view(
                 'admin.perfil.informacion',
@@ -128,7 +128,7 @@ class perfil extends Controller
         } catch (\Throwable $th) {
             $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
             $estado = session('done');
-            $done = $estado != null ? 1 : 2;
+            $done = $estado != null ? 1 : 0;
             $informacion = collect(DB::select("SELECT * FROM contacto_informacion"))->first();
             return view(
                 'admin.perfil.informacion',

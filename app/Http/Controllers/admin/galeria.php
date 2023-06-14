@@ -32,7 +32,7 @@ class galeria extends Controller
                 return $galeria->estado_galeria == 1;
             });
             $estado = session('done');
-            $done = $estado != null ? 1 : null;
+            $done = $estado != null ? 1 : 0;
             $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
             return view(
                 'admin.galeria.listado',

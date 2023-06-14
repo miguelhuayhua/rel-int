@@ -83,7 +83,7 @@ class personas extends Controller
     {
         try {
             $estado = session('done');
-            $done = $estado != null ? 1 : 2;
+            $done = $estado != null ? 1 : 0;
             $personas = Persona::orderBy('id_persona', 'desc')->get();
             $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
 
@@ -98,7 +98,7 @@ class personas extends Controller
             );
         } catch (\Throwable $th) {
             $estado = session('done');
-            $done = $estado != null ? 1 : 2;
+            $done = $estado != null ? 1 : 0;
             $personas = Persona::orderBy('id_persona', 'desc')->get();
             $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
 

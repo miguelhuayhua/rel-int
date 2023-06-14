@@ -33,7 +33,7 @@ class enlaces extends Controller
                 return $enlace->estado == 1;
             });
             $estado = session('done');
-            $done = $estado != null ? 1 : 2;
+            $done = $estado != null ? 1 : 0;
             $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
             return view(
                 'admin.enlace.listado',
@@ -49,7 +49,7 @@ class enlaces extends Controller
                 return $enlace->estado == 1;
             });
             $estado = session('done');
-            $done = $estado != null ? 1 : 2;
+            $done = $estado != null ? 1 : 0;
             $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
             return view(
                 'admin.enlace.listado',

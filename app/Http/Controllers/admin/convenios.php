@@ -99,7 +99,7 @@ class convenios extends Controller
     {
         $user = collect(DB::select('SELECT * FROM sic_usuario su JOIN sic_persona sp ON sp.id_persona = su.id_persona WHERE su.login_token = ?', [$request->cookie('t')]))->first();
         $estado = session('done');
-        $done = $estado != null ? 1 : 2;
+        $done = $estado != null ? 1 : 0;
         $convenios = Convenio::orderBy('id_convenios', 'desc')->get()->filter(function ($convenio) {
             return $convenio->estado == 'Activo';
         });
